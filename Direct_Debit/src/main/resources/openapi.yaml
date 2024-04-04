@@ -1,0 +1,2408 @@
+openapi: 3.0.1
+info:
+  description: Swagger for Real-time Direct Debit API Specification
+  title: Real-time Direct Debit API Specification for HK CMB
+  version: 1.0.6
+servers:
+- description: eDDA mock endpoints
+  url: https://hsbcdeveloperportalpreprod.digitalapicraft.com:8085/https://sandbox.ob.business.hsbc.com.hk/mock/open-banking/v1.0/direct-debit
+  variables:
+    version:
+      default: v1.0
+- description: eDDA endpoints
+  url: https://secure.sandbox.ob.business.hsbc.com.hk/open-banking/v1.0/direct-debit
+  variables:
+    version:
+      default: v1.0
+paths:
+  /direct-debit-consents:
+    post:
+      operationId: consent-setup
+      parameters:
+      - description: "Standard HTTP header that allows credentials to be provided\
+          \ to the authorisation/resource server. Based on the OAuth 2.0/OIDC framework,\
+          \ this consists of basic or bearer authentication schemes."
+        example: Bearer LbGDbcFVVfE-ngpjj8KaH5wrEfg
+        explode: false
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Standard HTTP header indicating the format of the payload provided
+          in the request. Content-type could be set to application/json.
+        example: application/json
+        explode: false
+        in: header
+        name: Content-Type
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: |-
+          Customer last logged-in time with the TSP application.
+          All dates in the HTTP headers are represented as RFC 7231 Full Dates. An example is below:
+          Sun, 10 Sep 2017 19:43:31 UTC
+        example: "Sun, 10 Sep 2017 19:43:31 UTC"
+        explode: false
+        in: header
+        name: x-fapi-auth-date
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Customer IP address when making a request with the TSP application.
+        example: 169.254.169.254
+        explode: false
+        in: header
+        name: x-fapi-customer-ip-address
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Unique correlation ID to playback response for each request.
+        explode: false
+        in: header
+        name: x-fapi-interaction-id
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Standard HTTP header to indicate the natural language set used
+          in the response.
+        explode: false
+        in: header
+        name: Accept-Language
+        required: false
+        schema:
+          enum:
+          - en-HK
+          - zh-HK
+          - zh-CN
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DirectDebitConsentRequestData'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DirectDebitConsentsResponse'
+          description: Created
+          headers:
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Bad Request
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayEmptyResponse'
+          description: Unauthorised
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayEmptyResponse'
+          description: Forbidden
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Method Not Allowed
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Not Acceptable
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "415":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Unsupported Media Type
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Too Many Requests
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Service Unavailable
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "504":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Gateway Timeout
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+      security:
+      - bearerAuthSession: []
+      tags:
+      - Real-time Direct Debit Consent Setup
+      x-content-type: application/json
+      x-accepts: application/json
+      x-tags:
+      - tag: Real-time Direct Debit Consent Setup
+  /direct-debit-consents/{consentId}:
+    delete:
+      operationId: consent-deletion
+      parameters:
+      - description: Consent Id
+        example: 7404e99b-1a4d-4b08-b441-c327661527f0
+        explode: false
+        in: path
+        name: consentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: "Standard HTTP header that allows credentials to be provided\
+          \ to the authorisation/resource server. Based on the OAuth 2.0/OIDC framework,\
+          \ this consists of basic or bearer authentication schemes."
+        example: Bearer LbGDbcFVVfE-ngpjj8KaH5wrEfg
+        explode: false
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: |-
+          Customer last logged-in time with the TSP application.
+          All dates in the HTTP headers are represented as RFC 7231 Full Dates. An example is below:
+          Sun, 10 Sep 2017 19:43:31 UTC
+        example: "Sun, 10 Sep 2017 19:43:31 UTC"
+        explode: false
+        in: header
+        name: x-fapi-auth-date
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Customer IP address when making a request with the TSP application.
+        example: 169.254.169.254
+        explode: false
+        in: header
+        name: x-fapi-customer-ip-address
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Unique correlation ID to playback response for each request.
+        explode: false
+        in: header
+        name: x-fapi-interaction-id
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Standard HTTP header to indicate the natural language set used
+          in the response.
+        explode: false
+        in: header
+        name: Accept-Language
+        required: false
+        schema:
+          enum:
+          - en-HK
+          - zh-HK
+          - zh-CN
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: No Content
+          headers:
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Bad Request
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayEmptyResponse'
+          description: Unauthorised
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayEmptyResponse'
+          description: Forbidden
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Method Not Allowed
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Not Acceptable
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Too Many Requests
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Service Unavailable
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "504":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Gateway Timeout
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+      security:
+      - bearerAuthSession: []
+      tags:
+      - Real-time Direct Debit Consent Setup
+      x-accepts: application/json
+      x-tags:
+      - tag: Real-time Direct Debit Consent Setup
+    get:
+      operationId: consent-retrival
+      parameters:
+      - description: Consent Id
+        example: 7404e99b-1a4d-4b08-b441-c327661527f0
+        explode: false
+        in: path
+        name: consentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: "Standard HTTP header that allows credentials to be provided\
+          \ to the authorisation/resource server. Based on the OAuth 2.0/OIDC framework,\
+          \ this consists of basic or bearer authentication schemes."
+        example: Bearer LbGDbcFVVfE-ngpjj8KaH5wrEfg
+        explode: false
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: |-
+          Customer last logged-in time with the TSP application.
+          All dates in the HTTP headers are represented as RFC 7231 Full Dates. An example is below:
+          Sun, 10 Sep 2017 19:43:31 UTC
+        example: "Sun, 10 Sep 2017 19:43:31 UTC"
+        explode: false
+        in: header
+        name: x-fapi-auth-date
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Customer IP address when making a request with the TSP application.
+        example: 169.254.169.254
+        explode: false
+        in: header
+        name: x-fapi-customer-ip-address
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Unique correlation ID to playback response for each request.
+        explode: false
+        in: header
+        name: x-fapi-interaction-id
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Standard HTTP header to indicate the natural language set used
+          in the response.
+        explode: false
+        in: header
+        name: Accept-Language
+        required: false
+        schema:
+          enum:
+          - en-HK
+          - zh-HK
+          - zh-CN
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DirectDebitConsentsResponse'
+          description: OK
+          headers:
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Bad Request
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayEmptyResponse'
+          description: Unauthorised
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayEmptyResponse'
+          description: Forbidden
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Method Not Allowed
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Not Acceptable
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Too Many Requests
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Service Unavailable
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "504":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Gateway Timeout
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+      security:
+      - bearerAuthSession: []
+      tags:
+      - Real-time Direct Debit Consent Setup
+      x-accepts: application/json
+      x-tags:
+      - tag: Real-time Direct Debit Consent Setup
+  /setup:
+    post:
+      operationId: direct-debit-setup
+      parameters:
+      - description: "Standard HTTP header that allows credentials to be provided\
+          \ to the authorisation/resource server. Based on the OAuth 2.0/OIDC framework,\
+          \ this consists of basic or bearer authentication schemes."
+        example: Bearer LbGDbcFVVfE-ngpjj8KaH5wrEfg
+        explode: false
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The PSU's IP address if the PSU is currently logged in with the
+          TPP.
+        explode: false
+        in: header
+        name: x-fapi-customer-ip-address
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: "The time when the PSU last logged in with the TPP. All dates\
+          \ in the HTTP headers are represented as RFC 7231 Full Dates. An example\
+          \ is below: Sun, 10 Sep 2017 19:43:31 UTC pattern: '^(Mon|Tue|Wed|Thu|Fri|Sat|Sun),\
+          \ \\d{2} (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \\d{4} \\d{2}:\\\
+          d{2}:\\d{2} (GMT|UTC)$'"
+        explode: false
+        in: header
+        name: x-fapi-auth-date
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: An RFC4122 UID used as a correlation id.
+        explode: false
+        in: header
+        name: x-fapi-interaction-id
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: |
+          Every request will be processed only once per x-idempotency-key.  The
+          Idempotency Key will be valid for 24 hours.
+        example: LbGpjj8KaH5wrEfg
+        explode: false
+        in: header
+        name: x-idempotency-key
+        required: true
+        schema:
+          maxLength: 40
+          pattern: ^(?!\s)(.*)(\S)$
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/directDebitSetupRequest'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/directDebitAuthorizationResponse'
+          description: Created
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Authorisation failure
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Authentication failure
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Method Not Allowed
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Not Acceptable
+        "415":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Media Not Supported
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Internal Server Error
+      security:
+      - bearerAuthSession: []
+      tags:
+      - Fulfilment endpoints
+      x-content-type: application/json
+      x-accepts: application/json
+      x-tags:
+      - tag: Fulfilment endpoints
+  /otpconfirmation:
+    post:
+      operationId: postotpconfirmation
+      parameters:
+      - description: "Standard HTTP header that allows credentials to be provided\
+          \ to the authorisation/resource server. Based on the OAuth 2.0/OIDC framework,\
+          \ this consists of basic or bearer authentication schemes."
+        example: Bearer LbGDbcFVVfE-ngpjj8KaH5wrEfg
+        explode: false
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The PSU's IP address if the PSU is currently logged in with the
+          TPP.
+        explode: false
+        in: header
+        name: x-fapi-customer-ip-address
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: "The time when the PSU last logged in with the TPP. All dates\
+          \ in the HTTP headers are represented as RFC 7231 Full Dates. An example\
+          \ is below: Sun, 10 Sep 2017 19:43:31 UTC pattern: '^(Mon|Tue|Wed|Thu|Fri|Sat|Sun),\
+          \ \\d{2} (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \\d{4} \\d{2}:\\\
+          d{2}:\\d{2} (GMT|UTC)$'"
+        explode: false
+        in: header
+        name: x-fapi-auth-date
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: An RFC4122 UID used as a correlation id.
+        explode: false
+        in: header
+        name: x-fapi-interaction-id
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: |
+          Every request will be processed only once per x-idempotency-key.  The
+          Idempotency Key will be valid for 24 hours.
+        example: LbGpjj8KaH5wrEfg
+        explode: false
+        in: header
+        name: x-idempotency-key
+        required: true
+        schema:
+          maxLength: 40
+          pattern: ^(?!\s)(.*)(\S)$
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/directDebitOtpConfirmationRequest'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/directDebitOtpConfirmationResponse'
+          description: Created
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Authorisation failure
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Authentication failure
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Method Not Allowed
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Not Acceptable
+        "415":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Media Not Supported
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Internal Server Error
+      security:
+      - bearerAuthSession: []
+      tags:
+      - Fulfilment endpoints
+      x-content-type: application/json
+      x-accepts: application/json
+      x-tags:
+      - tag: Fulfilment endpoints
+  /status/authorisations:
+    post:
+      operationId: getauthorisationstatus
+      parameters:
+      - description: "Standard HTTP header that allows credentials to be provided\
+          \ to the authorisation/resource server. Based on the OAuth 2.0/OIDC framework,\
+          \ this consists of basic or bearer authentication schemes."
+        example: Bearer LbGDbcFVVfE-ngpjj8KaH5wrEfg
+        explode: false
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The PSU's IP address if the PSU is currently logged in with the
+          TPP.
+        explode: false
+        in: header
+        name: x-fapi-customer-ip-address
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: "The time when the PSU last logged in with the TPP. All dates\
+          \ in the HTTP headers are represented as RFC 7231 Full Dates. An example\
+          \ is below: Sun, 10 Sep 2017 19:43:31 UTC pattern: '^(Mon|Tue|Wed|Thu|Fri|Sat|Sun),\
+          \ \\d{2} (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \\d{4} \\d{2}:\\\
+          d{2}:\\d{2} (GMT|UTC)$'"
+        explode: false
+        in: header
+        name: x-fapi-auth-date
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: An RFC4122 UID used as a correlation id.
+        explode: false
+        in: header
+        name: x-fapi-interaction-id
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: |
+          Every request will be processed only once per x-idempotency-key. The
+          Idempotency Key will be valid for 24 hours.
+        example: LbGpjj8KaH5wrEfg
+        explode: false
+        in: header
+        name: x-idempotency-key
+        required: true
+        schema:
+          maxLength: 40
+          pattern: ^(?!\s)(.*)(\S)$
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/directDebitAuthStatusRequest'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/eDDAStatusPullEnquiryResponse'
+          description: Created
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Authorisation failure
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Authentication failure
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Method Not Allowed
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Not Acceptable
+        "415":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Media Not Supported
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Internal Server Error
+      security:
+      - bearerAuthSession: []
+      tags:
+      - Fulfilment endpoints
+      x-content-type: application/json
+      x-accepts: application/json
+      x-tags:
+      - tag: Fulfilment endpoints
+  /instructions:
+    post:
+      operationId: direct-debit-Instructions
+      parameters:
+      - description: "Standard HTTP header that allows credentials to be provided\
+          \ to the authorisation/resource server. Based on the OAuth 2.0/OIDC framework,\
+          \ this consists of basic or bearer authentication schemes."
+        example: Bearer LbGDbcFVVfE-ngpjj8KaH5wrEfg
+        explode: false
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The PSU's IP address if the PSU is currently logged in with the
+          TPP.
+        explode: false
+        in: header
+        name: x-fapi-customer-ip-address
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: "The time when the PSU last logged in with the TPP. All dates\
+          \ in the HTTP headers are represented as RFC 7231 Full Dates. An example\
+          \ is below: Sun, 10 Sep 2017 19:43:31 UTC pattern: '^(Mon|Tue|Wed|Thu|Fri|Sat|Sun),\
+          \ \\d{2} (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \\d{4} \\d{2}:\\\
+          d{2}:\\d{2} (GMT|UTC)$'"
+        explode: false
+        in: header
+        name: x-fapi-auth-date
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: An RFC4122 UID used as a correlation id.
+        explode: false
+        in: header
+        name: x-fapi-interaction-id
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: |
+          Every request will be processed only once per x-idempotency-key.  The
+          Idempotency Key will be valid for 24 hours.
+        example: LbGpjj8KaH5wrEfg
+        explode: false
+        in: header
+        name: x-idempotency-key
+        required: true
+        schema:
+          maxLength: 40
+          pattern: ^(?!\s)(.*)(\S)$
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/directDebitInstructionRequest'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/directDebitInstructionResponse'
+          description: Created
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Authorisation failure
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Authentication failure
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Method Not Allowed
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Not Acceptable
+        "415":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Media Not Supported
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Internal Server Error
+      security:
+      - bearerAuthSession: []
+      tags:
+      - Fulfilment endpoints
+      x-content-type: application/json
+      x-accepts: application/json
+      x-tags:
+      - tag: Fulfilment endpoints
+  /status/instructions:
+    post:
+      operationId: getinstructionstatus
+      parameters:
+      - description: "Standard HTTP header that allows credentials to be provided\
+          \ to the authorisation/resource server. Based on the OAuth 2.0/OIDC framework,\
+          \ this consists of basic or bearer authentication schemes."
+        example: Bearer LbGDbcFVVfE-ngpjj8KaH5wrEfg
+        explode: false
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The PSU's IP address if the PSU is currently logged in with the
+          TPP.
+        explode: false
+        in: header
+        name: x-fapi-customer-ip-address
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: "The time when the PSU last logged in with the TPP. All dates\
+          \ in the HTTP headers are represented as RFC 7231 Full Dates. An example\
+          \ is below: Sun, 10 Sep 2017 19:43:31 UTC pattern: '^(Mon|Tue|Wed|Thu|Fri|Sat|Sun),\
+          \ \\d{2} (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \\d{4} \\d{2}:\\\
+          d{2}:\\d{2} (GMT|UTC)$'"
+        explode: false
+        in: header
+        name: x-fapi-auth-date
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: An RFC4122 UID used as a correlation id.
+        explode: false
+        in: header
+        name: x-fapi-interaction-id
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: |
+          Every request will be processed only once per x-idempotency-key.  The
+          Idempotency Key will be valid for 24 hours.
+        example: LbGpjj8KaH5wrEfg
+        explode: false
+        in: header
+        name: x-idempotency-key
+        required: true
+        schema:
+          maxLength: 40
+          pattern: ^(?!\s)(.*)(\S)$
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/directDebitInstructionStatusRequest'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/directDebitInstructionResponse'
+          description: Created
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Authorisation failure
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Authentication failure
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Method Not Allowed
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Not Acceptable
+        "415":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Media Not Supported
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Internal Server Error
+      security:
+      - bearerAuthSession: []
+      tags:
+      - Fulfilment endpoints
+      x-content-type: application/json
+      x-accepts: application/json
+      x-tags:
+      - tag: Fulfilment endpoints
+  /reports:
+    post:
+      operationId: postreports
+      parameters:
+      - description: "Standard HTTP header that allows credentials to be provided\
+          \ to the authorisation/resource server. Based on the OAuth 2.0/OIDC framework,\
+          \ this consists of basic or bearer authentication schemes."
+        example: Bearer LbGDbcFVVfE-ngpjj8KaH5wrEfg
+        explode: false
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: The PSU's IP address if the PSU is currently logged in with the
+          TPP.
+        explode: false
+        in: header
+        name: x-fapi-customer-ip-address
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: "The time when the PSU last logged in with the TPP. All dates\
+          \ in the HTTP headers are represented as RFC 7231 Full Dates. An example\
+          \ is below: Sun, 10 Sep 2017 19:43:31 UTC pattern: '^(Mon|Tue|Wed|Thu|Fri|Sat|Sun),\
+          \ \\d{2} (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \\d{4} \\d{2}:\\\
+          d{2}:\\d{2} (GMT|UTC)$'"
+        explode: false
+        in: header
+        name: x-fapi-auth-date
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: An RFC4122 UID used as a correlation id.
+        explode: false
+        in: header
+        name: x-fapi-interaction-id
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: |
+          Every request will be processed only once per x-idempotency-key.  The
+          Idempotency Key will be valid for 24 hours.
+        example: LbGpjj8KaH5wrEfg
+        explode: false
+        in: header
+        name: x-idempotency-key
+        required: true
+        schema:
+          maxLength: 40
+          pattern: ^(?!\s)(.*)(\S)$
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/reportingRequest'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/reportingResponse'
+          description: Created
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Bad Request
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Unauthorized
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Forbidden
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Not Found
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Method Not Allowed
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Not Acceptable
+        "415":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Unsupported Media Type
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Internal Server Error
+      security:
+      - bearerAuthSession: []
+      tags:
+      - Fulfilment endpoints
+      x-content-type: application/json
+      x-accepts: application/json
+      x-tags:
+      - tag: Fulfilment endpoints
+components:
+  headers:
+    Content-Type:
+      description: Standard HTTP header indicating the format of the payload provided
+        in the request. Content-type could be set to application/json.
+      explode: false
+      schema:
+        type: string
+      style: simple
+    x-fapi-interaction-id:
+      description: Unique correlation ID to playback response for each request.
+      explode: false
+      schema:
+        type: string
+      style: simple
+    Retry-After:
+      description: Header indicating the time (in seconds) that the TSP could wait
+        before retrying an operation. The bank could consider including this header
+        along with responses with the HTTP status code of 429 (Too Many Requests).
+      explode: false
+      schema:
+        type: integer
+      style: simple
+  parameters:
+    Authorization:
+      description: "Standard HTTP header that allows credentials to be provided to\
+        \ the authorisation/resource server. Based on the OAuth 2.0/OIDC framework,\
+        \ this consists of basic or bearer authentication schemes."
+      example: Bearer LbGDbcFVVfE-ngpjj8KaH5wrEfg
+      explode: false
+      in: header
+      name: Authorization
+      required: true
+      schema:
+        type: string
+      style: simple
+    Content-Type:
+      description: Standard HTTP header indicating the format of the payload provided
+        in the request. Content-type could be set to application/json.
+      example: application/json
+      explode: false
+      in: header
+      name: Content-Type
+      required: true
+      schema:
+        type: string
+      style: simple
+    Accept-Language:
+      description: Standard HTTP header to indicate the natural language set used
+        in the response.
+      explode: false
+      in: header
+      name: Accept-Language
+      required: false
+      schema:
+        enum:
+        - en-HK
+        - zh-HK
+        - zh-CN
+        type: string
+      style: simple
+    x-fapi-auth-date:
+      description: |-
+        Customer last logged-in time with the TSP application.
+        All dates in the HTTP headers are represented as RFC 7231 Full Dates. An example is below:
+        Sun, 10 Sep 2017 19:43:31 UTC
+      example: "Sun, 10 Sep 2017 19:43:31 UTC"
+      explode: false
+      in: header
+      name: x-fapi-auth-date
+      required: false
+      schema:
+        type: string
+      style: simple
+    x-fapi-customer-ip-address:
+      description: Customer IP address when making a request with the TSP application.
+      example: 169.254.169.254
+      explode: false
+      in: header
+      name: x-fapi-customer-ip-address
+      required: false
+      schema:
+        type: string
+      style: simple
+    x-fapi-interaction-id:
+      description: Unique correlation ID to playback response for each request.
+      explode: false
+      in: header
+      name: x-fapi-interaction-id
+      required: false
+      schema:
+        type: string
+      style: simple
+    account-id:
+      description: Unique Account ID assigned by ASPSP
+      explode: false
+      in: path
+      name: accountId
+      required: true
+      schema:
+        type: string
+      style: simple
+  responses:
+    "400":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorInfo'
+      description: Bad Request
+      headers:
+        Content-Type:
+          $ref: '#/components/headers/Content-Type'
+        x-fapi-interaction-id:
+          $ref: '#/components/headers/x-fapi-interaction-id'
+    "401":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiGatewayEmptyResponse'
+      description: Unauthorised
+      headers:
+        Content-Type:
+          $ref: '#/components/headers/Content-Type'
+        x-fapi-interaction-id:
+          $ref: '#/components/headers/x-fapi-interaction-id'
+    "403":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiGatewayEmptyResponse'
+      description: Forbidden
+      headers:
+        Content-Type:
+          $ref: '#/components/headers/Content-Type'
+        x-fapi-interaction-id:
+          $ref: '#/components/headers/x-fapi-interaction-id'
+    "405":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorInfo'
+      description: Method Not Allowed
+      headers:
+        Content-Type:
+          $ref: '#/components/headers/Content-Type'
+        x-fapi-interaction-id:
+          $ref: '#/components/headers/x-fapi-interaction-id'
+    "406":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorInfo'
+      description: Not Acceptable
+      headers:
+        Content-Type:
+          $ref: '#/components/headers/Content-Type'
+        x-fapi-interaction-id:
+          $ref: '#/components/headers/x-fapi-interaction-id'
+    "415":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorInfo'
+      description: Unsupported Media Type
+      headers:
+        Content-Type:
+          $ref: '#/components/headers/Content-Type'
+        x-fapi-interaction-id:
+          $ref: '#/components/headers/x-fapi-interaction-id'
+    "429":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiGatewayErrorResponse'
+      description: Too Many Requests
+      headers:
+        Content-Type:
+          $ref: '#/components/headers/Content-Type'
+        x-fapi-interaction-id:
+          $ref: '#/components/headers/x-fapi-interaction-id'
+        Retry-After:
+          $ref: '#/components/headers/Retry-After'
+    "500":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorInfo'
+      description: Internal Server Error
+      headers:
+        Content-Type:
+          $ref: '#/components/headers/Content-Type'
+        x-fapi-interaction-id:
+          $ref: '#/components/headers/x-fapi-interaction-id'
+    "503":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiGatewayErrorResponse'
+      description: Service Unavailable
+      headers:
+        Content-Type:
+          $ref: '#/components/headers/Content-Type'
+        x-fapi-interaction-id:
+          $ref: '#/components/headers/x-fapi-interaction-id'
+    "504":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiGatewayErrorResponse'
+      description: Gateway Timeout
+      headers:
+        Content-Type:
+          $ref: '#/components/headers/Content-Type'
+        x-fapi-interaction-id:
+          $ref: '#/components/headers/x-fapi-interaction-id'
+  schemas:
+    DirectDebitConsentRequestData:
+      example:
+        data:
+          permissions:
+          - null
+          - null
+          expirationDate: 2000-01-23T04:56:07.000+00:00
+      properties:
+        data:
+          $ref: '#/components/schemas/DirectDebitConsentRequestData_data'
+      type: object
+    DirectDebitConsentsResponse:
+      additionalProperties: false
+      example:
+        data:
+          consentId: consentId
+          permissions:
+          - null
+          - null
+          statusUpdateDate: 2000-01-23T04:56:07.000+00:00
+          creationDate: 2000-01-23T04:56:07.000+00:00
+          status: null
+          expirationDate: 2000-01-23T04:56:07.000+00:00
+        links:
+          next: https://openapi-generator.tech
+          prev: https://openapi-generator.tech
+          self: https://openapi-generator.tech
+      properties:
+        data:
+          $ref: '#/components/schemas/DirectDebitConsentsResponse_data'
+        links:
+          $ref: '#/components/schemas/Links'
+      required:
+      - data
+      type: object
+    ConsentStatusCode:
+      enum:
+      - PendingAuthorise
+      - Rejected
+      - Authorised
+      - Revoked
+      type: string
+    ExternalPermissionCode:
+      enum:
+      - RealTimeDirectDebitSetup
+      - RealTimeDirectDebitOtpConfirmation
+      - RealTimeDirectDebitOtpRegeneration
+      - RealTimeDirectDebitStatusAuthorisations
+      - RealTimeDirectDebitInstructions
+      - RealTimeDirectDebitStatusInstructions
+      - RealTimeDirectDebitReporting
+      type: string
+    StatusUpdateDateTime:
+      description: "Date and time at which the resource status was updated.All dates\
+        \ in the JSON payloads are represented in ISO 8601 date-time format. All date-time\
+        \ fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00"
+      format: date-time
+      type: string
+    CreationDateTime:
+      description: "Date and time at which the resource was created.All dates in the\
+        \ JSON payloads are represented in ISO 8601 date-time format.All date-time\
+        \ fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00"
+      format: date-time
+      type: string
+    errorInfo:
+      additionalProperties: false
+      description: "An array of detail error codes, and messages, and URLs to documentation\
+        \ to help remediation."
+      example:
+        id: id
+        errors:
+        - extendedDetails:
+            path: path
+          code: code
+          causes: causes
+        - extendedDetails:
+            path: path
+          code: code
+          causes: causes
+      properties:
+        id:
+          description: "A unique reference for the error instance, for audit purposes,\
+            \ in case of unknown/unclassified errors."
+          maxLength: 40
+          minLength: 1
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/HKError1'
+          minItems: 1
+          type: array
+      required:
+      - code
+      - errors
+      - message
+      type: object
+    ApiGatewayErrorResponse:
+      description: Error message created by AWS API Gateway
+      example:
+        message: message
+      properties:
+        message:
+          description: Error message
+          type: string
+      type: object
+    ApiGatewayEmptyResponse:
+      description: Error message created by AWS API Gateway
+      example: ""
+      type: object
+    Links:
+      additionalProperties: false
+      description: Links relevant to the payload
+      example:
+        next: https://openapi-generator.tech
+        prev: https://openapi-generator.tech
+        self: https://openapi-generator.tech
+      properties:
+        self:
+          format: uri
+          type: string
+        prev:
+          format: uri
+          type: string
+        next:
+          format: uri
+          type: string
+      required:
+      - self
+      type: object
+    HKError1:
+      additionalProperties: false
+      example:
+        extendedDetails:
+          path: path
+        code: code
+        causes: causes
+      minProperties: 1
+      properties:
+        code:
+          description: "Low level textual error code, e.g., HK.HKMA.Field.Missing"
+          type: string
+          x-namespaced-enum:
+          - OB.Field.Expected
+          - OB.Field.Invalid
+          - OB.Field.InvalidDate
+          - OB.Field.Missing
+          - OB.Field.Unexpected
+          - OB.Field.InvalidHeader
+          - OB.Field.InvalidDateFormat
+          - OB.Field.InvalidDateRange
+          - OB.UnexpectedError
+          - OB.InternalError
+          - OB.InvalidDateRange
+          - OB.InvalidDateFormat
+          - OB.InvalidRequestParams
+          - OB.UnexpectedParamsNo
+          - OB.ParamsDuplicated
+          - OB.MissingAccountNumber
+          - OB.BadRequest
+        causes:
+          description: |-
+            A description of the error that occurred. e.g., 'A mandatory field isn't supplied' or 'RequestedExecutionDateTime must be in future'
+            HKMA doesn't standardise this field
+          maxLength: 500
+          minLength: 1
+          type: string
+        extendedDetails:
+          $ref: '#/components/schemas/HKError1_extendedDetails'
+      required:
+      - causes
+      - code
+      type: object
+    NotificationEventRequest:
+      properties:
+        ack:
+          description: List of successfully handled “jti”.
+          items:
+            type: string
+          type: array
+        returnImmediately:
+          description: Optional JSON Boolean value that indicates the SET transmitter
+            should return an immediate response even if no results are available (short
+            polling).
+          type: boolean
+        maxEvents:
+          description: "Size limit for the event collection size in the response,\
+            \ null or zero input for the field indicates the bank returned an empty\
+            \ set of outstanding events."
+          type: integer
+      required:
+      - maxEvents
+      - returnImmediately
+      type: object
+    NotificationEventResponse:
+      properties:
+        sets:
+          description: "JSON object containing zero or more SETs being returned. \
+            \ Each member name is the \"jti\" of a SET to be delivered, and its value\
+            \ is a JSON string representing the corresponding SET.  If there are no\
+            \ outstanding SETs to be transmitted, the JSON object shall be empty.\
+            \  Note that both SETs being transmitted for the first time and SETs that\
+            \ are being retransmitted after not having been acknowledged are communicated\
+            \ here."
+          example:
+            "4d3559ec67504aaba65d40b0363faad8": eyJhbGciOiJub25lIn0. eyJqdGkiOiI0ZDM1NTllYzY3NTA0YWFiYTY1ZDQwYjAzNjNmYWFkOCIsImlhdC
+              I6MTQ1ODQ5NjQwNCwiaXNzIjoiaHR0cHM6Ly9zY2ltLmV4YW1wbGUuY29tIiwi YXVkIjpbImh0dHBzOi8vc2NpbS5leGFtcGxlLmNvbS9GZWVkcy85OGQ1MjQ2MW
+              ZhNWJiYzg3OTU5M2I3NzU0IiwiaHR0cHM6Ly9zY2ltLmV4YW1wbGUuY29tL0Zl ZWRzLzVkNzYwNDUxNmIxZDA4NjQxZDc2NzZlZTciXSwiZXZlbnRzIjp7InVybj
+              ppZXRmOnBhcmFtczpzY2ltOmV2ZW50OmNyZWF0ZSI6eyJyZWYiOiJodHRwczov L3NjaW0uZXhhbXBsZS5jb20vVXNlcnMvNDRmNjE0MmRmOTZiZDZhYjYxZTc1Mj
+              FkOSIsImF0dHJpYnV0ZXMiOlsiaWQiLCJuYW1lIiwidXNlck5hbWUiLCJwYXNz d29yZCIsImVtYWlscyJdfX19.
+            "3d0c3cf797584bd193bd0fb1bd4e7d30": eyJqdGkiOiIzZDBjM2NmNzk3NTg0YmQxOTNiZDBmYjFiZDRlN2QzMCIsImlhdC
+              I6MTQ1ODQ5NjAyNSwiaXNzIjoiaHR0cHM6Ly9zY2ltLmV4YW1wbGUuY29tIiwi YXVkIjpbImh0dHBzOi8vamh1Yi5leGFtcGxlLmNvbS9GZWVkcy85OGQ1MjQ2MW
+              ZhNWJiYzg3OTU5M2I3NzU0IiwiaHR0cHM6Ly9qaHViLmV4YW1wbGUuY29tL0Zl ZWRzLzVkNzYwNDUxNmIxZDA4NjQxZDc2NzZlZTciXSwic3ViIjoiaHR0cHM6Ly
+              9zY2ltLmV4YW1wbGUuY29tL1VzZXJzLzQ0ZjYxNDJkZjk2YmQ2YWI2MWU3NTIx ZDkiLCJldmVudHMiOnsidXJuOmlldGY6cGFyYW1zOnNjaW06ZXZlbnQ6cGFzc3
+              dvcmRSZXNldCI6eyJpZCI6IjQ0ZjYxNDJkZjk2YmQ2YWI2MWU3NTIxZDkifSwi aHR0cHM6Ly9leGFtcGxlLmNvbS9zY2ltL2V2ZW50L3Bhc3N3b3JkUmVzZXRFeH
+              QiOnsicmVzZXRBdHRlbXB0cyI6NX19fQ.
+          type: object
+        moreAvailable:
+          description: Indicates if there are more unacknowledged events from the
+            bank in addition to the current response data list.
+          type: boolean
+      required:
+      - sets
+      type: object
+    directDebitSetupRequest:
+      description: "Account summary for the customer, could be language specific"
+      properties:
+        merchantRequestIdentification:
+          description: Merchant Registration ID.Unique ID generated by merchant for
+            every registration user journey.Fraud monitoring supports length up to
+            30.
+          maxLength: 30
+          minLength: 1
+          type: string
+        creditorReference:
+          description: Creditor reference of the DDA. This CreditorReference will
+            be sent to Payer Bank through FPS for record.
+          maxLength: 35
+          minLength: 1
+          type: string
+        ultimateDebtorName:
+          description: The ultimate debtor's name.
+          maxLength: 140
+          type: string
+        debtorName:
+          description: Debtor account owner name.
+          maxLength: 140
+          minLength: 1
+          type: string
+        debtorAccount:
+          $ref: '#/components/schemas/cashAccount'
+        creditorName:
+          description: Creditor account owner name.
+          maxLength: 140
+          minLength: 1
+          type: string
+        creditorAccount:
+          $ref: '#/components/schemas/cashAccount'
+        debtorPrivateIdentification:
+          description: "HKID number or passport number of debtor user.HKID Card: 1\
+            \ or 2 chars + 6 numeric + 1 check digit char.Passport: Max 12 alphanumeric\
+            \ chars.Check digit validation should be performed by merchant."
+          maxLength: 35
+          minLength: 1
+          type: string
+        debtorPrivateIdentificationSchemeName:
+          description: Private ID type.
+          enum:
+          - CCPT
+          - NIDN
+          - COID
+          - CINC
+          - OTHR
+          maxLength: 4
+          type: string
+        debtorMobileNumber:
+          description: Mobile number registered in the bank. Value must be null if
+            mobile no. not provided.
+          maxLength: 35
+          pattern: "^(\\+[0-9]{1,3}-[0-9()+-]{1,30})$"
+          type: string
+        maximumAmountCurrency:
+          description: Maximum amount currency. This value must be same as credit
+            account currency.
+          maxLength: 3
+          type: string
+        maximumAmount:
+          description: Maximum amount. No decimal point nor places for DDA limit.
+            Set to  99999999.00 if no DDA limit.
+          maxLength: 18
+          pattern: "^[0-9]{1,15}(\\.[0-9]{1,2}){0,1}$"
+          type: string
+        occurrences:
+          $ref: '#/components/schemas/occurrences'
+        otpHoldIndicator:
+          description: OTP hold indicator
+          type: boolean
+        smsLanguageCode:
+          description: User preferred language. This language will be used in SMS
+            for communication
+          enum:
+          - eng
+          - zh-s
+          - zh-t
+          maxLength: 10
+          type: string
+      required:
+      - creditorAccount
+      - creditorName
+      - creditorReference
+      - debtorAccount
+      - debtorName
+      - debtorPrivateIdentification
+      - debtorPrivateIdentificationSchemeName
+      - maximumAmount
+      - maximumAmountCurrency
+      - merchantRequestIdentification
+      - occurrences
+      type: object
+    directDebitAuthorizationResponse:
+      example:
+        mobileNumber: mobileNumber
+        mandateStatus: PDNG
+        processResult:
+          rejectReasonList:
+          - rejectReasonInfomation: rejectReasonInfomation
+            rejectReasonCode: rejectReasonCode
+          - rejectReasonInfomation: rejectReasonInfomation
+            rejectReasonCode: rejectReasonCode
+          responseCode: "00"
+        mandateIdentification: mandateIdentification
+        otpIdentificationNumber: otpIdentificationNumber
+      properties:
+        processResult:
+          $ref: '#/components/schemas/processResult'
+        mandateIdentification:
+          description: DDA Reference No.Unique at DDA record level.Merchant will use
+            this value for subsequent registration process
+          maxLength: 35
+          type: string
+        otpIdentificationNumber:
+          description: "One time password (OTP) identification number - for payer\
+            \ to identify the particular SMS message going to be received via mobile\
+            \ phone for Payer Bank's authentication. Usually, this OtpIdentificationNumber\
+            \ come as the first few characters of the receiving OTP. E.g. \"YU88X\"\
+            \ of the OTP \"YU88X-467854\""
+          maxLength: 10
+          type: string
+        mobileNumber:
+          description: Masked mobile number which OTP is sent to.Exclude non-numeric
+            character (e.g. "-" / "+"& space).Mask from last digit to the position
+            of 50% or more than that of field length.Use "*" for mask.
+          maxLength: 35
+          type: string
+        mandateStatus:
+          description: Status of the mandate request. PDNG - Pending to DDAE response;
+            PDFP - Pending to FPS eDDA response; PDOU - Pending to on-us DDA response.
+          enum:
+          - PDNG
+          - PDFP
+          - PDOU
+          - ERROR
+          - ACTIVE
+          maxLength: 6
+          type: string
+      required:
+      - ProcessResult
+      type: object
+    processResult:
+      example:
+        rejectReasonList:
+        - rejectReasonInfomation: rejectReasonInfomation
+          rejectReasonCode: rejectReasonCode
+        - rejectReasonInfomation: rejectReasonInfomation
+          rejectReasonCode: rejectReasonCode
+        responseCode: "00"
+      properties:
+        responseCode:
+          description: 'Response code '
+          enum:
+          - "00"
+          - "99"
+          maxLength: 4
+          type: string
+        rejectReasonList:
+          items:
+            $ref: '#/components/schemas/rejectReasonEntry'
+          type: array
+      required:
+      - responseCode
+      type: object
+    occurrences:
+      properties:
+        frequencyType:
+          description: Frequency type
+          enum:
+          - MNTH
+          - ADHO
+          maxLength: 4
+          type: string
+        durationFromDate:
+          description: From Date (aka effective date).Always null
+          format: date
+          type: string
+        durationToDate:
+          description: To Date (aka expiry date).Date this registration will be expired.Value
+            must be \"9999-12-31\" if never expired.
+          format: date
+          type: string
+      required:
+      - durationToDate
+      - frequencyType
+      type: object
+    cashAccount:
+      properties:
+        bankCode:
+          description: Bank Code.
+          maxLength: 3
+          pattern: "^[0-9]{3,3}"
+          type: string
+        accountIdentification:
+          description: Account number / Schema ID.No hyphen full stop nor special
+            character.
+          maxLength: 35
+          minLength: 1
+          pattern: "^[a-zA-Z0-9]{1,35}"
+          type: string
+        currency:
+          description: Account currency.
+          maxLength: 3
+          pattern: "^[A-Z]{3,3}"
+          type: string
+        accountSchemeName:
+          description: Scheme code.If not provided \BBAN\ will be the default value.
+          enum:
+          - BBAN
+          maxLength: 4
+          type: string
+        accountSubType:
+          description: "Specifies the sub type of account (product family group).\
+            \ Channel specific description. This is the field where the response for\
+            \ cashAccountType field will be mapped as per STET standard . For greece\
+            \ and Malta, this field will be used to map the product category code"
+          example: "Current Account, Savings Account, Student Account, CACC, CARD,\
+            \ DDA – Current & Savings Accounts or CDA – Term Deposits or ILA – Loans\
+            \ or CCA – Credit Cards or OTH - Other"
+          maxLength: 35
+          type: string
+      required:
+      - accountIdentification
+      - bankCode
+      - currency
+      type: object
+    rejectReasonEntry:
+      description: Reject Reason List-Entry
+      example:
+        rejectReasonInfomation: rejectReasonInfomation
+        rejectReasonCode: rejectReasonCode
+      properties:
+        rejectReasonCode:
+          description: "Reject Reason List-Entry-Element: Code."
+          maxLength: 10
+          type: string
+        rejectReasonInfomation:
+          description: "Reject Reason List-Entry-Element: Information"
+          maxLength: 105
+          type: string
+      type: object
+    directDebitOtpConfirmationRequest:
+      additionalProperties: false
+      description: Request Object to confirm OTP for DD Authorisations
+      properties:
+        mandateIdentification:
+          description: HSBC DDA Reference No.
+          maxLength: 35
+          minLength: 1
+          type: string
+        otpIdentificationNumber:
+          description: OTP identity number.
+          maxLength: 10
+          type: string
+        otpPassword:
+          description: OTP password.
+          maxLength: 10
+          type: string
+        creditorAccount:
+          $ref: '#/components/schemas/cashAccount'
+      required:
+      - creditorAccount
+      - mandateIdentification
+      type: object
+    directDebitOtpConfirmationResponse:
+      additionalProperties: false
+      description: Response Object of OTP confirmation for DD Authorisation
+      example:
+        processResult:
+          rejectReasonList:
+          - rejectReasonInfomation: rejectReasonInfomation
+            rejectReasonCode: rejectReasonCode
+          - rejectReasonInfomation: rejectReasonInfomation
+            rejectReasonCode: rejectReasonCode
+          responseCode: "00"
+        mandateIdentification: mandateIdentification
+        creditorReference: creditorReference
+      properties:
+        processResult:
+          $ref: '#/components/schemas/processResult'
+        mandateIdentification:
+          description: HSBC DDA Reference No.
+          maxLength: 64
+          type: string
+        creditorReference:
+          description: Creditor reference of the DDA. This CreditorReference will
+            be sent to Payer Bank through FPS for record.
+          maxLength: 35
+          type: string
+      type: object
+    directDebitAuthStatusRequest:
+      additionalProperties: false
+      description: Object to hold details required to fetch direct debit authorisation
+        status
+      properties:
+        merchantRequestIdentification:
+          description: Merchant Request Reference No. Unique instruction id generated
+            by merchant.
+          maxLength: 30
+          minLength: 1
+          type: string
+        creditorAccount:
+          $ref: '#/components/schemas/cashAccount'
+      required:
+      - creditorAccount
+      - merchantRequestIdentification
+      type: object
+    directDebitInstructionStatusRequest:
+      additionalProperties: false
+      description: Object to hold details required to fetch direct debit authorisation
+        status
+      properties:
+        merchantInstructionIdentification:
+          description: Merchant Request Reference No. Unique instruction id generated
+            by merchant.
+          maxLength: 30
+          minLength: 1
+          type: string
+        creditorAccount:
+          $ref: '#/components/schemas/cashAccount'
+      required:
+      - creditorAccount
+      - merchantInstructionIdentification
+      type: object
+    eDDAStatusPullEnquiryResponse:
+      additionalProperties: false
+      description: Object to hold response of direct debit authorisation status
+      example:
+        mandateStatus: ERROR
+        processResult:
+          rejectReasonList:
+          - rejectReasonInfomation: rejectReasonInfomation
+            rejectReasonCode: rejectReasonCode
+          - rejectReasonInfomation: rejectReasonInfomation
+            rejectReasonCode: rejectReasonCode
+          responseCode: "00"
+        mandateIdentification: mandateIdentification
+      properties:
+        processResult:
+          $ref: '#/components/schemas/processResult'
+        mandateIdentification:
+          description: DDA Reference No.
+          maxLength: 35
+          minLength: 1
+          type: string
+        mandateStatus:
+          description: Status of the mandate request.
+          enum:
+          - ERROR
+          - PDOU
+          - ACTIVE
+          - EXPIRED
+          - DORMANT
+          - SUSPENDED
+          - CANCELLED
+          - DELETED
+          - PDNG
+          - PDFP
+          maxLength: 10
+          type: string
+      required:
+      - mandateIdentification
+      - mandateStatus
+      - processResult
+      type: object
+    directDebitInstructionRequest:
+      description: "Account summary for the customer, could be language specific"
+      properties:
+        merchantInstructionIdentification:
+          description: Merchant Instruction Reference No. Unique instruction id generated
+            by merchant.
+          maxLength: 30
+          minLength: 1
+          type: string
+        mandateIdentification:
+          description: The reference uniquely identify the DDA mandate at the payee
+            bank record. Mutually exclusive with "DebtorAccount" and "CreditorReference".
+            MandateIdentification is mandatory only if the above are not provided.
+          maxLength: 35
+          type: string
+        debtorName:
+          description: Debtor account owner name.
+          maxLength: 140
+          minLength: 1
+          type: string
+        debtorAccount:
+          $ref: '#/components/schemas/cashAccount'
+        creditorAccount:
+          $ref: '#/components/schemas/cashAccount'
+        creditorReference:
+          description: Creditor reference of the DDA. This CreditorReference will
+            be sent to Payer Bank through FPS for record. Mutually exclusive with
+            MandateIdentification. "DebtorAccount" and "CreditorReference" will be
+            mandatory once field MandateIdentification is not provided.
+          maxLength: 35
+          type: string
+        instructedAmountCurrency:
+          description: Instructed amount currency.
+          maxLength: 3
+          pattern: "^[A-Z]{3,3}$"
+          type: string
+        instructedAmount:
+          description: Instructed amount.
+          maxLength: 18
+          pattern: "^[0-9]{1,15}(\\.[0-9]{1,2}){0,1}$"
+          type: string
+        remittanceInformation:
+          description: Remittance information from payer.
+          maxLength: 140
+          type: string
+        smsLanguageCode:
+          description: User preferred language. This language will be used in SMS
+            for communication.
+          enum:
+          - eng
+          - zh-s
+          - zh-t
+          maxLength: 10
+          type: string
+      required:
+      - creditorAccount
+      - instructedAmount
+      - instructedAmountCurrency
+      - merchantInstructionIdentification
+      type: object
+    directDebitInstructionResponse:
+      description: Object to hold response of direct debit authorisation status
+      example:
+        paymentInformationStatus: ACSC
+        processResult:
+          rejectReasonList:
+          - rejectReasonInfomation: rejectReasonInfomation
+            rejectReasonCode: rejectReasonCode
+          - rejectReasonInfomation: rejectReasonInfomation
+            rejectReasonCode: rejectReasonCode
+          responseCode: "00"
+        transactionIdentification: transactionIdentification
+      properties:
+        paymentInformationStatus:
+          description: Payment Status.Status for On-US :"ACSC" - Accepted Settlement
+            Completed (Processed by Bank)."RJCT" - Rejected by Bank."ACCP"AcceptedCustomerProfile
+            - Preceding check of technical validation was successful. Customer profile
+            check was also successful.Status for Off-us:"ACSP" - AcceptedSettlementInProcess
+            - Pending to FPS.
+          enum:
+          - ACSC
+          - RJCT
+          - ACCP
+          - ACSP
+          maxLength: 4
+          type: string
+        processResult:
+          $ref: '#/components/schemas/processResult'
+        transactionIdentification:
+          description: Transaction Reference No.Unique transaction id provided by
+            the bank.
+          maxLength: 35
+          type: string
+      required:
+      - paymentInformationStatus
+      - processResult
+      - transactionIdentification
+      type: object
+    reportingResponse:
+      example:
+        reportContent: reportContent
+        processResult:
+          rejectReasonList:
+          - rejectReasonInfomation: rejectReasonInfomation
+            rejectReasonCode: rejectReasonCode
+          - rejectReasonInfomation: rejectReasonInfomation
+            rejectReasonCode: rejectReasonCode
+          responseCode: "00"
+      properties:
+        processResult:
+          $ref: '#/components/schemas/processResult'
+        reportContent:
+          description: Report Content.Encoded in BASE64.
+          format: byte
+          type: string
+      required:
+      - processResult
+      - reportContent
+      type: object
+    reportingRequest:
+      properties:
+        reportType:
+          description: Type of report.
+          enum:
+          - DDAReport
+          - DDIReport
+          maxLength: 10
+          type: string
+        reportingDate:
+          description: Date of report.
+          format: date
+          type: string
+        creditorAccount:
+          $ref: '#/components/schemas/cashAccount'
+      required:
+      - creditorAccount
+      - reportType
+      - reportingDate
+      type: object
+    DirectDebitConsentRequestData_data:
+      example:
+        permissions:
+        - null
+        - null
+        expirationDate: 2000-01-23T04:56:07.000+00:00
+      properties:
+        permissions:
+          items:
+            $ref: '#/components/schemas/ExternalPermissionCode'
+          minItems: 1
+          type: array
+        expirationDate:
+          description: |-
+            Specified date and time the permissions will expire.
+            If this is not populated, the permissions will be open ended.All dates in the JSON payloads are represented in ISO 8601 date-time format.
+            All date-time fields in responses must include the timezone. An example is below:
+            2017-04-05T10:43:07+00:00
+          format: date-time
+          type: string
+      required:
+      - permissions
+      type: object
+    DirectDebitConsentsResponse_data:
+      example:
+        consentId: consentId
+        permissions:
+        - null
+        - null
+        statusUpdateDate: 2000-01-23T04:56:07.000+00:00
+        creationDate: 2000-01-23T04:56:07.000+00:00
+        status: null
+        expirationDate: 2000-01-23T04:56:07.000+00:00
+      properties:
+        consentId:
+          description: Unique identification as assigned to identify the direct-debit
+            consent resource.
+          maxLength: 128
+          minLength: 1
+          type: string
+        creationDate:
+          description: "Date and time at which the resource was created.All dates\
+            \ in the JSON payloads are represented in ISO 8601 date-time format.All\
+            \ date-time fields in responses must include the timezone. An example\
+            \ is below: 2017-04-05T10:43:07+00:00"
+          format: date-time
+          type: string
+        status:
+          $ref: '#/components/schemas/ConsentStatusCode'
+        statusUpdateDate:
+          description: "Date and time at which the resource status was updated.All\
+            \ dates in the JSON payloads are represented in ISO 8601 date-time format.\
+            \ All date-time fields in responses must include the timezone. An example\
+            \ is below: 2017-04-05T10:43:07+00:00"
+          format: date-time
+          type: string
+        permissions:
+          items:
+            $ref: '#/components/schemas/ExternalPermissionCode'
+          minItems: 1
+          type: array
+        expirationDate:
+          description: |-
+            Specified date and time the permissions will expire.
+            If this is not populated, the permissions will be open ended.All dates in the JSON payloads are represented in ISO 8601 date-time format.
+            All date-time fields in responses must include the timezone. An example is below:
+            2017-04-05T10:43:07+00:00
+          format: date-time
+          type: string
+      required:
+      - consentId
+      - creationDate
+      - permissions
+      - status
+      - statusUpdateDate
+      type: object
+    HKError1_extendedDetails:
+      description: Provide details for the error
+      example:
+        path: path
+      properties:
+        path:
+          description: "Recommended but optional reference to the JSON Path of the\
+            \ field with error, e.g., Data.Initiation.InstructedAmount.Currency"
+          maxLength: 500
+          minLength: 1
+          type: string
+      type: object
+  securitySchemes:
+    apiOAuth:
+      flows:
+        implicit:
+          authorizationUrl: https://api.hsbc.com/.../...
+          scopes:
+            "-''": ""
+      type: oauth2
+    bearerAuthSession:
+      bearerFormat: JWT
+      description: |
+        **Sample Value** ``` eyJraWQiOiI1M2Q4NjFjNC1iZTMwLTQzNDItYmU0ZS05N2RlYzQ5YmZhZTIiLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJqdGkiOiI3YjA1NWY4YS01YmJmLTQxZjgtOTYwMC05MTFjNTgyMzJiNjUiLCJpYXQiOjE1MTU3NjE2NzEsInJlc3BvbnNlVHlwZSI6ImNvZGUiLCJpbnRlbnRUeXBlIjoiYWNjb3VudCIsImNsaWVudElkIjoiNTZkZmM2ZTMtMzQ3Yi00ZWY1LTgzY2EtMDcxMDQxZWIwMDMxIiwicmVkaXJlY3RVcmwiOiJodHRwczovLzEyNy4wLjAuMS9yZWRpcmVjdDEiLCJjdXN0b21lcklwIjoiMTI3LjAuMC4xIiwiYnJhbmRJZCI6ImhzYmMiLCJpbnRlbnRJZCI6ImJhM2I0NzY2LTQyNzktNDhjZC05ZGYzLWIyYmQ1NGJhZmNkNiIsImNsYWltSWQiOiI4YjY5ZmM2Yjc2NGU3YTllNTk2YmI2OWMzMzI5NDYxNzIyM2JhMDE3NTAxNTIyN2E5N2M5YzEyZWUzM2JhNWMwIiwic3RhdGUiOiJzb21lLXN0YXRlLTEyMzQ1Njc4Iiwibm9uY2UiOiJuLTBTNl9XekEyTWoifQ.1nqXILi5L1HcMmppIavgd8S6VVhDNBeF-i0XrGwFxVaAs3NW8BuReMRFEbsPC0p56DnXQ3gvYA-BbJ-ahS0vRiMvrxa3VEtTOswJBtjpLBphfOkUvgIAthB2MFv7dVsZvBs9Kqfqis5MINPjafSXaFh9ZelZyu1G_zaQb6LvcxMce5b1fBtFFV3gLGCE9ScdeSMC08mZqPajeW7mP37wBSp_QMSmxeK89KrmZtIMJmte_FuTw-TQ4dwmP6L6nscRAAoTpEaDItxKAWXFyOQPPo2fxZ-79x-Rr12MkTJzoFJbquAwaGEApLgz0JUtp_L20orgrIh8jcY6e7cEt4qglg ``` --- **Decoded**
+         ```
+          Header
+          {
+            "kid": "53d861c4-be30-4342-be4e-97dec49bfae2",
+            "typ": "JWT",
+            "alg": "RS256",
+            "jku": ""https://private.api.open.banking.hsbc.com/.well-known/jwks.json"
+          }
+          Payload
+          {
+             "jti": "7b055f8a-5bbf-41f8-9600-911c58232b65",
+             "iat": "1515761671",
+             "scope": "openid aisp or pisp or cbpii or AIS:  32",
+             "state": "some-state-12345678",
+             "nonce": "n-0S6_WzA2Mj",
+             "iss": "https://private.api.personal.hsbc.co.uk",
+             "aud": "https://channelUI.com",
+             "exp": "1 minute from set time",
+             "brand": "PERSONAL",
+             "country": "UK",
+             "standard": "obie",
+             "consentId": "ba3b4766-4279-48cd-9df3-b2bd54bafcd6",
+             "consentType": "AIS or PIS or CBPII",
+             "customerIp": "91.10.21.5",
+             "tppId": "PL-TST-734519779079",
+             "tppName" : "My Tpp"
+          }
+         ``
+      scheme: bearer
+      type: http
