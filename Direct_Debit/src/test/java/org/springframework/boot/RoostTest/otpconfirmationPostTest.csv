@@ -1,0 +1,11 @@
+Authorization^|^AdditionalCSVvaluInfo^|^x-fapi-customer-ip-address^|^x-fapi-auth-date^|^x-fapi-interaction-id^|^x-idempotency-key^|^mandateIdentification^|^otpIdentificationNumber^|^otpPassword^|^creditorAccount^|^bankCode^|^accountIdentification^|^currency^|^accountSchemeName^|^accountSubType^|^statusCode
+Auth1^|^LbGpjj8KaH5wrEfg^|^192.168.1.1^|^2021-12-05^|^Interact1^|^Idempot1^|^Mandate1^|^OtpId1^|^OtpPass1^|^CreditorAcc1^|^123^|^AccId1^|^USD^|^BBAN^|^Current Account^|^201
+Auth2^|^LbGpjj8KaH5wrEfg^|^192.168.1.2^|^2021-12-06^|^Interact2^|^Idempot2^|^Mandate2^|^OtpId2^|^OtpPass2^|^CreditorAcc2^|^456^|^AccId2^|^GBP^|^BBAN^|^Savings Account^|^400
+Auth3^|^LbGpjj8KaH5wrEfg^|^192.168.1.3^|^2021-12-07^|^Interact3^|^Idempot3^|^Mandate3^|^OtpId3^|^OtpPass3^|^CreditorAcc3^|^789^|^AccId3^|^EUR^|^BBAN^|^Student Account^|^401
+Auth4^|^LbGpjj8KaH5wrEfg^|^192.168.1.4^|^2021-12-08^|^Interact4^|^Idempot4^|^Mandate4^|^OtpId4^|^OtpPass4^|^CreditorAcc4^|^321^|^AccId4^|^JPY^|^BBAN^|^CACC^|^403
+Auth5^|^LbGpjj8KaH5wrEfg^|^192.168.1.5^|^2021-12-09^|^Interact5^|^Idempot5^|^Mandate5^|^OtpId5^|^OtpPass5^|^CreditorAcc5^|^654^|^AccId5^|^AUD^|^BBAN^|^CARD^|^404
+Auth6^|^LbGpjj8KaH5wrEfg^|^192.168.1.6^|^2021-12-10^|^Interact6^|^Idempot6^|^Mandate6^|^OtpId6^|^OtpPass6^|^CreditorAcc6^|^987^|^AccId6^|^CAD^|^BBAN^|^DDA – Current & Savings Accounts^|^405
+Auth7^|^LbGpjj8KaH5wrEfg^|^192.168.1.7^|^2021-12-11^|^Interact7^|^Idempot7^|^Mandate7^|^OtpId7^|^OtpPass7^|^CreditorAcc7^|^135^|^AccId7^|^NZD^|^BBAN^|^CDA – Term Deposits^|^406
+Auth8^|^LbGpjj8KaH5wrEfg^|^192.168.1.8^|^2021-12-12^|^Interact8^|^Idempot8^|^Mandate8^|^OtpId8^|^OtpPass8^|^CreditorAcc8^|^246^|^AccId8^|^ZAR^|^BBAN^|^ILA – Loans^|^415
+Auth9^|^LbGpjj8KaH5wrEfg^|^192.168.1.9^|^2021-12-13^|^Interact9^|^Idempot9^|^Mandate9^|^OtpId9^|^OtpPass9^|^CreditorAcc9^|^357^|^AccId9^|^HKD^|^BBAN^|^CCA – Credit Cards^|^500
+Auth10^|^LbGpjj8KaH5wrEfg^|^192.168.1.10^|^2021-12-14^|^Interact10^|^Idempot10^|^Mandate10^|^OtpId10^|^OtpPass10^|^CreditorAcc10^|^468^|^AccId10^|^SGD^|^BBAN^|^OTH - Other^|^201
