@@ -5,7 +5,7 @@ info:
   title: Real-time Direct Debit API Specification for HK CMB
 servers:
   - url: >-
-      https://hsbcdeveloperportalpreprod.digitalapicraft.com:8085/https://sandbox.ob.business.hsbc.com.hk/mock/open-banking/v1.0/direct-debit
+      https://sandbox.ob.business.hsbc.com.hk/mock/open-banking/v1.0/direct-debit
     description: eDDA mock endpoints
     variables:
       version:
