@@ -1,0 +1,2885 @@
+openapi: 3.0.1
+info:
+  description: Swagger for Account and Transaction API Specification
+  title: Account and Transaction API Specification for HK Market
+  version: 1.0.6
+servers:
+- description: AISP Mock endpoints
+  url: https://sandbox.ob.hsbc.com.hk/mock/open-banking/v1.0
+  variables:
+    version:
+      default: v1.0
+- description: AISP endpoints
+  url: https://secure.sandbox.ob.hsbc.com.hk/open-banking/v1.0
+  variables:
+    version:
+      default: v1.0
+paths:
+  /aisp/account-consents:
+    post:
+      operationId: consent-setup
+      parameters:
+      - description: "Standard HTTP header that allows credentials to be provided\
+          \ to the authorisation/resource server. Based on the OAuth 2.0/OIDC framework,\
+          \ this consists of basic or bearer authentication schemes."
+        example: Bearer LbGDbcFVVfE-ngpjj8KaH5wrEfg
+        explode: false
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Standard HTTP header indicating the format of the payload provided
+          in the request. Content-type could be set to application/json.
+        example: application/json
+        explode: false
+        in: header
+        name: Content-Type
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: |-
+          Customer last logged-in time with the TSP application.
+          All dates in the HTTP headers are represented as RFC 7231 Full Dates. An example is below:
+          Sun, 10 Sep 2017 19:43:31 UTC
+        example: "Sun, 10 Sep 2017 19:43:31 UTC"
+        explode: false
+        in: header
+        name: x-fapi-auth-date
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Customer IP address when making a request with the TSP application.
+        example: 169.254.169.254
+        explode: false
+        in: header
+        name: x-fapi-customer-ip-address
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Unique correlation ID to playback response for each request.
+        explode: false
+        in: header
+        name: x-fapi-interaction-id
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Standard HTTP header to indicate the natural language set used
+          in the response.
+        explode: false
+        in: header
+        name: Accept-Language
+        required: false
+        schema:
+          enum:
+          - en-HK
+          - zh-HK
+          - zh-CN
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConsentRequestData'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountConsentsResponse'
+          description: Created
+          headers:
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Bad Request
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayEmptyResponse'
+          description: Unauthorised
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayEmptyResponse'
+          description: Forbidden
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Method Not Allowed
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Not Acceptable
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "415":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Unsupported Media Type
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Too Many Requests
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Service Unavailable
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "504":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Gateway Timeout
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+      security:
+      - bearerAuthSession: []
+      tags:
+      - Account Consent Setup
+      x-content-type: application/json
+      x-accepts: application/json
+      x-tags:
+      - tag: Account Consent Setup
+  /aisp/account-consents/{consentId}:
+    delete:
+      operationId: consent-deletion
+      parameters:
+      - description: Consent Id
+        example: 7404e99b-1a4d-4b08-b441-c327661527f0
+        explode: false
+        in: path
+        name: consentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: "Standard HTTP header that allows credentials to be provided\
+          \ to the authorisation/resource server. Based on the OAuth 2.0/OIDC framework,\
+          \ this consists of basic or bearer authentication schemes."
+        example: Bearer LbGDbcFVVfE-ngpjj8KaH5wrEfg
+        explode: false
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: |-
+          Customer last logged-in time with the TSP application.
+          All dates in the HTTP headers are represented as RFC 7231 Full Dates. An example is below:
+          Sun, 10 Sep 2017 19:43:31 UTC
+        example: "Sun, 10 Sep 2017 19:43:31 UTC"
+        explode: false
+        in: header
+        name: x-fapi-auth-date
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Customer IP address when making a request with the TSP application.
+        example: 169.254.169.254
+        explode: false
+        in: header
+        name: x-fapi-customer-ip-address
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Unique correlation ID to playback response for each request.
+        explode: false
+        in: header
+        name: x-fapi-interaction-id
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Standard HTTP header to indicate the natural language set used
+          in the response.
+        explode: false
+        in: header
+        name: Accept-Language
+        required: false
+        schema:
+          enum:
+          - en-HK
+          - zh-HK
+          - zh-CN
+          type: string
+        style: simple
+      responses:
+        "204":
+          description: No Content
+          headers:
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Bad Request
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayEmptyResponse'
+          description: Unauthorised
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayEmptyResponse'
+          description: Forbidden
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Method Not Allowed
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Not Acceptable
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Too Many Requests
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Service Unavailable
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "504":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Gateway Timeout
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+      security:
+      - bearerAuthSession: []
+      tags:
+      - Account Consent Setup
+      x-accepts: application/json
+      x-tags:
+      - tag: Account Consent Setup
+    get:
+      operationId: consent-retrival
+      parameters:
+      - description: Consent Id
+        example: 7404e99b-1a4d-4b08-b441-c327661527f0
+        explode: false
+        in: path
+        name: consentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: "Standard HTTP header that allows credentials to be provided\
+          \ to the authorisation/resource server. Based on the OAuth 2.0/OIDC framework,\
+          \ this consists of basic or bearer authentication schemes."
+        example: Bearer LbGDbcFVVfE-ngpjj8KaH5wrEfg
+        explode: false
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: |-
+          Customer last logged-in time with the TSP application.
+          All dates in the HTTP headers are represented as RFC 7231 Full Dates. An example is below:
+          Sun, 10 Sep 2017 19:43:31 UTC
+        example: "Sun, 10 Sep 2017 19:43:31 UTC"
+        explode: false
+        in: header
+        name: x-fapi-auth-date
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Customer IP address when making a request with the TSP application.
+        example: 169.254.169.254
+        explode: false
+        in: header
+        name: x-fapi-customer-ip-address
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Unique correlation ID to playback response for each request.
+        explode: false
+        in: header
+        name: x-fapi-interaction-id
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Standard HTTP header to indicate the natural language set used
+          in the response.
+        explode: false
+        in: header
+        name: Accept-Language
+        required: false
+        schema:
+          enum:
+          - en-HK
+          - zh-HK
+          - zh-CN
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountConsentsResponse'
+          description: OK
+          headers:
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Bad Request
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayEmptyResponse'
+          description: Unauthorised
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayEmptyResponse'
+          description: Forbidden
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Method Not Allowed
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Not Acceptable
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Too Many Requests
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Service Unavailable
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "504":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Gateway Timeout
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+      security:
+      - bearerAuthSession: []
+      tags:
+      - Account Consent Setup
+      x-accepts: application/json
+      x-tags:
+      - tag: Account Consent Setup
+  /aisp/accounts:
+    get:
+      operationId: accountStatus
+      parameters:
+      - description: "Standard HTTP header that allows credentials to be provided\
+          \ to the authorisation/resource server. Based on the OAuth 2.0/OIDC framework,\
+          \ this consists of basic or bearer authentication schemes."
+        example: Bearer LbGDbcFVVfE-ngpjj8KaH5wrEfg
+        explode: false
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: |-
+          Customer last logged-in time with the TSP application.
+          All dates in the HTTP headers are represented as RFC 7231 Full Dates. An example is below:
+          Sun, 10 Sep 2017 19:43:31 UTC
+        example: "Sun, 10 Sep 2017 19:43:31 UTC"
+        explode: false
+        in: header
+        name: x-fapi-auth-date
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Customer IP address when making a request with the TSP application.
+        example: 169.254.169.254
+        explode: false
+        in: header
+        name: x-fapi-customer-ip-address
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Unique correlation ID to playback response for each request.
+        explode: false
+        in: header
+        name: x-fapi-interaction-id
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Standard HTTP header to indicate the natural language set used
+          in the response.
+        explode: false
+        in: header
+        name: Accept-Language
+        required: false
+        schema:
+          enum:
+          - en-HK
+          - zh-HK
+          - zh-CN
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountResponse'
+          description: OK
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Bad Request
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayEmptyResponse'
+          description: Unauthorised
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayEmptyResponse'
+          description: Forbidden
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Method Not Allowed
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Not Acceptable
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Too Many Requests
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Service Unavailable
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "504":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Gateway Timeout
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+      security:
+      - bearerAuthSession: []
+      tags:
+      - Fulfilment endpoints
+      x-accepts: application/json
+      x-tags:
+      - tag: Fulfilment endpoints
+  /aisp/accounts/{accountId}:
+    get:
+      operationId: accountStatusbyAccountId
+      parameters:
+      - description: Unique Account ID assigned by ASPSP
+        example: ThR-RpLMV5lZzDu8vrfEFg
+        explode: false
+        in: path
+        name: accountId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: "Standard HTTP header that allows credentials to be provided\
+          \ to the authorisation/resource server. Based on the OAuth 2.0/OIDC framework,\
+          \ this consists of basic or bearer authentication schemes."
+        example: Bearer LbGDbcFVVfE-ngpjj8KaH5wrEfg
+        explode: false
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: |-
+          Customer last logged-in time with the TSP application.
+          All dates in the HTTP headers are represented as RFC 7231 Full Dates. An example is below:
+          Sun, 10 Sep 2017 19:43:31 UTC
+        example: "Sun, 10 Sep 2017 19:43:31 UTC"
+        explode: false
+        in: header
+        name: x-fapi-auth-date
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Customer IP address when making a request with the TSP application.
+        example: 169.254.169.254
+        explode: false
+        in: header
+        name: x-fapi-customer-ip-address
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Unique correlation ID to playback response for each request.
+        explode: false
+        in: header
+        name: x-fapi-interaction-id
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Standard HTTP header to indicate the natural language set used
+          in the response.
+        explode: false
+        in: header
+        name: Accept-Language
+        required: false
+        schema:
+          enum:
+          - en-HK
+          - zh-HK
+          - zh-CN
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountResponse'
+          description: OK
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Bad Request
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayEmptyResponse'
+          description: Unauthorised
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayEmptyResponse'
+          description: Forbidden
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Method Not Allowed
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Not Acceptable
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Too Many Requests
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Service Unavailable
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "504":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Gateway Timeout
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+      security:
+      - bearerAuthSession: []
+      tags:
+      - Fulfilment endpoints
+      x-accepts: application/json
+      x-tags:
+      - tag: Fulfilment endpoints
+  /aisp/accounts/{accountId}/transactions:
+    get:
+      operationId: transactionsByAccount
+      parameters:
+      - description: Account Id
+        example: ThR-RpLMV5lZzDu8vrfEFg
+        explode: false
+        in: path
+        name: accountId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: "Standard HTTP header that allows credentials to be provided\
+          \ to the authorisation/resource server. Based on the OAuth 2.0/OIDC framework,\
+          \ this consists of basic or bearer authentication schemes."
+        example: Bearer LbGDbcFVVfE-ngpjj8KaH5wrEfg
+        explode: false
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: |-
+          Customer last logged-in time with the TSP application.
+          All dates in the HTTP headers are represented as RFC 7231 Full Dates. An example is below:
+          Sun, 10 Sep 2017 19:43:31 UTC
+        example: "Sun, 10 Sep 2017 19:43:31 UTC"
+        explode: false
+        in: header
+        name: x-fapi-auth-date
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Customer IP address when making a request with the TSP application.
+        example: 169.254.169.254
+        explode: false
+        in: header
+        name: x-fapi-customer-ip-address
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Unique correlation ID to playback response for each request.
+        explode: false
+        in: header
+        name: x-fapi-interaction-id
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Standard HTTP header to indicate the natural language set used
+          in the response.
+        explode: false
+        in: header
+        name: Accept-Language
+        required: false
+        schema:
+          enum:
+          - en-HK
+          - zh-HK
+          - zh-CN
+          type: string
+        style: simple
+      - description: Specifies the start date time for filtering out the transactions
+          date; a blank value will be treated open-ended. Time zone input will be
+          ignored. Date format i.e. 2017-10-22
+        explode: true
+        in: query
+        name: fromDate
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      - description: Specifies the end date time for filtering out the transactions
+          date; a blank value will be treated as open-ended. Time zone input will
+          be ignored. Date format i.e. 2017-10-22
+        explode: true
+        in: query
+        name: toDate
+        required: false
+        schema:
+          format: date
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountTransactionResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Bad Request
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayEmptyResponse'
+          description: Unauthorised
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayEmptyResponse'
+          description: Forbidden
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Method Not Allowed
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Not Acceptable
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Too Many Requests
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Service Unavailable
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "504":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Gateway Timeout
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+      security:
+      - bearerAuthSession: []
+      tags:
+      - Fulfilment endpoints
+      x-accepts: application/json
+      x-tags:
+      - tag: Fulfilment endpoints
+  /aisp/accounts/{accountId}/balances:
+    get:
+      operationId: balancesByAccount
+      parameters:
+      - description: Account Id
+        example: ThR-RpLMV5lZzDu8vrfEFg
+        explode: false
+        in: path
+        name: accountId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: "Standard HTTP header that allows credentials to be provided\
+          \ to the authorisation/resource server. Based on the OAuth 2.0/OIDC framework,\
+          \ this consists of basic or bearer authentication schemes."
+        example: Bearer LbGDbcFVVfE-ngpjj8KaH5wrEfg
+        explode: false
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: |-
+          Customer last logged-in time with the TSP application.
+          All dates in the HTTP headers are represented as RFC 7231 Full Dates. An example is below:
+          Sun, 10 Sep 2017 19:43:31 UTC
+        example: "Sun, 10 Sep 2017 19:43:31 UTC"
+        explode: false
+        in: header
+        name: x-fapi-auth-date
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Customer IP address when making a request with the TSP application.
+        example: 169.254.169.254
+        explode: false
+        in: header
+        name: x-fapi-customer-ip-address
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Unique correlation ID to playback response for each request.
+        explode: false
+        in: header
+        name: x-fapi-interaction-id
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Standard HTTP header to indicate the natural language set used
+          in the response.
+        explode: false
+        in: header
+        name: Accept-Language
+        required: false
+        schema:
+          enum:
+          - en-HK
+          - zh-HK
+          - zh-CN
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountBalanceResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Bad Request
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayEmptyResponse'
+          description: Unauthorised
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayEmptyResponse'
+          description: Forbidden
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Method Not Allowed
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Not Acceptable
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Too Many Requests
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Service Unavailable
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "504":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Gateway Timeout
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+      security:
+      - bearerAuthSession: []
+      tags:
+      - Fulfilment endpoints
+      x-accepts: application/json
+      x-tags:
+      - tag: Fulfilment endpoints
+  /aisp/accounts/availability:
+    post:
+      operationId: accountAvailability
+      parameters:
+      - description: "Standard HTTP header that allows credentials to be provided\
+          \ to the authorisation/resource server. Based on the OAuth 2.0/OIDC framework,\
+          \ this consists of basic or bearer authentication schemes."
+        example: Bearer LbGDbcFVVfE-ngpjj8KaH5wrEfg
+        explode: false
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Standard HTTP header indicating the format of the payload provided
+          in the request. Content-type could be set to application/json.
+        example: application/json
+        explode: false
+        in: header
+        name: Content-Type
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: |-
+          Customer last logged-in time with the TSP application.
+          All dates in the HTTP headers are represented as RFC 7231 Full Dates. An example is below:
+          Sun, 10 Sep 2017 19:43:31 UTC
+        example: "Sun, 10 Sep 2017 19:43:31 UTC"
+        explode: false
+        in: header
+        name: x-fapi-auth-date
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Customer IP address when making a request with the TSP application.
+        example: 169.254.169.254
+        explode: false
+        in: header
+        name: x-fapi-customer-ip-address
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Unique correlation ID to playback response for each request.
+        explode: false
+        in: header
+        name: x-fapi-interaction-id
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Standard HTTP header to indicate the natural language set used
+          in the response.
+        explode: false
+        in: header
+        name: Accept-Language
+        required: false
+        schema:
+          enum:
+          - en-HK
+          - zh-HK
+          - zh-CN
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountAvailabilityRequest'
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountAvailabilityResponse'
+          description: OK
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Bad Request
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayEmptyResponse'
+          description: Unauthorised
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayEmptyResponse'
+          description: Forbidden
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Method Not Allowed
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Not Acceptable
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "415":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Unsupported Media Type
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Too Many Requests
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Service Unavailable
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "504":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Gateway Timeout
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+      security:
+      - bearerAuthSession: []
+      tags:
+      - Fulfilment endpoints
+      x-content-type: application/json
+      x-accepts: application/json
+      x-tags:
+      - tag: Fulfilment endpoints
+  /events:
+    post:
+      operationId: notificationEvent
+      parameters:
+      - description: "Standard HTTP header that allows credentials to be provided\
+          \ to the authorisation/resource server. Based on the OAuth 2.0/OIDC framework,\
+          \ this consists of basic or bearer authentication schemes."
+        example: Bearer LbGDbcFVVfE-ngpjj8KaH5wrEfg
+        explode: false
+        in: header
+        name: Authorization
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: Standard HTTP header indicating the format of the payload provided
+          in the request. Content-type could be set to application/json.
+        example: application/json
+        explode: false
+        in: header
+        name: Content-Type
+        required: true
+        schema:
+          type: string
+        style: simple
+      - description: |-
+          Customer last logged-in time with the TSP application.
+          All dates in the HTTP headers are represented as RFC 7231 Full Dates. An example is below:
+          Sun, 10 Sep 2017 19:43:31 UTC
+        example: "Sun, 10 Sep 2017 19:43:31 UTC"
+        explode: false
+        in: header
+        name: x-fapi-auth-date
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Customer IP address when making a request with the TSP application.
+        example: 169.254.169.254
+        explode: false
+        in: header
+        name: x-fapi-customer-ip-address
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Unique correlation ID to playback response for each request.
+        explode: false
+        in: header
+        name: x-fapi-interaction-id
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Standard HTTP header to indicate the natural language set used
+          in the response.
+        explode: false
+        in: header
+        name: Accept-Language
+        required: false
+        schema:
+          enum:
+          - en-HK
+          - zh-HK
+          - zh-CN
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotificationEventRequest'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationEventResponse'
+          description: Created
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Bad Request
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayEmptyResponse'
+          description: Unauthorised
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayEmptyResponse'
+          description: Forbidden
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "405":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Method Not Allowed
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "406":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Not Acceptable
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "415":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Unsupported Media Type
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Too Many Requests
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+            Retry-After:
+              $ref: '#/components/headers/Retry-After'
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorInfo'
+          description: Internal Server Error
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "503":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Service Unavailable
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+        "504":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiGatewayErrorResponse'
+          description: Gateway Timeout
+          headers:
+            Content-Type:
+              $ref: '#/components/headers/Content-Type'
+            x-fapi-interaction-id:
+              $ref: '#/components/headers/x-fapi-interaction-id'
+      security:
+      - bearerAuthSession: []
+      tags:
+      - Notification event endpoints
+      x-content-type: application/json
+      x-accepts: application/json
+      x-tags:
+      - tag: Notification event endpoints
+components:
+  headers:
+    Content-Type:
+      description: Standard HTTP header indicating the format of the payload provided
+        in the request. Content-type could be set to application/json.
+      explode: false
+      schema:
+        type: string
+      style: simple
+    x-fapi-interaction-id:
+      description: Unique correlation ID to playback response for each request.
+      explode: false
+      schema:
+        type: string
+      style: simple
+    Retry-After:
+      description: Header indicating the time (in seconds) that the TSP could wait
+        before retrying an operation. The bank could consider including this header
+        along with responses with the HTTP status code of 429 (Too Many Requests).
+      explode: false
+      schema:
+        type: integer
+      style: simple
+  parameters:
+    Authorization:
+      description: "Standard HTTP header that allows credentials to be provided to\
+        \ the authorisation/resource server. Based on the OAuth 2.0/OIDC framework,\
+        \ this consists of basic or bearer authentication schemes."
+      example: Bearer LbGDbcFVVfE-ngpjj8KaH5wrEfg
+      explode: false
+      in: header
+      name: Authorization
+      required: true
+      schema:
+        type: string
+      style: simple
+    Content-Type:
+      description: Standard HTTP header indicating the format of the payload provided
+        in the request. Content-type could be set to application/json.
+      example: application/json
+      explode: false
+      in: header
+      name: Content-Type
+      required: true
+      schema:
+        type: string
+      style: simple
+    Accept-Language:
+      description: Standard HTTP header to indicate the natural language set used
+        in the response.
+      explode: false
+      in: header
+      name: Accept-Language
+      required: false
+      schema:
+        enum:
+        - en-HK
+        - zh-HK
+        - zh-CN
+        type: string
+      style: simple
+    x-fapi-auth-date:
+      description: |-
+        Customer last logged-in time with the TSP application.
+        All dates in the HTTP headers are represented as RFC 7231 Full Dates. An example is below:
+        Sun, 10 Sep 2017 19:43:31 UTC
+      example: "Sun, 10 Sep 2017 19:43:31 UTC"
+      explode: false
+      in: header
+      name: x-fapi-auth-date
+      required: false
+      schema:
+        type: string
+      style: simple
+    x-fapi-customer-ip-address:
+      description: Customer IP address when making a request with the TSP application.
+      example: 169.254.169.254
+      explode: false
+      in: header
+      name: x-fapi-customer-ip-address
+      required: false
+      schema:
+        type: string
+      style: simple
+    x-fapi-interaction-id:
+      description: Unique correlation ID to playback response for each request.
+      explode: false
+      in: header
+      name: x-fapi-interaction-id
+      required: false
+      schema:
+        type: string
+      style: simple
+    account-id:
+      description: Unique Account ID assigned by ASPSP
+      example: ThR-RpLMV5lZzDu8vrfEFg
+      explode: false
+      in: path
+      name: accountId
+      required: true
+      schema:
+        type: string
+      style: simple
+  responses:
+    "400":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorInfo'
+      description: Bad Request
+      headers:
+        Content-Type:
+          $ref: '#/components/headers/Content-Type'
+        x-fapi-interaction-id:
+          $ref: '#/components/headers/x-fapi-interaction-id'
+    "401":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiGatewayEmptyResponse'
+      description: Unauthorised
+      headers:
+        Content-Type:
+          $ref: '#/components/headers/Content-Type'
+        x-fapi-interaction-id:
+          $ref: '#/components/headers/x-fapi-interaction-id'
+    "403":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiGatewayEmptyResponse'
+      description: Forbidden
+      headers:
+        Content-Type:
+          $ref: '#/components/headers/Content-Type'
+        x-fapi-interaction-id:
+          $ref: '#/components/headers/x-fapi-interaction-id'
+    "405":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorInfo'
+      description: Method Not Allowed
+      headers:
+        Content-Type:
+          $ref: '#/components/headers/Content-Type'
+        x-fapi-interaction-id:
+          $ref: '#/components/headers/x-fapi-interaction-id'
+    "406":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorInfo'
+      description: Not Acceptable
+      headers:
+        Content-Type:
+          $ref: '#/components/headers/Content-Type'
+        x-fapi-interaction-id:
+          $ref: '#/components/headers/x-fapi-interaction-id'
+    "415":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorInfo'
+      description: Unsupported Media Type
+      headers:
+        Content-Type:
+          $ref: '#/components/headers/Content-Type'
+        x-fapi-interaction-id:
+          $ref: '#/components/headers/x-fapi-interaction-id'
+    "429":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiGatewayErrorResponse'
+      description: Too Many Requests
+      headers:
+        Content-Type:
+          $ref: '#/components/headers/Content-Type'
+        x-fapi-interaction-id:
+          $ref: '#/components/headers/x-fapi-interaction-id'
+        Retry-After:
+          $ref: '#/components/headers/Retry-After'
+    "500":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/errorInfo'
+      description: Internal Server Error
+      headers:
+        Content-Type:
+          $ref: '#/components/headers/Content-Type'
+        x-fapi-interaction-id:
+          $ref: '#/components/headers/x-fapi-interaction-id'
+    "503":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiGatewayErrorResponse'
+      description: Service Unavailable
+      headers:
+        Content-Type:
+          $ref: '#/components/headers/Content-Type'
+        x-fapi-interaction-id:
+          $ref: '#/components/headers/x-fapi-interaction-id'
+    "504":
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiGatewayErrorResponse'
+      description: Gateway Timeout
+      headers:
+        Content-Type:
+          $ref: '#/components/headers/Content-Type'
+        x-fapi-interaction-id:
+          $ref: '#/components/headers/x-fapi-interaction-id'
+  schemas:
+    ConsentRequestData:
+      example:
+        data:
+          transactionToDate: 2000-01-23T04:56:07.000+00:00
+          permissions:
+          - null
+          - null
+          transactionFromDate: 2000-01-23T04:56:07.000+00:00
+          expirationDate: 2000-01-23T04:56:07.000+00:00
+      properties:
+        data:
+          $ref: '#/components/schemas/ConsentRequestData_data'
+      type: object
+    AccountConsentsResponse:
+      additionalProperties: false
+      example:
+        data:
+          transactionToDate: 2000-01-23T04:56:07.000+00:00
+          consentId: consentId
+          permissions:
+          - null
+          - null
+          statusUpdateDate: 2000-01-23T04:56:07.000+00:00
+          creationDate: 2000-01-23T04:56:07.000+00:00
+          transactionFromDate: 2000-01-23T04:56:07.000+00:00
+          status: null
+          expirationDate: 2000-01-23T04:56:07.000+00:00
+        links:
+          next: https://openapi-generator.tech
+          prev: https://openapi-generator.tech
+          self: https://openapi-generator.tech
+      properties:
+        data:
+          $ref: '#/components/schemas/AccountConsentsResponse_data'
+        links:
+          $ref: '#/components/schemas/Links'
+      required:
+      - data
+      type: object
+    ConsentStatusCode:
+      enum:
+      - PendingAuthorise
+      - Rejected
+      - Authorised
+      - Revoked
+      type: string
+    ExternalPermissionCode:
+      enum:
+      - ReadAccountAvailability
+      - ReadAccountStatus
+      - ReadAccountBalance
+      - ReadAccountTransaction
+      type: string
+    StatusUpdateDateTime:
+      description: "Date and time at which the resource status was updated.All dates\
+        \ in the JSON payloads are represented in ISO 8601 date-time format. All date-time\
+        \ fields in responses must include the timezone. An example is below: 2017-04-05T00:07:00Z"
+      format: date-time
+      type: string
+    CreationDateTime:
+      description: "Date and time at which the resource was created.All dates in the\
+        \ JSON payloads are represented in ISO 8601 date-time format.All date-time\
+        \ fields in responses must include the timezone. An example is below: 2017-04-05T00:07:00Z"
+      format: date-time
+      type: string
+    errorInfo:
+      additionalProperties: false
+      description: "An array of detail error codes, and messages, and URLs to documentation\
+        \ to help remediation."
+      example:
+        id: id
+        errors:
+        - extendedDetails:
+            path: path
+          code: code
+          causes: causes
+        - extendedDetails:
+            path: path
+          code: code
+          causes: causes
+      properties:
+        id:
+          description: "A unique reference for the error instance, for audit purposes,\
+            \ in case of unknown/unclassified errors."
+          maxLength: 40
+          minLength: 1
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/HKError1'
+          minItems: 1
+          type: array
+      required:
+      - code
+      - errors
+      - message
+      type: object
+    ApiGatewayErrorResponse:
+      description: Error message created by AWS API Gateway
+      example:
+        message: message
+      properties:
+        message:
+          description: Error message
+          type: string
+      type: object
+    ApiGatewayEmptyResponse:
+      description: Error message created by AWS API Gateway
+      example: ""
+      type: object
+    HKError1:
+      additionalProperties: false
+      example:
+        extendedDetails:
+          path: path
+        code: code
+        causes: causes
+      minProperties: 1
+      properties:
+        code:
+          description: "Low level textual error code, e.g., HK.HKMA.Field.Missing"
+          type: string
+          x-namespaced-enum:
+          - OB.Field.Expected
+          - OB.Field.Invalid
+          - OB.Field.InvalidDate
+          - OB.Field.Missing
+          - OB.Field.Unexpected
+          - OB.Header.Invalid
+          - OB.Header.Missing
+        causes:
+          description: |-
+            A description of the error that occurred. e.g., 'A mandatory field isn't supplied' or 'RequestedExecutionDateTime must be in future'
+            HKMA doesn't standardise this field
+          maxLength: 500
+          minLength: 1
+          type: string
+        extendedDetails:
+          $ref: '#/components/schemas/HKError1_extendedDetails'
+      required:
+      - causes
+      - code
+      type: object
+    AccountResponse:
+      example:
+        data:
+          account:
+          - accountStatus: null
+            accountId: accountId
+            accountSubType: null
+            accountType: null
+            currency: HKD
+            accountNumber: accountNumber
+            productName: productName
+          - accountStatus: null
+            accountId: accountId
+            accountSubType: null
+            accountType: null
+            currency: HKD
+            accountNumber: accountNumber
+            productName: productName
+        links:
+          next: https://openapi-generator.tech
+          prev: https://openapi-generator.tech
+          self: https://openapi-generator.tech
+      properties:
+        data:
+          $ref: '#/components/schemas/AccountResponse_data'
+        links:
+          $ref: '#/components/schemas/Links'
+      required:
+      - data
+      type: object
+    AccountResponseData:
+      example:
+        accountStatus: null
+        accountId: accountId
+        accountSubType: null
+        accountType: null
+        currency: HKD
+        accountNumber: accountNumber
+        productName: productName
+      properties:
+        accountId:
+          maxLength: 40
+          type: string
+        accountNumber:
+          maxLength: 256
+          type: string
+        accountType:
+          $ref: '#/components/schemas/AccountTypeCode'
+        accountSubType:
+          $ref: '#/components/schemas/AccountSubTypeCode'
+        productName:
+          maxLength: 60
+          type: string
+        accountStatus:
+          $ref: '#/components/schemas/AccountStatus'
+        currency:
+          example: HKD
+          format: ISOCurrencyCode
+          pattern: "^[A-Z]{3,3}$"
+          type: string
+      type: object
+    AccountTypeCode:
+      enum:
+      - Business
+      - Personal
+      type: string
+    AccountSubTypeCode:
+      enum:
+      - Savings
+      - Current
+      type: string
+    AccountStatus:
+      enum:
+      - Active
+      - Inactive
+      - Unavailable
+      - Retry
+      - Error
+      type: string
+    ISOCurrencyCode:
+      example: HKD
+      format: ISOCurrencyCode
+      pattern: "^[A-Z]{3,3}$"
+      type: string
+    AccountTransactionResponse:
+      additionalProperties: false
+      example:
+        data:
+          transaction:
+          - accountId: accountId
+            amount: amount
+            transactionDescription: transactionDescription
+            currency: currency
+            accountNumber: accountNumber
+            transactionDate: 2000-01-23T04:56:07.000+00:00
+            creditDebitIndicator: null
+            status: null
+          - accountId: accountId
+            amount: amount
+            transactionDescription: transactionDescription
+            currency: currency
+            accountNumber: accountNumber
+            transactionDate: 2000-01-23T04:56:07.000+00:00
+            creditDebitIndicator: null
+            status: null
+        links:
+          next: https://openapi-generator.tech
+          prev: https://openapi-generator.tech
+          self: https://openapi-generator.tech
+      properties:
+        data:
+          $ref: '#/components/schemas/AccountTransactionResponse_data'
+        links:
+          $ref: '#/components/schemas/Links'
+      required:
+      - data
+      type: object
+    AccountTransactionResponseData:
+      description: Provides further details on an entry in the report.
+      example:
+        accountId: accountId
+        amount: amount
+        transactionDescription: transactionDescription
+        currency: currency
+        accountNumber: accountNumber
+        transactionDate: 2000-01-23T04:56:07.000+00:00
+        creditDebitIndicator: null
+        status: null
+      properties:
+        accountId:
+          description: A unique and immutable identifier used to identify the account
+            resource. This identifier has no meaning to the account owner.
+          maxLength: 40
+          minLength: 1
+          type: string
+        accountNumber:
+          description: Identification assigned by an institution to identify an account.
+            This identification is known by the account owner.
+          maxLength: 256
+          minLength: 1
+          type: string
+        transactionDescription:
+          type: string
+        transactionDate:
+          description: |-
+            All dates in the JSON payloads are represented in ISO 8601 date format.
+            All date-time fields in responses must include the timezone. An example is below: 2017-04-05T00:07:00Z
+          format: date-time
+          type: string
+        creditDebitIndicator:
+          $ref: '#/components/schemas/CreditDebitCode'
+        status:
+          $ref: '#/components/schemas/status'
+        amount:
+          description: A number of monetary units specified in an active currency
+            where the unit of currency is explicit and compliant with ISO 4217.
+          pattern: "^\\d{1,13}$|^\\d{1,13}\\.\\d{1,5}$"
+          type: string
+        currency:
+          description: "A code allocated to a currency by a Maintenance Agency under\
+            \ an international identification scheme, as described in the latest edition\
+            \ of the international standard ISO 4217 \"Codes for the representation\
+            \ of currencies and funds\"."
+          pattern: "^[A-Z]{3,3}$"
+          type: string
+      required:
+      - accountId
+      - accountNumber
+      - amount
+      - creditDebitIndicator
+      - currency
+      - status
+      - transactionDate
+      - transactionDescription
+      type: object
+    AccountBalanceResponse:
+      additionalProperties: false
+      example:
+        data:
+          account:
+          - accountId: accountId
+            balance:
+            - amount: amount
+              datetime: 2000-01-23T04:56:07.000+00:00
+              currency: HKD
+              type: null
+              creditDebitIndicator: null
+            - amount: amount
+              datetime: 2000-01-23T04:56:07.000+00:00
+              currency: HKD
+              type: null
+              creditDebitIndicator: null
+          - accountId: accountId
+            balance:
+            - amount: amount
+              datetime: 2000-01-23T04:56:07.000+00:00
+              currency: HKD
+              type: null
+              creditDebitIndicator: null
+            - amount: amount
+              datetime: 2000-01-23T04:56:07.000+00:00
+              currency: HKD
+              type: null
+              creditDebitIndicator: null
+        links:
+          next: https://openapi-generator.tech
+          prev: https://openapi-generator.tech
+          self: https://openapi-generator.tech
+      properties:
+        data:
+          $ref: '#/components/schemas/AccountBalanceResponse_data'
+        links:
+          $ref: '#/components/schemas/Links'
+      required:
+      - data
+      type: object
+    AccountBalanceResponseData:
+      description: Provides further details on an entry in the report.
+      example:
+        accountId: accountId
+        balance:
+        - amount: amount
+          datetime: 2000-01-23T04:56:07.000+00:00
+          currency: HKD
+          type: null
+          creditDebitIndicator: null
+        - amount: amount
+          datetime: 2000-01-23T04:56:07.000+00:00
+          currency: HKD
+          type: null
+          creditDebitIndicator: null
+      properties:
+        accountId:
+          description: A unique and immutable identifier used to identify the account
+            resource. This identifier has no meaning to the account owner.
+          maxLength: 40
+          minLength: 1
+          type: string
+        balance:
+          items:
+            $ref: '#/components/schemas/BalanceData'
+          minItems: 1
+          type: array
+      required:
+      - accountId
+      type: object
+    Links:
+      additionalProperties: false
+      description: Links relevant to the payload
+      example:
+        next: https://openapi-generator.tech
+        prev: https://openapi-generator.tech
+        self: https://openapi-generator.tech
+      properties:
+        self:
+          format: uri
+          type: string
+        prev:
+          format: uri
+          type: string
+        next:
+          format: uri
+          type: string
+      required:
+      - self
+      type: object
+    Meta:
+      additionalProperties: false
+      description: Meta Data relevant to the payload
+      properties:
+        totalPages:
+          format: int32
+          type: integer
+      title: MetaData
+      type: object
+    ISODate:
+      description: YYYY-MM-DD
+      format: date
+      type: string
+    accountId:
+      description: A unique and immutable identifier used to identify the account
+        resource. This identifier has no meaning to the account owner.
+      maxLength: 40
+      minLength: 1
+      type: string
+    accountNumber:
+      description: Identification assigned by an institution to identify an account.
+        This identification is known by the account owner.
+      maxLength: 256
+      minLength: 1
+      type: string
+    transactionCode:
+      type: string
+    transactionId:
+      type: string
+    transactionDescription:
+      type: string
+    date:
+      description: |-
+        All dates in the JSON payloads are represented in ISO 8601 date format.
+        All date-time fields in responses must include the timezone. An example is below: 2017-04-05T00:07:00Z
+      format: date-time
+      type: string
+    CreditDebitCode:
+      description: |-
+        Indicates whether the amount is a credit or a debit.
+        Usage: A zero amount is considered to be a credit amount.
+      enum:
+      - Credit
+      - Debit
+      type: string
+    status:
+      description: Status of a transaction entry on the books of the account servicer.
+      enum:
+      - Booked
+      - Pending
+      type: string
+    amount:
+      description: A number of monetary units specified in an active currency where
+        the unit of currency is explicit and compliant with ISO 4217.
+      pattern: "^\\d{1,13}$|^\\d{1,13}\\.\\d{1,5}$"
+      type: string
+    currency:
+      description: "A code allocated to a currency by a Maintenance Agency under an\
+        \ international identification scheme, as described in the latest edition\
+        \ of the international standard ISO 4217 \"Codes for the representation of\
+        \ currencies and funds\"."
+      pattern: "^[A-Z]{3,3}$"
+      type: string
+    BalanceData:
+      description: Provides further details on an entry in the report.
+      example:
+        amount: amount
+        datetime: 2000-01-23T04:56:07.000+00:00
+        currency: HKD
+        type: null
+        creditDebitIndicator: null
+      properties:
+        type:
+          $ref: '#/components/schemas/BalanceTypeCode'
+        creditDebitIndicator:
+          $ref: '#/components/schemas/CreditDebitCode'
+        amount:
+          description: A number of monetary units specified in an active currency
+            where the unit of currency is explicit and compliant with ISO 4217.
+          pattern: "^\\d{1,13}$|^\\d{1,13}\\.\\d{1,5}$"
+          type: string
+        currency:
+          example: HKD
+          format: ISOCurrencyCode
+          pattern: "^[A-Z]{3,3}$"
+          type: string
+        datetime:
+          description: Specifies the date and time of the account balance.
+          format: date-time
+          type: string
+      type: object
+    BalanceTypeCode:
+      description: Specifies the type of account balance
+      enum:
+      - Ledger Balance
+      - Available Balance
+      - Day End Ledger Balance
+      type: string
+    SupportedAlgorithms:
+      enum:
+      - PS256
+      type: string
+    AccountAvailabilityRequest:
+      example:
+        data:
+        - paramName: accountType
+          paramValue: Personal
+        - paramName: accountType
+          paramValue: Personal
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/AccountAvailabilityRequestData'
+          minItems: 1
+          type: array
+      type: object
+    AccountAvailabilityRequestData:
+      example:
+        paramName: accountType
+        paramValue: Personal
+      properties:
+        paramName:
+          $ref: '#/components/schemas/paramName'
+        paramValue:
+          description: "<p>&nbsp;</p> <p>Generic validation rules:</p> <ul>\n  <li>The\
+            \ comparison at source is case-insensitive.</li>\n  <li>The parameter\
+            \ value will be checked at source, if it matches then response will be\
+            \ 'Yes'. If a blank value is passed, a 'No' response should be expected\
+            \ where the bank has an existing value.</li>\n</ul> <p><b>HKID</b> validation\
+            \ rules:</p> <ul>\n  <li>\n    All non-alphanumeric characters are removed\
+            \ from the record retrieved from the source within the banking system\
+            \ \n    before conducting the comparison with the value from the request.\n\
+            \  </li>\n  <li>The value can have minimum 4 non-masked characters. This\
+            \ means, it's at the discretion of the API consumer to send a clear text\
+            \ value in full or apply masking.</li>\n  <li>Each TPP can mask randomly\
+            \ different set of characters.</li>\n</ul> <p><b>Travel Document Number</b>\
+            \ validation rules:</p> <ul>\n  <li>\n    All non-alphanumeric characters\
+            \ are removed from the record retrieved from the source within the banking\
+            \ system \n    before conducting the comparison with the value from the\
+            \ request.\n  </li>\n  <li>Any travel document is accepted except HKID.\
+            \ For instance Passport, China National ID, etc. are accepted.</li>\n\
+            \  <li>\n    At least half the length of the value should be in clear\
+            \ text. For instance \n    a passport number with length of 12 characters\
+            \ will require minimum 6 non-masked characters, ie. A**2**86*53*. \n \
+            \   This means, it's at the discretion of the API consumer to send a clear\
+            \ text value in full or apply masking.\n  </li>\n  <li>Each TPP can mask\
+            \ randomly different set of characters.</li>\n</ul> <p><b>First Name</b>\
+            \ and <b>Last Name</b> validation rules:</p> <ul>\n  <li>Character allowed\
+            \ are alphanumeric and punctuation ,. ; : / \\ < > ? ! + - * = | “ # ‘\
+            \ ( ^ { } ) _  ¨ [ ] ´ ‘ % & space.</li>\n  <li>\n    Only characters\
+            \ from UTF-8 set are supported. Names that use Unicode characters (like\
+            \ Chinese etc.) is not supported yet. \n    If a Unicode character is\
+            \ used, the request is still valid, in which case the API will respond\
+            \ with 'No'.\n  </li>\n  <li>\n    If data stored at source within the\
+            \ banking system has more than one space between each word, before validation\
+            \ is applied, \n    the redundant space characters are removed from the\
+            \ source so that only a single space is left between words, then \n  \
+            \  the validation is applied against the value from the request.\n   \
+            \ For instance if data stored within the bank is 'TAI&nbsp;&nbsp;MAN'\
+            \ (two spaces between TAI and MAN), after \n    redundant space is removed\
+            \ the value used to compare with is 'TAI MAN' (one space between TAI and\
+            \ MAN).\n  </li>\n</ul>\n"
+          example: Personal
+          type: string
+      required:
+      - paramName
+      type: object
+    paramName:
+      enum:
+      - HKID
+      - travelDocumentNumber
+      - firstName
+      - lastName
+      - fullName
+      - accountType
+      - email
+      - phoneNumber
+      example: accountType
+      type: string
+    AccountAvailabilityResponse:
+      example:
+        data:
+        - paramName: accountType
+          status: "true"
+        - paramName: accountType
+          status: "true"
+      properties:
+        data:
+          items:
+            $ref: '#/components/schemas/AccountAvailabilityResponseData'
+          minItems: 1
+          type: array
+      type: object
+    AccountAvailabilityResponseData:
+      example:
+        paramName: accountType
+        status: "true"
+      properties:
+        paramName:
+          $ref: '#/components/schemas/paramName'
+        status:
+          enum:
+          - "true"
+          - "false"
+          - Retry
+          - NotAvailable
+          - Error
+          example: "true"
+          type: string
+      required:
+      - paramName
+      - status
+      type: object
+    NotificationEventRequest:
+      example:
+        maxEvents: 0
+        ack:
+        - ack
+        - ack
+        returnImmediately: true
+      properties:
+        ack:
+          description: List of successfully handled “jti”.
+          items:
+            type: string
+          type: array
+        returnImmediately:
+          description: Optional JSON Boolean value that indicates the SET transmitter
+            should return an immediate response even if no results are available (short
+            polling).
+          type: boolean
+        maxEvents:
+          description: "Size limit for the event collection size in the response,\
+            \ null or zero input for the field indicates the bank returned an empty\
+            \ set of outstanding events."
+          type: integer
+      required:
+      - maxEvents
+      - returnImmediately
+      type: object
+    NotificationEventResponse:
+      example:
+        moreAvailable: true
+        sets:
+          "4d3559ec67504aaba65d40b0363faad8": eyJhbGciOiJub25lIn0. eyJqdGkiOiI0ZDM1NTllYzY3NTA0YWFiYTY1ZDQwYjAzNjNmYWFkOCIsImlhdC
+            I6MTQ1ODQ5NjQwNCwiaXNzIjoiaHR0cHM6Ly9zY2ltLmV4YW1wbGUuY29tIiwi YXVkIjpbImh0dHBzOi8vc2NpbS5leGFtcGxlLmNvbS9GZWVkcy85OGQ1MjQ2MW
+            ZhNWJiYzg3OTU5M2I3NzU0IiwiaHR0cHM6Ly9zY2ltLmV4YW1wbGUuY29tL0Zl ZWRzLzVkNzYwNDUxNmIxZDA4NjQxZDc2NzZlZTciXSwiZXZlbnRzIjp7InVybj
+            ppZXRmOnBhcmFtczpzY2ltOmV2ZW50OmNyZWF0ZSI6eyJyZWYiOiJodHRwczov L3NjaW0uZXhhbXBsZS5jb20vVXNlcnMvNDRmNjE0MmRmOTZiZDZhYjYxZTc1Mj
+            FkOSIsImF0dHJpYnV0ZXMiOlsiaWQiLCJuYW1lIiwidXNlck5hbWUiLCJwYXNz d29yZCIsImVtYWlscyJdfX19.
+          "3d0c3cf797584bd193bd0fb1bd4e7d30": eyJqdGkiOiIzZDBjM2NmNzk3NTg0YmQxOTNiZDBmYjFiZDRlN2QzMCIsImlhdC
+            I6MTQ1ODQ5NjAyNSwiaXNzIjoiaHR0cHM6Ly9zY2ltLmV4YW1wbGUuY29tIiwi YXVkIjpbImh0dHBzOi8vamh1Yi5leGFtcGxlLmNvbS9GZWVkcy85OGQ1MjQ2MW
+            ZhNWJiYzg3OTU5M2I3NzU0IiwiaHR0cHM6Ly9qaHViLmV4YW1wbGUuY29tL0Zl ZWRzLzVkNzYwNDUxNmIxZDA4NjQxZDc2NzZlZTciXSwic3ViIjoiaHR0cHM6Ly
+            9zY2ltLmV4YW1wbGUuY29tL1VzZXJzLzQ0ZjYxNDJkZjk2YmQ2YWI2MWU3NTIx ZDkiLCJldmVudHMiOnsidXJuOmlldGY6cGFyYW1zOnNjaW06ZXZlbnQ6cGFzc3
+            dvcmRSZXNldCI6eyJpZCI6IjQ0ZjYxNDJkZjk2YmQ2YWI2MWU3NTIxZDkifSwi aHR0cHM6Ly9leGFtcGxlLmNvbS9zY2ltL2V2ZW50L3Bhc3N3b3JkUmVzZXRFeH
+            QiOnsicmVzZXRBdHRlbXB0cyI6NX19fQ.
+      properties:
+        sets:
+          description: "JSON object containing zero or more SETs being returned. \
+            \ Each member name is the \"jti\" of a SET to be delivered, and its value\
+            \ is a JSON string representing the corresponding SET.  If there are no\
+            \ outstanding SETs to be transmitted, the JSON object shall be empty.\
+            \  Note that both SETs being transmitted for the first time and SETs that\
+            \ are being retransmitted after not having been acknowledged are communicated\
+            \ here."
+          example:
+            "4d3559ec67504aaba65d40b0363faad8": eyJhbGciOiJub25lIn0. eyJqdGkiOiI0ZDM1NTllYzY3NTA0YWFiYTY1ZDQwYjAzNjNmYWFkOCIsImlhdC
+              I6MTQ1ODQ5NjQwNCwiaXNzIjoiaHR0cHM6Ly9zY2ltLmV4YW1wbGUuY29tIiwi YXVkIjpbImh0dHBzOi8vc2NpbS5leGFtcGxlLmNvbS9GZWVkcy85OGQ1MjQ2MW
+              ZhNWJiYzg3OTU5M2I3NzU0IiwiaHR0cHM6Ly9zY2ltLmV4YW1wbGUuY29tL0Zl ZWRzLzVkNzYwNDUxNmIxZDA4NjQxZDc2NzZlZTciXSwiZXZlbnRzIjp7InVybj
+              ppZXRmOnBhcmFtczpzY2ltOmV2ZW50OmNyZWF0ZSI6eyJyZWYiOiJodHRwczov L3NjaW0uZXhhbXBsZS5jb20vVXNlcnMvNDRmNjE0MmRmOTZiZDZhYjYxZTc1Mj
+              FkOSIsImF0dHJpYnV0ZXMiOlsiaWQiLCJuYW1lIiwidXNlck5hbWUiLCJwYXNz d29yZCIsImVtYWlscyJdfX19.
+            "3d0c3cf797584bd193bd0fb1bd4e7d30": eyJqdGkiOiIzZDBjM2NmNzk3NTg0YmQxOTNiZDBmYjFiZDRlN2QzMCIsImlhdC
+              I6MTQ1ODQ5NjAyNSwiaXNzIjoiaHR0cHM6Ly9zY2ltLmV4YW1wbGUuY29tIiwi YXVkIjpbImh0dHBzOi8vamh1Yi5leGFtcGxlLmNvbS9GZWVkcy85OGQ1MjQ2MW
+              ZhNWJiYzg3OTU5M2I3NzU0IiwiaHR0cHM6Ly9qaHViLmV4YW1wbGUuY29tL0Zl ZWRzLzVkNzYwNDUxNmIxZDA4NjQxZDc2NzZlZTciXSwic3ViIjoiaHR0cHM6Ly
+              9zY2ltLmV4YW1wbGUuY29tL1VzZXJzLzQ0ZjYxNDJkZjk2YmQ2YWI2MWU3NTIx ZDkiLCJldmVudHMiOnsidXJuOmlldGY6cGFyYW1zOnNjaW06ZXZlbnQ6cGFzc3
+              dvcmRSZXNldCI6eyJpZCI6IjQ0ZjYxNDJkZjk2YmQ2YWI2MWU3NTIxZDkifSwi aHR0cHM6Ly9leGFtcGxlLmNvbS9zY2ltL2V2ZW50L3Bhc3N3b3JkUmVzZXRFeH
+              QiOnsicmVzZXRBdHRlbXB0cyI6NX19fQ.
+          type: object
+        moreAvailable:
+          description: Indicates if there are more unacknowledged events from the
+            bank in addition to the current response data list.
+          type: boolean
+      required:
+      - sets
+      type: object
+    ConsentRequestData_data:
+      example:
+        transactionToDate: 2000-01-23T04:56:07.000+00:00
+        permissions:
+        - null
+        - null
+        transactionFromDate: 2000-01-23T04:56:07.000+00:00
+        expirationDate: 2000-01-23T04:56:07.000+00:00
+      properties:
+        permissions:
+          items:
+            $ref: '#/components/schemas/ExternalPermissionCode'
+          minItems: 1
+          type: array
+        expirationDate:
+          description: |-
+            Specified date and time the permissions will expire.
+            If this is not populated, the permissions will be open ended.All dates in the JSON payloads are represented in ISO 8601 date-time format.
+            All date-time fields in responses must include the timezone. An example is below:
+            2017-04-05T00:07:00Z
+          format: date-time
+          type: string
+        transactionFromDate:
+          description: |-
+            Specified start date and time for the transaction query period.
+            If this is not populated, the start date will be open ended, and data will be returned from the earliest available transaction.All dates in the JSON payloads are represented in ISO 8601 date-time format.
+            All date-time fields in responses must include the timezone. An example is below:
+            2017-04-05T00:07:00Z
+          format: date-time
+          type: string
+        transactionToDate:
+          description: |-
+            Specified end date and time for the transaction query period.
+            If this is not populated, the end date will be open ended, and data will be returned to the latest available transaction.All dates in the JSON payloads are represented in ISO 8601 date-time format.
+            All date-time fields in responses must include the timezone. An example is below:
+            2017-04-05T00:07:00Z
+          format: date-time
+          type: string
+      required:
+      - permissions
+      type: object
+    AccountConsentsResponse_data:
+      example:
+        transactionToDate: 2000-01-23T04:56:07.000+00:00
+        consentId: consentId
+        permissions:
+        - null
+        - null
+        statusUpdateDate: 2000-01-23T04:56:07.000+00:00
+        creationDate: 2000-01-23T04:56:07.000+00:00
+        transactionFromDate: 2000-01-23T04:56:07.000+00:00
+        status: null
+        expirationDate: 2000-01-23T04:56:07.000+00:00
+      properties:
+        consentId:
+          description: Unique identification as assigned to identify the account access
+            consent resource.
+          maxLength: 128
+          minLength: 1
+          type: string
+        creationDate:
+          description: "Date and time at which the resource was created.All dates\
+            \ in the JSON payloads are represented in ISO 8601 date-time format.All\
+            \ date-time fields in responses must include the timezone. An example\
+            \ is below: 2017-04-05T00:07:00Z"
+          format: date-time
+          type: string
+        status:
+          $ref: '#/components/schemas/ConsentStatusCode'
+        statusUpdateDate:
+          description: "Date and time at which the resource status was updated.All\
+            \ dates in the JSON payloads are represented in ISO 8601 date-time format.\
+            \ All date-time fields in responses must include the timezone. An example\
+            \ is below: 2017-04-05T00:07:00Z"
+          format: date-time
+          type: string
+        permissions:
+          items:
+            $ref: '#/components/schemas/ExternalPermissionCode'
+          minItems: 1
+          type: array
+        expirationDate:
+          description: |-
+            Specified date and time the permissions will expire.
+            If this is not populated, the permissions will be open ended.All dates in the JSON payloads are represented in ISO 8601 date-time format.
+            All date-time fields in responses must include the timezone. An example is below:
+            2017-04-05T00:07:00Z
+          format: date-time
+          type: string
+        transactionFromDate:
+          description: |-
+            Specified start date and time for the transaction query period.
+            If this is not populated, the start date will be open ended, and data will be returned from the earliest available transaction.All dates in the JSON payloads are represented in ISO 8601 date-time format.
+            All date-time fields in responses must include the timezone. An example is below:
+            2017-04-05T00:07:00Z
+          format: date-time
+          type: string
+        transactionToDate:
+          description: |-
+            Specified end date and time for the transaction query period.
+            If this is not populated, the end date will be open ended, and data will be returned to the latest available transaction.All dates in the JSON payloads are represented in ISO 8601 date-time format.
+            All date-time fields in responses must include the timezone. An example is below:
+            2017-04-05T00:07:00Z
+          format: date-time
+          type: string
+      required:
+      - consentId
+      - creationDate
+      - permissions
+      - status
+      - statusUpdateDate
+      type: object
+    HKError1_extendedDetails:
+      description: Provide details for the error
+      example:
+        path: path
+      properties:
+        path:
+          description: "Recommended but optional reference to the JSON Path of the\
+            \ field with error, e.g., Data.Initiation.InstructedAmount.Currency"
+          maxLength: 500
+          minLength: 1
+          type: string
+      type: object
+    AccountResponse_data:
+      example:
+        account:
+        - accountStatus: null
+          accountId: accountId
+          accountSubType: null
+          accountType: null
+          currency: HKD
+          accountNumber: accountNumber
+          productName: productName
+        - accountStatus: null
+          accountId: accountId
+          accountSubType: null
+          accountType: null
+          currency: HKD
+          accountNumber: accountNumber
+          productName: productName
+      properties:
+        account:
+          items:
+            $ref: '#/components/schemas/AccountResponseData'
+          type: array
+      type: object
+    AccountTransactionResponse_data:
+      example:
+        transaction:
+        - accountId: accountId
+          amount: amount
+          transactionDescription: transactionDescription
+          currency: currency
+          accountNumber: accountNumber
+          transactionDate: 2000-01-23T04:56:07.000+00:00
+          creditDebitIndicator: null
+          status: null
+        - accountId: accountId
+          amount: amount
+          transactionDescription: transactionDescription
+          currency: currency
+          accountNumber: accountNumber
+          transactionDate: 2000-01-23T04:56:07.000+00:00
+          creditDebitIndicator: null
+          status: null
+      properties:
+        transaction:
+          items:
+            $ref: '#/components/schemas/AccountTransactionResponseData'
+          type: array
+      type: object
+    AccountBalanceResponse_data:
+      example:
+        account:
+        - accountId: accountId
+          balance:
+          - amount: amount
+            datetime: 2000-01-23T04:56:07.000+00:00
+            currency: HKD
+            type: null
+            creditDebitIndicator: null
+          - amount: amount
+            datetime: 2000-01-23T04:56:07.000+00:00
+            currency: HKD
+            type: null
+            creditDebitIndicator: null
+        - accountId: accountId
+          balance:
+          - amount: amount
+            datetime: 2000-01-23T04:56:07.000+00:00
+            currency: HKD
+            type: null
+            creditDebitIndicator: null
+          - amount: amount
+            datetime: 2000-01-23T04:56:07.000+00:00
+            currency: HKD
+            type: null
+            creditDebitIndicator: null
+      properties:
+        account:
+          items:
+            $ref: '#/components/schemas/AccountBalanceResponseData'
+          minItems: 1
+          type: array
+      type: object
+  securitySchemes:
+    apiOAuth:
+      flows:
+        implicit:
+          authorizationUrl: https://api.hsbc.com/.../...
+          scopes:
+            "-''": ""
+      type: oauth2
+    bearerAuthSession:
+      bearerFormat: JWT
+      description: |
+        **Sample Value** ``` eyJraWQiOiI1M2Q4NjFjNC1iZTMwLTQzNDItYmU0ZS05N2RlYzQ5YmZhZTIiLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJqdGkiOiI3YjA1NWY4YS01YmJmLTQxZjgtOTYwMC05MTFjNTgyMzJiNjUiLCJpYXQiOjE1MTU3NjE2NzEsInJlc3BvbnNlVHlwZSI6ImNvZGUiLCJpbnRlbnRUeXBlIjoiYWNjb3VudCIsImNsaWVudElkIjoiNTZkZmM2ZTMtMzQ3Yi00ZWY1LTgzY2EtMDcxMDQxZWIwMDMxIiwicmVkaXJlY3RVcmwiOiJodHRwczovLzEyNy4wLjAuMS9yZWRpcmVjdDEiLCJjdXN0b21lcklwIjoiMTI3LjAuMC4xIiwiYnJhbmRJZCI6ImhzYmMiLCJpbnRlbnRJZCI6ImJhM2I0NzY2LTQyNzktNDhjZC05ZGYzLWIyYmQ1NGJhZmNkNiIsImNsYWltSWQiOiI4YjY5ZmM2Yjc2NGU3YTllNTk2YmI2OWMzMzI5NDYxNzIyM2JhMDE3NTAxNTIyN2E5N2M5YzEyZWUzM2JhNWMwIiwic3RhdGUiOiJzb21lLXN0YXRlLTEyMzQ1Njc4Iiwibm9uY2UiOiJuLTBTNl9XekEyTWoifQ.1nqXILi5L1HcMmppIavgd8S6VVhDNBeF-i0XrGwFxVaAs3NW8BuReMRFEbsPC0p56DnXQ3gvYA-BbJ-ahS0vRiMvrxa3VEtTOswJBtjpLBphfOkUvgIAthB2MFv7dVsZvBs9Kqfqis5MINPjafSXaFh9ZelZyu1G_zaQb6LvcxMce5b1fBtFFV3gLGCE9ScdeSMC08mZqPajeW7mP37wBSp_QMSmxeK89KrmZtIMJmte_FuTw-TQ4dwmP6L6nscRAAoTpEaDItxKAWXFyOQPPo2fxZ-79x-Rr12MkTJzoFJbquAwaGEApLgz0JUtp_L20orgrIh8jcY6e7cEt4qglg ``` --- **Decoded**
+         ```
+          Header
+          {
+            "kid": "53d861c4-be30-4342-be4e-97dec49bfae2",
+            "typ": "JWT",
+            "alg": "RS256",
+            "jku": ""https://private.api.open.banking.hsbc.com/.well-known/jwks.json"
+          }
+          Payload
+          {
+             "jti": "7b055f8a-5bbf-41f8-9600-911c58232b65",
+             "iat": "1515761671",
+             "scope": "openid aisp or pisp or cbpii or AIS:  32",
+             "state": "some-state-12345678",
+             "nonce": "n-0S6_WzA2Mj",
+             "iss": "https://private.api.personal.hsbc.co.uk",
+             "aud": "https://channelUI.com",
+             "exp": "1 minute from set time",
+             "brand": "PERSONAL",
+             "country": "UK",
+             "standard": "obie",
+             "consentId": "ba3b4766-4279-48cd-9df3-b2bd54bafcd6",
+             "consentType": "AIS or PIS or CBPII",
+             "customerIp": "91.10.21.5",
+             "tppId": "PL-TST-734519779079",
+             "tppName" : "My Tpp"
+          }
+         ``
+      scheme: bearer
+      type: http
