@@ -15,7 +15,11 @@ mvn test
 
 ## Postman Tests
 
+To run postman test go to Direct Debit Folder and run
 
+```
+postman collection run <path/to/postmanCollection.json> -i <folderName or folderUID> -d  <path/to/csvFile.csv>
+```
 
 ## Contact
 
