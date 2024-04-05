@@ -1,0 +1,11 @@
+consentId,version,statusCode,scenario
+"voluptate anim ipsum",1,200,OK
+"sjH8g4IA98ho",2,400,Bad Request
+"J5deIsLvbCHnZ",3,401,Unauthorised
+"g2bKJuk3XrON5hz",4,403,Forbidden
+"mcYpD4sGWvTF",5,405,Method Not Allowed
+"Z6YC8MJe2xM4GgW",6,406,Not Acceptable
+"hKKzH8gGJXJH8y",7,429,Too Many Requests
+"wSf8msZkxHc78m",8,500,Internal Server Error
+"nroGJ7kjTm8yHB",9,503,Service Unavailable
+"K4Gm6HJy8M8wZ",10,504,Gateway Timeout
