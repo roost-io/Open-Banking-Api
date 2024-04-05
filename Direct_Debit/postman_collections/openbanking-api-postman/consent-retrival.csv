@@ -1,11 +1,11 @@
 consentId,version,statusCode,scenario
 "voluptate anim ipsum",1,200,OK
-"sjH8g4IA98ho",2,400,Bad Request
-"J5deIsLvbCHnZ",3,401,Unauthorised
-"g2bKJuk3XrON5hz",4,403,Forbidden
-"mcYpD4sGWvTF",5,405,Method Not Allowed
-"Z6YC8MJe2xM4GgW",6,406,Not Acceptable
-"hKKzH8gGJXJH8y",7,429,Too Many Requests
-"wSf8msZkxHc78m",8,500,Internal Server Error
-"nroGJ7kjTm8yHB",9,503,Service Unavailable
-"K4Gm6HJy8M8wZ",10,504,Gateway Timeout
+"7404e99b-1a4d-4b08-b441-c327661527f0",2,200,OK
+"J5deIsLvbCHnZ",3,200,OK
+"g2bKJuk3XrON5hz",4,200,OK
+"7404e99b-1a4d-4b08-b441-c327661527f0",5,200,OK
+"Z6YC8MJe2xM4GgW",6,200,OK
+"7404e99b-1a4d-4b08-b441-c327661527f0",7,200,OK
+"wSf8msZkxHc78m",8,200,OK
+"7404e99b-1a4d-4b08-b441-c327661527f0",9,200,OK
+"K4Gm6HJy8M8wZ",10,200,OK

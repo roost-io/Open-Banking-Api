@@ -1,12 +1,12 @@
 version,permissions,expirationDate,statusCode,scenario
 "1.0","['<string>']","1986-11-20T02:46:24.080Z",201,Created
-"2.0","['<string>','<string>']","2030-12-10T08:30:10.444Z",400,Bad Request
-"3.0","['<string>','<string>','<string>']","2025-10-20T08:00:32.342Z",401,Unauthorised
-"4.0","['<string>','<string>','<string>','<string>']","2028-11-10T07:20:21.222Z",403,Forbidden
-"5.0","['<string>']","2032-06-18T04:40:32.999Z",405,Method Not Allowed
-"6.0","['<string>','<string>']","2034-05-28T09:00:00.000Z",406,Not Acceptable
-"7.0","['<string>','<string>','<string>']","2036-04-08T03:15:40.600Z",415,Unsupported Media Type
-"8.0","['<string>','<string>','<string>','<string>']","2031-03-22T01:30:20.200Z",429,Too Many Requests
-"9.0","['<string>']","2027-02-12T06:00:00.000Z",500,Internal Server Error
-"10.0","['<string>','<string>']","2026-01-02T02:30:30.300Z",503,Service Unavailable
-"11.0","['<string>','<string>','<string>']","2029-12-31T10:10:10.100Z",504,Gateway Timeout
+"2.0","['<string>','<string>']","2030-12-10T08:30:10.444Z",201,Created
+"3.0","['<string>','<string>','<string>']","2025-10-20T08:00:32.342Z",
+"4.0","['<string>','<string>','<string>','<string>']","2028-11-10T07:20:21.222Z",201,Created
+"5.0","['<string>']","2032-06-18T04:40:32.999Z",
+"6.0","['<string>','<string>']","2034-05-28T09:00:00.000Z",201,Created
+"7.0","['<string>','<string>','<string>']","2036-04-08T03:15:40.600Z",
+"8.0","['<string>','<string>','<string>','<string>']","2031-03-22T01:30:20.200Z",201,Created
+"9.0","['<string>']","2027-02-12T06:00:00.000Z",
+"10.0","['<string>','<string>']","2026-01-02T02:30:30.300Z",201,Created
+"11.0","['<string>','<string>','<string>']","2029-12-31T10:10:10.100Z",201,Created
