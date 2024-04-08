@@ -57,4 +57,4 @@ postman collection run modified_postman_AMH_DirectDebit-Swagger.json -i consent-
 
 ## Contact
 
-For more information about RoostGPT or our other products and services, please visit our website at [roost.io](https://roost.ai) or contact us at [support@roost.ai](mailto:support@roost.ai).
+For more information about RoostGPT or our other products and services, please visit our website at [roost.ai](https://roost.ai) or contact us at [support@roost.ai](mailto:support@roost.ai).
