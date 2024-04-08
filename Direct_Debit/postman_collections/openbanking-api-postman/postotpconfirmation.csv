@@ -1,0 +1,10 @@
+version,mandateIdentification,bankCode,accountIdentification,currency,accountSchemeName,accountSubType,otpIdentificationNumber,otpPassword,statusCode,scenario
+1.0,"ulla","123","abcd123","USD","BBAN","Current Account","1234567890","password1",201,Created
+1.0,"abcd","456","abcd456","EUR","BBAN","Savings Account","2345678901","password2",400,Bad Request
+1.0,"efgh","789","defg789","GBP","BBAN","Student Account","3456789012","password3",401,Authorisation failure
+1.0,"ijkl","012","ijkl012","JPY","BBAN","CACC","4567890123","password4",403,Authentication failure
+1.0,"mnop","345","mnop345","AUD","BBAN","CARD","5678901234","password5",404,Not Found
+1.0,"qrst","678","qrst678","CAD","BBAN","DDA – Current & Savings Accounts or CDA – Term Deposits or ILA – Loans or CCA – Credit Cards or OTH - Other","6789012345","password6",405,Method Not Allowed
+1.0,"uvwx","901","uvwx901","INR","BBAN","Current Account","7890123456","password7",406,Not Acceptable
+1.0,"yzab","234","yzab234","CNY","BBAN","Savings Account","8901234567","password8",415,Media Not Supported
+1.0,"cdef","567","cdef567","BRL","BBAN","Student Account","9012345678","password9",500,Internal Server Error

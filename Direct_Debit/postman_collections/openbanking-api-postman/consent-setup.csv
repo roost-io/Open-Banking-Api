@@ -1,0 +1,12 @@
+version,permissions,expirationDate,statusCode,scenario
+1.0,"['read', 'write']","2022-10-01T00:00:00.000Z",201,"Created"
+2.0,"['read', 'delete']","2023-05-20T00:00:00.000Z",400,"Bad Request"
+3.0,"['write', 'update','delete']","2021-08-15T00:00:00.000Z",401,"Unauthorised"
+4.0,"['read', 'update']","2020-01-01T00:00:00.000Z",403,"Forbidden"
+5.0,"['update', 'delete']","2022-05-05T00:00:00.000Z",405,"Method Not Allowed"
+6.0,"['read', 'write', 'update', 'delete']","2023-11-11T00:00:00.000Z",406,"Not Acceptable"
+7.0,"['read', 'write', 'delete']","2023-09-09T00:00:00.000Z",415,"Unsupported Media Type"
+8.0,"['write', 'update']","2024-04-04T00:00:00.000Z",429,"Too Many Requests"
+9.0,"['read', 'delete']","2022-07-07T00:00:00.000Z",500,"Internal Server Error"
+10.0,"['update', 'delete']","2025-02-02T00:00:00.000Z",503,"Service Unavailable"
+11.0,"['read', 'write', 'update', 'delete']","2023-12-12T00:00:00.000Z",504,"Gateway Timeout"

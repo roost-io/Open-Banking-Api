@@ -1,0 +1,11 @@
+consentId,version,statusCode,scenario
+"98jes7","938jdjfh7",204,"No Content"
+"f87jjs","hf874jsf",400,"Bad Request"
+"874jsd","j873nvjs",401,"Unauthorised"
+"h8sjpdf","873vfnek",403,"Forbidden"
+"38hjebf","83whs7sj",405,"Method Not Allowed"
+"943jed","29ashba8",406,"Not Acceptable"
+"87h3hfj","h37bjsd",429,"Too Many Requests"
+"83hsjdv","63j8eff",500,"Internal Server Error"
+"783gbjs","b738s71",503,"Service Unavailable"
+"938jas9","kasncij1",504,"Gateway Timeout"

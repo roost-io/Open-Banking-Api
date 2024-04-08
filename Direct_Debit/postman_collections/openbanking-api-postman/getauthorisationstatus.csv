@@ -1,0 +1,10 @@
+version,merchantRequestIdentification,bankCode,accountIdentification,currency,accountSchemeName,accountSubType,statusCode,scenario
+2.1.0,Lore12345,745,Lore12345,USD,BBAN,Current Account,201,Created
+2.2.0,Sed45678,896,Sed45678,EUR,BBAN,Savings Account,400,Bad Request
+2.3.0,Ipsum98765,335,Ipsum98765,GBP,BBAN,Student Account,401,Authorisation failure
+2.4.0,Dolor53210,114,Dolor53210,JPN,BBAN,CACC,403,Authentication failure
+2.5.0,Amet76543,287,Amet76543,CHF,BBAN,CARD,404,Not Found
+2.6.0,Consectetur89012,560,Consectetur89012,AUD,BBAN,DDA,405,Method Not Allowed
+2.7.0,Adipiscing23109,983,Adipiscing23109,INR,BBAN,CDA,406,Not Acceptable
+2.8.0,Elit56432,412,Elit56432,ZAR,BBAN,ILA,415,Media Not Supported
+2.9.0,Eiusmod09876,876,Eiusmod09876,RUB,BBAN,CCA,500,Internal Server Error

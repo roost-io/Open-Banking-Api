@@ -1,0 +1,10 @@
+version,merchantInstructionIdentification,bankCode,accountIdentification,currency,accountSchemeName,accountSubType,instructedAmount,instructedAmountCurrency,mandateIdentification,debtorName,creditorReference,remittanceInformation,smsLanguageCode,statusCode,scenario
+1.0,"abcd1234","123","abc123de","USD","BBAN","Current Account","1000.00","USD","mId123","John Doe","123Creditor","Information here","eng",201,Created
+1.1,"efgh5678","456","efg456hi","GBP","BBAN","Savings Account","2000.00","GBP","mId456","Jane Doe","456Creditor","Information here","zh-s",400,Bad Request
+1.2,"ijkl9012","789","ijk789lm","EUR","BBAN","Student Account","3000.00","EUR","mId789","Jim Doe","789Creditor","Information here","zh-t",401,Authorisation failure
+1.3,"mnop3456","321","mno321pq","JPY","BBAN","CACC","4000.00","JPY","mId321","Jack Doe","321Creditor","Information here","eng",403,Authentication failure
+1.4,"qrst7890","654","qrs654tu","CAD","BBAN","DDA – Current & Savings Accounts","5000.00","CAD","mId654","Jill Doe","654Creditor","Information here","zh-t",404,Not Found
+1.5,"uvwx1234","987","uvw987xy","AUD","BBAN","CDA – Term Deposits","6000.00","AUD","mId987","Jake Doe","987Creditor","Information here","eng",405,Method Not Allowed
+1.6,"yzab5678","210","yzb210cd","BRL","BBAN","ILA – Loans","7000.00","BRL","mId210","Jen Doe","210Creditor","Information here","zh-s",406,Not Acceptable
+1.7,"cdef9012","543","cde543ef","CNY","BBAN","CCA – Credit Cards","8000.00","CNY","mId543","Jerry Doe","543Creditor","Information here","eng",415,Media Not Supported
+1.8,"ghij3456","876","ghi876kl","INR","BBAN","OTH - Other","9000.00","INR","mId876","Jesse Doe","876Creditor","Information here","zh-s",500,Internal Server Error

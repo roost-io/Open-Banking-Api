@@ -1,0 +1,11 @@
+consentId,version,statusCode,scenario
+"minim reprehenderit","169.254.169.254",200,OK
+"string","169.254.169.254",400,"Bad Request"
+"voluptate Lore","169.254.169.254",401,Unauthorised
+"ullamco","169.254.169.254",403,Forbidden
+"{\"code\": \"sed qui\"}","169.254.169.254",405,"Method Not Allowed"
+"{}","169.254.169.254",406,Not Acceptable
+"{\"message\": \"nisi dolor\"}","169.254.169.254",429,"Too Many Requests"
+"nisi dolor","169.254.169.254",500,"Internal Server Error"
+"{}","169.254.169.254",503,"Service Unavailable"
+"voluptate Lore","169.254.169.254",504,"Gateway Timeout"
