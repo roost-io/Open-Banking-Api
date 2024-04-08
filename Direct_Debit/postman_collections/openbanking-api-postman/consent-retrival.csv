@@ -1,0 +1,11 @@
+consentId,version,statusCode,scenario
+"rep","1.0",200,OK
+"randomValue","1.0",400,Bad Request
+"randomValue","1.0",401,Unauthorised
+"randomValue","1.0",403,Forbidden
+"randomValue","1.0",405,Method Not Allowed
+"randomValue","1.0",406,Not Acceptable
+"randomValue","1.0",429,Too Many Requests
+"randomValue","1.0",500,Internal Server Error
+"randomValue","1.0",503,Service Unavailable
+"randomValue","1.0",504,Gateway Timeout

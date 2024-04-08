@@ -1,0 +1,10 @@
+version,merchantInstructionIdentification,bankCode,accountIdentification,currency,accountSchemeName,accountSubType,instructedAmount,instructedAmountCurrency,mandateIdentification,debtorName,creditorReference,remittanceInformation,smsLanguageCode,statusCode,scenario
+1.0,"test123","123","abc123","USD","BBAN","Current Account","100.00","USD","mandate123","John Doe","credRef123","remInfo123","eng",201,"Created"
+1.0,"test124","124","abc124","EUR","BBAN","Savings Account","200.00","EUR","mandate124","Jane Doe","credRef124","remInfo124","zh-s",400,"Bad Request"
+1.0,"test125","125","abc125","GBP","BBAN","Student Account","300.00","GBP","mandate125","Jim Doe","credRef125","remInfo125","zh-t",401,"Authorisation failure"
+1.0,"test126","126","abc126","JPY","BBAN","CACC","400.00","JPY","mandate126","Jack Doe","credRef126","remInfo126","eng",403,"Authentication failure"
+1.0,"test127","127","abc127","AUD","BBAN","CARD","500.00","AUD","mandate127","Jerry Doe","credRef127","remInfo127","eng",404,"Not Found"
+1.0,"test128","128","abc128","CAD","BBAN","DDA – Current & Savings Accounts","600.00","CAD","mandate128","Jessy Doe","credRef128","remInfo128","zh-s",405,"Method Not Allowed"
+1.0,"test129","129","abc129","INR","BBAN","CDA – Term Deposits","700.00","INR","mandate129","Jemmy Doe","credRef129","remInfo129","zh-t",406,"Not Acceptable"
+1.0,"test130","130","abc130","CNY","BBAN","ILA – Loans","800.00","CNY","mandate130","Jenifer Doe","credRef130","remInfo130","eng",415,"Media Not Supported"
+1.0,"test131","131","abc131","SGD","BBAN","CCA – Credit Cards","900.00","SGD","mandate131","Joshua Doe","credRef131","remInfo131","eng",500,"Internal Server Error"

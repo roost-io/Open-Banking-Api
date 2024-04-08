@@ -1,0 +1,10 @@
+version,mandateIdentification,bankCode,accountIdentification,currency,accountSchemeName,accountSubType,otpIdentificationNumber,otpPassword,statusCode,scenario
+1.0,"aliquip aliqua eu ea","123","abcdefghijklmnopq","USD","BBAN","Current Account","9876543210","pass1234",201,"Created"
+2.0,"randomStringValue","321","qrstuvwxyzabcdefghi","EUR","BBAN","Savings Account","1234567890","pass5678",400,"Bad Request"
+3.0,"randomStringValueTwo","456","highxzzuvwopqrst","GBP","BBAN","Student Account","8529637412","pass9123",401,"Authorisation failure"
+4.0,"randomStringValueThree","789","lowzyxwvutsrqpo","JPY","BBAN","Current Account","7412589630","pass4591",403,"Authentication failure"
+5.0,"randomStringValueFour","654","abcdefzyxwvtnm","CNY","BBAN","Savings Account","7539514862","pass1827",404,"Not Found"
+6.0,"randomStringValueFive","987","mnopqrslkjhgewx","INR","BBAN","Student Account","6217893540","pass6723",405,"Method Not Allowed"
+7.0,"randomStringValueSix","365","zyxwvustrqponma","AUD","BBAN","Current Account","1597534568","pass9326",406,"Not Acceptable"
+8.0,"randomStringValueSeven","741","lkjhgfzyxwvutsr","CAD","BBAN","Savings Account","2678109324","pass7362",415,"Media Not Supported"
+9.0,"randomStringValueEight","852","zyxwvutsrqponmlk","NZD","BBAN","Student Account","9751348620","pass0214",500,"Internal Server Error"

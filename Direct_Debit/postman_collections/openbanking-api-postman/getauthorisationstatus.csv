@@ -1,0 +1,10 @@
+version,merchantRequestIdentification,bankCode,accountIdentification,currency,accountSchemeName,accountSubType,statusCode,scenario
+1.0,"0987","456","XCV5432","USD","BBAN","Current Account",201,"Created"
+2.0,"7654","123","BNH8765","GBP","BBAN","Savings Account",400,"Bad Request"
+1.5,"9876","789","PLM6543","EUR","BBAN","Student Account",401,"Authorisation failure"
+3.0,"4567","321","KJH9876","JPY","BBAN","CACC",403,"Authentication failure"
+1.3,"2345","654","QWE4321","INR","BBAN","CARD",404,"Not Found"
+2.5,"8765","987","YUI7894","AUD","BBAN","DDA",405,"Method Not Allowed"
+1.2,"5432","456","HGF6789","CHF","BBAN","CDA",406,"Not Acceptable"
+3.8,"1098","231","DFG8923","CAD","BBAN","ILA",415,"Media Not Supported"
+1.7,"8965","345","JKL5678","NZD","BBAN","CCA",500,"Internal Server Error"

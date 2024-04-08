@@ -1,0 +1,11 @@
+version,merchantInstructionIdentification,bankCode,accountIdentification,currency,accountSchemeName,accountSubType,statusCode,scenario
+1.0.0,"Lorem1","123","ID123","USD","BBAN","Current Account",201,Created
+1.0.0,"Lorem2","456","ID456","EUR","BBAN","Savings Account",400,Bad Request
+1.0.0,"Lorem3","789","ID789","JPY","BBAN","Student Account",401,Authorisation failure
+1.0.0,"Lorem4","321","ID321","GBP","BBAN","CACC",403,Authentication failure
+1.0.0,"Lorem5","654","ID654","CAD","BBAN","CARD",404,Not Found
+1.0.0,"Lorem6","987","ID987","AUD","BBAN","DDA – Current & Savings Accounts",405,Method Not Allowed
+1.0.0,"Lorem7","543","ID543","CNY","BBAN","CDA – Term Deposits",406,Not Acceptable
+1.0.0,"Lorem8","210","ID210","CHF","BBAN","ILA – Loans",415,Media Not Supported
+1.0.0,"Lorem9","876","ID876","SEK","BBAN","CCA – Credit Cards",500,Internal Server Error
+1.0.0,"Lorem10","789","ID789","NZD","BBAN","OTH - Other",500,Internal Server Error
