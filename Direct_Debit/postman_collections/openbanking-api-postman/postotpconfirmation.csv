@@ -1,0 +1,10 @@
+version,mandateIdentification,bankCode,accountIdentification,currency,accountSchemeName,accountSubType,otpIdentificationNumber,otpPassword,statusCode,scenario
+1.0,"officia","123","abc123","USD","BBAN","Savings Account","xyz","pqr",201,"Created"
+1.0,"random","123","abc123","USD","BBAN","Savings Account","xyz","pqr",400,"Bad Request"
+1.0,"random","123","abc123","USD","BBAN","Savings Account","xyz","pqr",401,"Authorisation failure"
+1.0,"random","123","abc123","USD","BBAN","Savings Account","xyz","pqr",403,"Authentication failure"
+1.0,"random","123","abc123","USD","BBAN","Savings Account","xyz","pqr",404,"Not Found"
+1.0,"random","123","abc123","USD","BBAN","Savings Account","xyz","pqr",405,"Method Not Allowed"
+1.0,"random","123","abc123","USD","BBAN","Savings Account","xyz","pqr",406,"Not Acceptable"
+1.0,"random","123","abc123","USD","BBAN","Savings Account","xyz","pqr",415,"Media Not Supported"
+1.0,"random","123","abc123","USD","BBAN","Savings Account","xyz","pqr",500,"Internal Server Error"

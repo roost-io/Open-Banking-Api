@@ -1,0 +1,10 @@
+version,merchantInstructionIdentification,bankCode,accountIdentification,currency,accountSchemeName,accountSubType,instructedAmount,instructedAmountCurrency,mandateIdentification,debtorName,creditorReference,remittanceInformation,smsLanguageCode,statusCode,scenario
+1.0,"ABC123","123","XYZ789","USD","BBAN","Current Account","100.00","USD","MID123","John Doe","CR123","Payment for services","eng",201,"Created"
+2.0,"DEF456","456","ABC123","EUR","BBAN","Savings Account","200.00","EUR","MID456","Jane Doe","CR456","Payment for goods","eng",400,"Bad Request"
+3.0,"GHI789","789","DEF456","GBP","BBAN","Student Account","300.00","GBP","MID789","Bob Smith","CR789","Payment for invoice","eng",401,"Authorisation failure"
+4.0,"JKL012","012","GHI789","JPY","BBAN","CACC","400.00","JPY","MID012","Alice Johnson","CR012","Payment for contract","eng",403,"Authentication failure"
+5.0,"MNO345","345","JKL012","CAD","BBAN","CARD","500.00","CAD","MID345","Charlie Brown","CR345","Payment for services","eng",404,"Not Found"
+6.0,"PQR678","678","MNO345","AUD","BBAN","DDA – Current & Savings Accounts","600.00","AUD","MID678","Emily Davis","CR678","Payment for goods","eng",405,"Method Not Allowed"
+7.0,"STU901","901","PQR678","NZD","BBAN","CDA – Term Deposits","700.00","NZD","MID901","George Wilson","CR901","Payment for invoice","eng",406,"Not Acceptable"
+8.0,"VWX234","234","STU901","CHF","BBAN","ILA – Loans","800.00","CHF","MID234","Helen Miller","CR234","Payment for contract","eng",415,"Media Not Supported"
+9.0,"YZA567","567","VWX234","SEK","BBAN","CCA – Credit Cards","900.00","SEK","MID567","Frank Thomas","CR567","Payment for services","eng",500,"Internal Server Error"

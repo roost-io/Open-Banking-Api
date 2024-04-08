@@ -1,0 +1,10 @@
+version,bankCode,accountIdentification,currency,accountSchemeName,accountSubType,reportType,reportingDate,statusCode,scenario
+1.0,001,123456789,USD,BBAN,Current Account,DDAReport,2022-10-01,201,"Created"
+1.0,001,123456789,USD,BBAN,Savings Account,DDIReport,2022-10-01,400,"Bad Request"
+1.0,001,123456789,USD,BBAN,Student Account,DDAReport,2022-10-01,401,"Unauthorized"
+1.0,001,123456789,USD,BBAN,CACC,DDIReport,2022-10-01,403,"Forbidden"
+1.0,001,123456789,USD,BBAN,CARD,DDAReport,2022-10-01,404,"Not Found"
+1.0,001,123456789,USD,BBAN,DDA – Current,DDIReport,2022-10-01,405,"Method Not Allowed"
+1.0,001,123456789,USD,BBAN,Savings Accounts,DDAReport,2022-10-01,406,"Not Acceptable"
+1.0,001,123456789,USD,BBAN,CDA – Term Deposits,DDIReport,2022-10-01,415,"Unsupported Media Type"
+1.0,001,123456789,USD,BBAN,ILA – Loans,DDAReport,2022-10-01,500,"Internal Server Error"

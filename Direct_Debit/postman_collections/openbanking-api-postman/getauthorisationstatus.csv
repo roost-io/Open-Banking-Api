@@ -1,0 +1,10 @@
+version,merchantRequestIdentification,bankCode,accountIdentification,currency,accountSchemeName,accountSubType,statusCode,scenario
+1.0,"aBc123","123","XyZ12345","USD","BBAN","Current Account",201,"Created"
+1.1,"dEf456","456","yZa78901","EUR","BBAN","Savings Account",400,"Bad Request"
+1.2,"gHi789","789","aBc23456","GBP","BBAN","Student Account",401,"Authorisation failure"
+2.0,"jKl012","012","dEf34567","JPY","BBAN","CACC",403,"Authentication failure"
+2.1,"mNo345","345","gHi45678","AUD","BBAN","DDL",404,"Not Found"
+2.2,"pQr678","678","jKl56789","CAD","BBAN","CDL",405,"Method Not Allowed"
+3.0,"sTu901","901","mNo67890","CHF","BBAN","ILA",406,"Not Acceptable"
+3.1,"vWx234","234","pQr78901","SEK","BBAN","CCA",415,"Media Not Supported"
+3.2,"yZa567","567","sTu89012","NOK","BBAN","OTH",500,"Internal Server Error"
