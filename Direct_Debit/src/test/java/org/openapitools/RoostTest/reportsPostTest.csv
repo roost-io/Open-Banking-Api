@@ -1,0 +1,11 @@
+Authorization,AdditionalCSVvaluInfo,x-fapi-customer-ip-address,x-fapi-auth-date,x-fapi-interaction-id,x-idempotency-key,reportType,reportingDate,creditorAccount,bankCode,accountIdentification,currency,accountSchemeName,accountSubType,statusCode
+AuthKey123,LbGpjj8KaH5wrEfg,192.168.1.1,2021-01-01T00:00:00Z,InteracID_01,IdemKey_01,DDAReport,2021-01-01,Accnt_01,123,AccntID_01,USD,BBAN,Current Account,201
+AuthKey456,LbGpjj8KaH5wrEfg,192.168.1.2,2021-02-01T00:00:00Z,InteracID_02,IdemKey_02,DDIReport,2021-02-01,Accnt_02,234,AccntID_02,EUR,BBAN,Savings Account,401
+AuthKey789,LbGpjj8KaH5wrEfg,192.168.1.3,2021-03-01T00:00:00Z,InteracID_03,IdemKey_03,DDAReport,2021-03-01,Accnt_03,345,AccntID_03,GBP,BBAN,Student Account,400
+AuthKey012,LbGpjj8KaH5wrEfg,192.168.1.4,2021-04-01T00:00:00Z,InteracID_04,IdemKey_04,DDIReport,2021-04-01,Accnt_04,456,AccntID_04,AUD,BBAN,CACC,403
+AuthKey345,LbGpjj8KaH5wrEfg,192.168.1.5,2021-05-01T00:00:00Z,InteracID_05,IdemKey_05,DDAReport,2021-05-01,Accnt_05,567,AccntID_05,CNY,BBAN,CARD,404
+AuthKey678,LbGpjj8KaH5wrEfg,192.168.1.6,2021-06-01T00:00:00Z,InteracID_06,IdemKey_06,DDIReport,2021-06-01,Accnt_06,678,AccntID_06,JPY,BBAN,DDA – Current & Savings Accounts or CDA – Term Deposits or ILA – Loans or CCA – Credit Cards or OTH - Other,405
+AuthKey901,LbGpjj8KaH5wrEfg,192.168.1.7,2021-07-01T00:00:00Z,InteracID_07,IdemKey_07,DDAReport,2021-07-01,Accnt_07,789,AccntID_07,INR,BBAN,CACC,415
+AuthKey111,LbGpjj8KaH5wrEfg,192.168.1.8,2021-08-01T00:00:00Z,InteracID_08,IdemKey_08,DDIReport,2021-08-01,Accnt_08,111,AccntID_08,BRL,BBAN,CARD,406
+AuthKey222,LbGpjj8KaH5wrEfg,192.168.1.9,2021-09-01T00:00:00Z,InteracID_09,IdemKey_09,DDAReport,2021-09-01,Accnt_09,222,AccntID_09,CAD,BBAN,DDA – Current & Savings Accounts or CDA – Term Deposits or ILA – Loans or CCA – Credit Cards or OTH - Other,500
+AuthKey333,LbGpjj8KaH5wrEfg,192.168.1.10,2021-10-01T00:00:00Z,InteracID_10,IdemKey_10,DDIReport,2021-10-01,Accnt_10,333,AccntID_10,RUB,BBAN,Savings Account,201

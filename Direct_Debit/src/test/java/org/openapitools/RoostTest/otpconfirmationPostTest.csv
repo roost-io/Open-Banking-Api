@@ -1,0 +1,11 @@
+Authorization,AdditionalCSVvaluInfo,x-fapi-customer-ip-address,x-fapi-auth-date,x-fapi-interaction-id,x-idempotency-key,mandateIdentification,otpIdentificationNumber,otpPassword,creditorAccount,bankCode,accountIdentification,currency,accountSchemeName,accountSubType,statusCode
+AuthToken1,LbGpjj8KaH5wrEfg,192.168.1.1,2021-12-01T12:00:00Z,Interact1,Idempotency1,Mandate1,OtpId1,OtpPass1,Account1,001,AccId1,USD,BBAN,Current Account,201
+AuthToken2,LbGpjj8KaH5wrEfg,192.168.1.2,2021-12-02T12:00:00Z,Interact2,Idempotency2,Mandate2,OtpId2,OtpPass2,Account2,002,AccId2,EUR,BBAN,Savings Account,400
+AuthToken3,LbGpjj8KaH5wrEfg,192.168.1.3,2021-12-03T12:00:00Z,Interact3,Idempotency3,Mandate3,OtpId3,OtpPass3,Account3,003,AccId3,GBP,BBAN,Student Account,401
+AuthToken4,LbGpjj8KaH5wrEfg,192.168.1.4,2021-12-04T12:00:00Z,Interact4,Idempotency4,Mandate4,OtpId4,OtpPass4,Account4,004,AccId4,AUD,BBAN,CACC,403
+AuthToken5,LbGpjj8KaH5wrEfg,192.168.1.5,2021-12-05T12:00:00Z,Interact5,Idempotency5,Mandate5,OtpId5,OtpPass5,Account5,005,AccId5,JPY,BBAN,CARD,404
+AuthToken6,LbGpjj8KaH5wrEfg,192.168.1.6,2021-12-06T12:00:00Z,Interact6,Idempotency6,Mandate6,OtpId6,OtpPass6,Account6,006,AccId6,CHF,BBAN,DDA – Current & Savings Accounts,405
+AuthToken7,LbGpjj8KaH5wrEfg,192.168.1.7,2021-12-07T12:00:00Z,Interact7,Idempotency7,Mandate7,OtpId7,OtpPass7,Account7,007,AccId7,CAD,BBAN,CDA – Term Deposits,406
+AuthToken8,LbGpjj8KaH5wrEfg,192.168.1.8,2021-12-08T12:00:00Z,Interact8,Idempotency8,Mandate8,OtpId8,OtpPass8,Account8,008,AccId8,SEK,BBAN,ILA – Loans,415
+AuthToken9,LbGpjj8KaH5wrEfg,192.168.1.9,2021-12-09T12:00:00Z,Interact9,Idempotency9,Mandate9,OtpId9,OtpPass9,Account9,009,AccId9,INR,BBAN,CCA – Credit Cards,500
+AuthToken10,LbGpjj8KaH5wrEfg,192.168.1.10,2021-12-10T12:00:00Z,Interact10,Idempotency10,Mandate10,OtpId10,OtpPass10,Account10,010,AccId10,CNY,BBAN,OTH - Other,201

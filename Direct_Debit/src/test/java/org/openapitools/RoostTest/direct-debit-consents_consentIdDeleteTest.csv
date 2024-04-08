@@ -1,0 +1,11 @@
+consentId,AdditionalCSVvaluInfo,Authorization,x-fapi-auth-date,x-fapi-customer-ip-address,x-fapi-interaction-id,Accept-Language,statusCode
+cg87JH34,169.254.169.254,bearer_83bd467,2022-01-12T09:45:32Z,203.0.113.0,interaction_78Gt87Tgy,en-HK,204
+vhS4ty89,169.254.169.254,bearer_12Tf567,2022-01-13T10:34:20Z,203.0.113.1,interaction_Try67Uhb,zh-HK,400
+jkHGby78,169.254.169.254,bearer_Yu87yGh,2022-01-14T11:45:55Z,203.0.113.2,interaction_Uh65Rfdy,zh-CN,401
+ls89Tyvb,169.254.169.254,bearer_8Uhgh564,2022-01-15T10:23:56Z,203.0.113.3,interaction_Rt56Tgb,en-HK,403
+dheTy78H,169.254.169.254,bearer_5Ufkj432,2022-01-16T09:36:04Z,203.0.113.4,interaction_Vg76Rfgh,zh-HK,405
+uy67PLtg,169.254.169.254,bearer_9Uhmf201,2022-01-17T10:34:02Z,203.0.113.5,interaction_Aq76Gtfd,zh-CN,406
+jhy51Bng,169.254.169.254,bearer_4357Lkhb,2022-01-18T11:34:32Z,203.0.113.6,interaction_Olk76Ubn,en-HK,429
+ct51Hngy,169.254.169.254,bearer_p90Ujnbv,2022-01-19T06:25:43Z,203.0.113.7,interaction_Ik87Uhby,zh-HK,500
+olk67Tgf,169.254.169.254,bearer_Ujh89Jh,2022-01-20T07:14:22Z,203.0.113.8,interaction_Tg78Ujgy,zh-CN,503
+qwe67Rfg,169.254.169.254,bearer_r56Tgfd,2022-01-12T09:45:48Z,203.0.113.9,interaction_Bn67Rfgh,en-HK,504

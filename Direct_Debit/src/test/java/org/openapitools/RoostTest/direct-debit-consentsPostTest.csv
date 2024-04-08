@@ -1,0 +1,11 @@
+Authorization,AdditionalCSVvaluInfo,Content-Type,x-fapi-auth-date,x-fapi-customer-ip-address,x-fapi-interaction-id,Accept-Language,data,permissions,expirationDate,statusCode
+authToken1,169.254.169.254,application/json,2022-03-20T14:30:00Z,192.168.1.1,interaction1,en-HK,{ "name": "John Doe", "email": "john@example.com" },[ "read", "write", "delete", "create" ],2022-03-25T14:30:00Z,201
+authToken2,169.254.169.254,application/xml,2022-03-21T14:30:00Z,192.168.1.2,interaction2,zh-HK,{ "name": "Jane Doe", "email": "jane@example.com" },[ "read", "create" ],2022-03-26T14:30:00Z,401
+authToken3,169.254.169.254,text/plain,2022-03-22T14:30:00Z,192.168.1.3,interaction3,zh-CN,{ "name": "Jack Doe", "email": "jack@example.com" },[ "read", "write" ],2022-03-27T14:30:00Z,403
+authToken4,169.254.169.254,application/json,2022-03-23T14:30:00Z,192.168.1.4,interaction4,en-HK,{ "name": "Jill Doe", "email": "jill@example.com" },[ "read", "delete" ],2022-03-28T14:30:00Z,405
+authToken5,169.254.169.254,text/html,2022-03-24T14:30:00Z,192.168.1.5,interaction5,zh-HK,{ "name": "Jimmy Doe", "email": "jimmy@example.com" },[ "write", "create" ],2022-03-29T14:30:00Z,406
+authToken6,169.254.169.254,application/xml,2022-03-25T14:30:00Z,192.168.1.6,interaction6,en-HK,{ "name": "Julie Doe", "email": "julie@example.com" },[ "delete", "create" ],2022-03-30T14:30:00Z,415
+authToken7,169.254.169.254,text/plain,2022-03-26T14:30:00Z,192.168.1.7,interaction7,zh-CN,{ "name": "Joe Doe", "email": "joe@example.com" },[ "read", "write", "delete" ],2022-03-31T14:30:00Z,429
+authToken8,169.254.169.254,text/html,2022-03-27T14:30:00Z,192.168.1.8,interaction8,zh-HK,{ "name": "Jess Doe", "email": "jess@example.com" },[ "read", "write", "create" ],2022-04-01T14:30:00Z,500
+authToken9,169.254.169.254,application/json,2022-03-28T14:30:00Z,192.168.1.9,interaction9,en-HK,{ "name": "Jen Doe", "email": "jen@example.com" },[ "delete", "create" ],2022-04-02T14:30:00Z,503
+authToken10,169.254.169.254,application/xml,2022-03-29T14:30:00Z,192.168.1.10,interaction10,zh-CN,{ "name": "Jay Doe", "email": "jay@example.com" },[ "read", "write", "delete", "create" ],2022-04-03T14:30:00Z,504

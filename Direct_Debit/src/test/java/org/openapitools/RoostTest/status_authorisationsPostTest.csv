@@ -1,0 +1,11 @@
+Authorization,AdditionalCSVvaluInfo,x-fapi-customer-ip-address,x-fapi-auth-date,x-fapi-interaction-id,x-idempotency-key,merchantRequestIdentification,creditorAccount,bankCode,accountIdentification,currency,accountSchemeName,accountSubType,statusCode
+Bearer_123,LbGpjj8KaH5wrEfg,192.168.1.1,2022-02-13T12:12:12Z,INTERACTION123,Idempotency_123,ReqId123,CreditorAcc123,123,AccId123,USD,BBAN,Savings Account,201
+Bearer_456,LbGpjj8KaH5wrEfg,10.0.0.1,2022-02-14T13:13:13Z,INTERACTION456,Idempotency_456,ReqId456,CreditorAcc456,456,AccId456,GBP,BBAN,Current Account,403
+Bearer_789,LbGpjj8KaH5wrEfg,172.16.1.1,2022-02-15T14:14:14Z,INTERACTION789,Idempotency_789,ReqId789,CreditorAcc789,789,AccId789,EUR,BBAN,Student Account,500
+Bearer_321,LbGpjj8KaH5wrEfg,192.168.2.1,2022-02-16T15:15:15Z,INTERACTION321,Idempotency_321,ReqId321,CreditorAcc321,321,AccId321,JPY,BBAN,CACC,406
+Bearer_654,LbGpjj8KaH5wrEfg,10.0.2.1,2022-02-17T16:16:16Z,INTERACTION654,Idempotency_654,ReqId654,CreditorAcc654,654,AccId654,CHF,BBAN,CARD,400
+Bearer_987,LbGpjj8KaH5wrEfg,172.16.2.1,2022-02-18T17:17:17Z,INTERACTION987,Idempotency_987,ReqId987,CreditorAcc987,987,AccId987,CAD,BBAN,DDA – Current & Savings Accounts or CDA – Term Deposits or ILA – Loans or CCA – Credit Cards or OTH - Other,415
+Bearer_112,LbGpjj8KaH5wrEfg,192.168.3.1,2022-02-19T18:18:18Z,INTERACTION112,Idempotency_112,ReqId112,CreditorAcc112,112,AccId112,AUD,BBAN,Current Account,201
+Bearer_335,LbGpjj8KaH5wrEfg,10.0.3.1,2022-02-20T19:19:19Z,INTERACTION335,Idempotency_335,ReqId335,CreditorAcc335,335,AccId335,SGD,BBAN,Savings Account,401
+Bearer_558,LbGpjj8KaH5wrEfg,172.16.3.1,2022-02-21T20:20:20Z,INTERACTION558,Idempotency_558,ReqId558,CreditorAcc558,558,AccId558,BRL,BBAN,Student Account,404
+Bearer_771,LbGpjj8KaH5wrEfg,192.168.4.1,2022-02-22T21:21:21Z,INTERACTION771,Idempotency_771,ReqId771,CreditorAcc771,771,AccId771,CNY,BBAN,CACC,405
