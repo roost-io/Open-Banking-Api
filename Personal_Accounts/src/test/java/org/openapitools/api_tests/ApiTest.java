@@ -14,8 +14,10 @@
       @Test
       void testAll() {
           String apiHostServer = System.getenv().getOrDefault("API_HOST", "http://localhost:8080");
+          String authToken=System.getenv().getOrDefault("AUTH_TOKEN", "AUTH_TOKEN");
           Results results = Runner.path("classpath:org/openapitools/api_tests")
                   .systemProperty("url.base", apiHostServer)
+                  .systemProperty("AUTH_TOKEN",authToken)
                   .parallel(1);
           assertEquals(0, results.getFailCount(), results.getErrorMessages());
       }

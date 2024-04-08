@@ -18,22 +18,23 @@ Background:
 
 Scenario Outline: Validate POST /events API
   Given path '/events'
-  And request """<requestBody>"""
+  And request <requestBody>
   And headers headers
   When method post
   Then status <statusCode>
-  And match response contains """<responseBody>"""
+  And match response contains <responseBody>
 
-Examples:
-|requestBody|statusCode|responseBody|
-|{"ack":["test"],"returnImmediately":true,"maxEvents":1}|201|{"sets":{}, "moreAvailable":true}|
-|{"ack":["test"],"returnImmediately":true,"maxEvents":1}|400|{"id":"", "errors":[]}|
-|{"ack":["test"],"returnImmediately":true,"maxEvents":1}|401|{}|
-|{"ack":["test"],"returnImmediately":true,"maxEvents":1}|403|{}|
-|{"ack":["test"],"returnImmediately":true,"maxEvents":1}|405|{"id":"", "errors":[]}|
-|{"ack":["test"],"returnImmediately":true,"maxEvents":1}|406|{"id":"", "errors":[]}|
-|{"ack":["test"],"returnImmediately":true,"maxEvents":1}|415|{"id":"", "errors":[]}|
-|{"ack":["test"],"returnImmediately":true,"maxEvents":1}|429|{"message":""}|
-|{"ack":["test"],"returnImmediately":true,"maxEvents":1}|500|{"id":"", "errors":[]}|
-|{"ack":["test"],"returnImmediately":true,"maxEvents":1}|503|{"message":""}|
-|{"ack":["test"],"returnImmediately":true,"maxEvents":1}|504|{"message":""}|
+  Examples:
+  |requestBody|statusCode|responseBody|
+  |{"ack":["test"],"returnImmediately":true,"maxEvents":1}|201|{"sets":"#object", "moreAvailable":true}|
+# |{"ack":["test"],"returnImmediately":true,"maxEvents":1}|400|{"id":"", "errors":[]}|
+# |{"ack":["test"],"returnImmediately":true,"maxEvents":1}|401|{}|
+# |{"ack":["test"],"returnImmediately":true,"maxEvents":1}|403|{}|
+# |{"ack":["test"],"returnImmediately":true,"maxEvents":1}|405|{"id":"", "errors":[]}|
+# |{"ack":["test"],"returnImmediately":true,"maxEvents":1}|406|{"id":"", "errors":[]}|
+# |{"ack":["test"],"returnImmediately":true,"maxEvents":1}|415|{"id":"", "errors":[]}|
+# |{"ack":["test"],"returnImmediately":true,"maxEvents":1}|429|{"message":""}|
+# |{"ack":["test"],"returnImmediately":true,"maxEvents":1}|500|{"id":"", "errors":[]}|
+# |{"ack":["test"],"returnImmediately":true,"maxEvents":1}|503|{"message":""}|
+# |{"ack":["test"],"returnImmediately":true,"maxEvents":1}|504|{"message":""}|
+# Examples for all other possible status codes cannot be tested as mock api is returning only status code 200 
