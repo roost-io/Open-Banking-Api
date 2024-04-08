@@ -68,6 +68,13 @@
       <scope>compile</scope>
       <!--Dependency added by RoostGPT-->
     </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>5.7.0</version>
+      <scope>test</scope>
+      <!--Dependency added by RoostGPT-->
+    </dependency>
     <!--SpringDoc dependencies -->
     <dependency>
       <groupId>org.springdoc</groupId>
