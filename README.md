@@ -10,7 +10,6 @@ To run rest assured test go to Direct Debit Folder and run
 
 ```
 mvn test
-
 ```
 
 To run individual tests:
@@ -52,9 +51,9 @@ postman collection run modified_postman_AMH_DirectDebit-Swagger.json -i consent-
 
 ![alt text](<Screenshot 2024-04-08 at 9.37.49 AM.png>)
 
-4. Click on `Run <Collection Name>` button at bottom.
+4. Click on `Run <Collection Name>` button at bottom to see the test results.
 
-
+![alt text](<Screenshot 2024-04-08 at 9.57.49 AM.png>)
 
 
 ## Contact
