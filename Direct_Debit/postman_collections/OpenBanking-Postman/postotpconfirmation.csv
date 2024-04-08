@@ -1,0 +1,10 @@
+version,mandateIdentification,bankCode,accountIdentification,currency,accountSchemeName,accountSubType,otpIdentificationNumber,otpPassword,statusCode,scenario
+1.0,amet,123,abcd123,USD,BBAN,Current Account,oth1,pass123,201,Created
+1.0,amet,456,efgh456,EUR,BBAN,Savings Account,oth2,pass456,400,Bad Request
+1.0,amet,789,ijkl789,GBP,BBAN,Student Account,oth3,pass789,401,Authorisation failure
+1.0,amet,321,mnop321,JPY,BBAN,CACC,oth4,pass321,403,Authentication failure
+1.0,amet,654,qrst654,AUD,BBAN,CARD,oth5,pass654,404,Not Found
+1.0,amet,987,uvwx987,CHF,BBAN,DDA,oth6,pass987,405,Method Not Allowed
+1.0,amet,135,xyza135,SAR,BBAN,CDA,oth7,pass135,406,Not Acceptable
+1.0,amet,246,bcde246,INR,BBAN,ILA,oth8,pass246,415,Media Not Supported
+1.0,amet,369,efgj369,CAD,BBAN,CCA,oth9,pass369,500,Internal Server Error

@@ -1,0 +1,10 @@
+version,merchantRequestIdentification,bankCode,accountIdentification,currency,accountSchemeName,accountSubType,statusCode,scenario
+1.0,ABC123,123,XYZ789,USD,BBAN,Current Account,201,Created
+1.0,DEF456,456,GHI012,EUR,BBAN,Savings Account,400,Bad Request
+1.0,GHI789,789,DEF345,GBP,BBAN,Student Account,401,Authorisation failure
+1.0,JKL012,012,ABC678,AUD,BBAN,CACC,403,Authentication failure
+1.0,MNO345,345,DEF901,JPY,BBAN,CARD,404,Not Found
+1.0,PQR678,678,GHI234,CAD,BBAN,DDA,405,Method Not Allowed
+1.0,STU901,901,JKL567,NZD,BBAN,CDA,406,Not Acceptable
+1.0,VWX234,234,MNO890,SGD,BBAN,ILA,415,Media Not Supported
+1.0,ZYX567,567,PQR123,CHF,BBAN,CCA,500,Internal Server Error

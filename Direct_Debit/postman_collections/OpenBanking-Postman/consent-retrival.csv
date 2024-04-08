@@ -1,0 +1,11 @@
+consentId,version,statusCode,scenario
+1.2.3.4,1,200,OK
+87.4.23.1,2,400,Bad Request
+76.34.53.12,3,401,Unauthorised
+68.23.12.4,4,403,Forbidden
+45.76.34.12,5,405,Method Not Allowed
+23.54.67.8,6,406,Not Acceptable
+32.54.67.12,7,429,Too Many Requests
+54.67.8,8,500,Internal Server Error
+76.34.12,9,503,Service Unavailable
+34.53.23,10,504,Gateway Timeout

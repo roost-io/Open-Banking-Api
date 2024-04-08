@@ -1,0 +1,12 @@
+version,permissions,expirationDate,statusCode,scenario
+1.0,<string>,1987-11-03T12:25:01.462Z,201,Created
+2.0,[sint veniam commodo],2033-04-29T11:50:00.000Z,400,Bad Request
+3.0,[adipisicing sunt],1951-06-01T22:36:30.980Z,401,Unauthorised
+4.0,[magna ea sint],2041-12-21T16:25:00.267Z,403,Forbidden
+5.0,[sint veniam commodo],2035-11-30T11:25:00.367Z,405,Method Not Allowed
+6.0,[adipisicing sunt],2053-07-01T21:37:48.714Z,406,Not Acceptable
+7.0,[magna ea sint],1997-07-31T00:45:48.914Z,415,Unsupported Media Type
+8.0,[sint veniam commodo], 2031-04-24T01:36:30.680Z,429,Too Many Requests
+9.0,[adipisicing sunt],2039-03-21T11:56:40.114Z,500,Internal Server Error
+10.0,[magna ea sint],2041-10-15T03:25:00.867Z,503,Service Unavailable
+11.0,[sint veniam commodo],2035-09-10T14:16:30.580Z,504,Gateway Timeout

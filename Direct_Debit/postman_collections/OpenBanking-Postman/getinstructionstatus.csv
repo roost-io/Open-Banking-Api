@@ -1,0 +1,10 @@
+version,merchantInstructionIdentification,bankCode,accountIdentification,currency,accountSchemeName,accountSubType,statusCode,scenario
+1.0,MI1234567890,001,AID12345,USD,BBAN,Current Account,201,Created
+1.0,RD9876543210,002,AID67890,GBP,BBAN,Savings Account,400,Bad Request
+1.0,MI1122334455,003,AID11223,EUR,BBAN,Student Account,401,Authorisation failure
+1.0,MI5566778899,004,AID44556,AUD,BBAN,CACC,403,Authentication failure
+1.0,MI9988776655,005,AID77889,CAD,BBAN,CARD,404,Not Found
+1.0,MI5544332211,006,AID99110,JPY,BBAN,DDA – Current & Savings Accounts or CDA – Term Deposits or ILA – Loans or CCA – Credit Cards or OTH - Other,405,Method Not Allowed
+1.0,MI2233445566,007,AID22334,CHF,BBAN,CACC,406,Not Acceptable
+1.0,MI7788990011,008,AID55667,RUB,BBAN,CARD,415,Media Not Supported
+1.0,MI1100987654,009,AID88991,INR,BBAN,DDA – Current & Savings Accounts or CDA – Term Deposits or ILA – Loans or CCA – Credit Cards or OTH - Other,500,Internal Server Error

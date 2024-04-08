@@ -1,0 +1,10 @@
+version,merchantRequestIdentification,creditorReference,debtorName,bankCode,accountIdentification,currency,accountSchemeName,accountSubType,creditorName,debtorPrivateIdentification,debtorPrivateIdentificationSchemeName,maximumAmountCurrency,maximumAmount,durationToDate,frequencyType,durationFromDate,ultimateDebtorName,debtorMobileNumber,otpHoldIndicator,smsLanguageCode,statusCode,scenario
+1.0,MRQ12345,CREF1234,John Doe,123,AID1234,USD,BBAN,Current Account,Acme Corp.,DPID1234,CCPT,USD,10000,2022-12-31,MNTH,2022-01-01,John Doe,+1-8001234567,true,eng,201,Created
+1.0,MRQ23456,CREF2345,Jane Doe,234,AID2345,EUR,BBAN,Savings Account,Widget Corp.,DPID2345,NIDN,EUR,20000,2022-12-31,ADHO,2022-01-01,Jane Doe,+22-8002345678,false,zh-s,400,Bad Request
+1.0,MRQ34567,CREF3456,Richard Roe,345,AID3456,GBP,BBAN,Student Account,Gadget Inc.,DPID3456,COID,GBP,30000,2022-12-31,MNTH,2022-01-01,Richard Roe,+33-8003456789,true,eng,401,Authorisation failure
+1.0,MRQ45678,CREF4567,Emily Doe,456,AID4567,CAD,BBAN,CACC,Doodle LLC.,DPID4567,CINC,CAD,40000,2022-12-31,ADHO,2022-01-01,Emily Doe,+44-8004567890,false,zh-t,403,Authentication failure
+1.0,MRQ56789,CREF5678,Bob Ross,567,AID5678,AUD,BBAN,CARD,Painting Corp.,DPID5678,OTHR,AUD,50000,2022-12-31,MNTH,2022-01-01,Bob Ross,+55-8005678901,true,eng,404,Not Found
+1.0,MRQ67890,CREF6789,Alice Smith,678,AID6789,SGD,BBAN,DDA,Cooking LLC.,DPID6789,CCPT,SGD,60000,2022-12-31,ADHO,2022-01-01,Alice Smith,+66-8006789012,false,zh-s,405,Method Not Allowed
+1.0,MRQ78901,CREF7890,Charlie Brown,789,AID7890,CNY,BBAN,CDA,Comic Ltd.,DPID7890,NIDN,CNY,70000,2022-12-31,MNTH,2022-01-01,Charlie Brown,+77-8007890123,true,eng,406,Not Acceptable
+1.0,MRQ89012,CREF8901,Lucy Van Pelt,890,AID8901,JPY,BBAN,ILA,Animation Inc.,DPID8901,COID,JPY,80000,2022-12-31,ADHO,2022-01-01,Lucy Van Pelt,+88-8008901234,false,zh-t,415,Media Not Supported
+1.0,MRQ90123,CREF9012,Snoopy Dog,901,AID9012,BRL,BBAN,CCA,Cartoon LLC.,DPID9012,CINC,BRL,90000,2022-12-31,MNTH,2022-01-01,Snoopy Dog,+99-8009012345,true,eng,500,Internal Server Error
