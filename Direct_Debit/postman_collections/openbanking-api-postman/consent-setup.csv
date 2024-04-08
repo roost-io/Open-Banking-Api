@@ -1,0 +1,12 @@
+version,permissions,expirationDate,statusCode,scenario
+v1.0,"[\"Read\",\"Write\"]","2022-08-26T12:00:00",201,"Created"
+v1.1,"[\"Read\",\"Write\"]","2023-08-31T23:59:59",400,"Bad Request"
+v1.2,"[\"Read\",\"Write\"]","2024-12-31T23:59:59",401,"Unauthorised"
+v2.0,"[\"Read\",\"Write\"]","2025-06-30T12:00:00",403,"Forbidden"
+v2.1,"[\"Read\",\"Write\"]","2026-09-30T23:59:59",405,"Method Not Allowed"
+v2.2,"[\"Read\",\"Write\"]","2027-08-31T12:00:00",406,"Not Acceptable"
+v3.0,"[\"Read\",\"Write\"]","2028-07-31T23:59:59",415,"Unsupported Media Type"
+v3.1,"[\"Read\"]","2029-04-30T12:00:00",429,"Too Many Requests"
+v3.2,"[\"Write\"]","2030-03-31T23:59:59",500,"Internal Server Error"
+v4.0,"[\"Write\"]","2031-02-28T12:00:00",503,"Service Unavailable"
+v4.1,"[\"Write\"]","2032-05-31T23:59:59",504,"Gateway Timeout"

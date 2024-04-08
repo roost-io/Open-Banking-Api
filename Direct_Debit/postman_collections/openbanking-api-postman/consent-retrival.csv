@@ -1,0 +1,11 @@
+consentId,version,statusCode,scenario
+"ut dolore dolor","1.0",200,OK
+"sit veniam","2.0",400,"Bad Request"
+"aute","3.0",401,Unauthorised
+"nulla","4.0",403,Forbidden
+"in occaecat","5.0",405,"Method Not Allowed"
+"et proident eiusmod","6.0",406,"Not Acceptable"
+"169.254.169.254","7.0",429,"Too Many Requests"
+"randomValue1","8.0",500,"Internal Server Error"
+"randomValue2","9.0",503,"Service Unavailable"
+"randomValue3","10.0",504,"Gateway Timeout"

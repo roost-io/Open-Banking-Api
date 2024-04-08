@@ -1,0 +1,11 @@
+consentId,version,statusCode,scenario
+"consent1","1",204,"No Content"
+"consent2","1",400,"Bad Request"
+"consent3","1",401,"Unauthorised"
+"consent4","1",403,"Forbidden"
+"consent5","1",405,"Method Not Allowed"
+"consent6","1",406,"Not Acceptable"
+"consent7","1",429,"Too Many Requests"
+"consent8","1",500,"Internal Server Error"
+"consent9","1",503,"Service Unavailable"
+"consent10","1",504,"Gateway Timeout"

@@ -1,0 +1,11 @@
+version,merchantInstructionIdentification,bankCode,accountIdentification,currency,accountSchemeName,accountSubType,statusCode,scenario
+1.0,"Instruction1","123","AC1234","USD","BBAN","Savings Account",201,"Created"
+2.0,"Instruction2","456","BC4567","GBP","BBAN","Current Account",400,"Bad Request"
+3.0,"Instruction3","789","CD7890","EUR","BBAN","Student Account",401,"Authorisation failure"
+4.0,"Instruction4","012","EF0123","CAD","BBAN","CACC",403,"Authentication failure"
+5.0,"Instruction5","345","GH3456","AUD","BBAN","CARD",404,"Not Found"
+6.0,"Instruction6","678","IJ6789","INR","BBAN","DDA – Current & Savings Accounts",405,"Method Not Allowed"
+7.0,"Instruction7","901","KL9012","CNY","BBAN","CDA – Term Deposits",406,"Not Acceptable"
+8.0,"Instruction8","234","MN2345","JPY","BBAN","ILA – Loans",415,"Media Not Supported"
+9.0,"Instruction9","567","OP5678","NZD","BBAN","CCA – Credit Cards",500,"Internal Server Error"
+10.0,"Instruction10","890","QR8901","BRL","BBAN","OTH - Other",200,"Okay"

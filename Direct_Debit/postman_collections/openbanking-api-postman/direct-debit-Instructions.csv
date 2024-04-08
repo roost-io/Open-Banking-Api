@@ -1,0 +1,10 @@
+version,merchantInstructionIdentification,bankCode,accountIdentification,currency,accountSchemeName,accountSubType,instructedAmount,instructedAmountCurrency,mandateIdentification,debtorName,creditorReference,remittanceInformation,smsLanguageCode,statusCode,scenario
+1.0,"DEBTRINS1","123","ACCNTID1","USD","BBAN","Current Account","1000.00","USD","MANDID1","John Doe","CRDTREF1","Payment for services","eng",201,Created
+1.0,"DEBTRINS2","124","ACCNTID2","GBP","BBAN","Savings Account","2000.00","GBP","MANDID2","Jane Doe","CRDTREF2","Payment for goods","zh-s",400,Bad Request
+1.0,"DEBTRINS3","125","ACCNTID3","EUR","BBAN","Student Account","3000.00","EUR","MANDID3","Jim Doe","CRDTREF3","Refund for goods","zh-t",401,Authorisation failure
+1.0,"DEBTRINS4","126","ACCNTID4","JPY","BBAN","CACC","4000.00","JPY","MANDID4","Jill Doe","CRDTREF4","Payment for digital content","eng",403,Authentication failure
+1.0,"DEBTRINS5","127","ACCNTID5","CAD","BBAN","CARD","5000.00","CAD","MANDID5","Joe Doe","CRDTREF5","Payment for subscription","zh-s",404,Not Found
+1.0,"DEBTRINS6","128","ACCNTID6","AUD","BBAN","DDA","6000.00","AUD","MANDID6","Jess Doe","CRDTREF6","Refund for services","zh-t",405,Method Not Allowed
+1.0,"DEBTRINS7","129","ACCNTID7","INR","BBAN","CDA","7000.00","INR","MANDID7","Jerry Doe","CRDTREF7","Payment for goods","eng",406,Not Acceptable
+1.0,"DEBTRINS8","130","ACCNTID8","CHF","BBAN","ILA","8000.00","CHF","MANDID8","Jack Doe","CRDTREF8","Payment for services","zh-s",415,Media Not Supported
+1.0,"DEBTRINS9","131","ACCNTID9","NZD","BBAN","CCA","9000.00","NZD","MANDID9","Janet Doe","CRDTREF9","Refund for digital content","zh-t",500,Internal Server Error

@@ -1,0 +1,10 @@
+version,merchantRequestIdentification,bankCode,accountIdentification,currency,accountSchemeName,accountSubType,statusCode,scenario
+1.0, "123456789", "123", "abc123", "USD", "BBAN", "Current Account", 201,"Created"
+2.0, "/\"456789123\"/", "456", "/\"def456\"/", "EUR", "BBAN", "Savings Account", 400,"Bad Request"
+3.0, "789123456", "789", "ghi789", "GBP", "BBAN", "Student Account", 401,"Authorisation failure"
+4.0, "/\"123456789\"/", "123", "/\"jkl123\"/", "AUD", "BBAN", "CACC", 403,"Authentication failure"
+5.0, "456789123", "456", "mno456", "CAD", "BBAN", "CARD", 404,"Not Found"
+6.0, "/\"789123456\"/", "789", "/\"pqr789\"/", "INR", "BBAN", "DDA – Current & Savings Accounts or CDA – Term Deposits or ILA – Loans", 405,"Method Not Allowed"
+7.0, "123456789", "123", "stu123", "JPY", "BBAN", "CCA – Credit Cards", 406,"Not Acceptable"
+8.0, "/\"456789123\"/", "456", "/\"vwx456\"/", "CHF", "BBAN", "OTH - Other", 415,"Media Not Supported"
+9.0, "789123456", "789", "yzf789", "NZD", "BBAN", "Savings Account", 500,"Internal Server Error"

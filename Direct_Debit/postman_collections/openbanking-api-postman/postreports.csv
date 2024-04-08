@@ -1,0 +1,10 @@
+version,bankCode,accountIdentification,currency,accountSchemeName,accountSubType,reportType,reportingDate,statusCode,scenario
+1.0,123,ABC123,USD,BBAN,Current Account,DDAReport,2022-01-01,201,Created
+1.0,456,DEF456,GBP,BBAN,Savings Account,DDIReport,2022-02-01,400,Bad Request
+1.0,789,GHI789,EUR,BBAN,Student Account,DDAReport,2022-03-01,401,Unauthorized
+1.0,321,JKL321,AUD,BBAN,CACC,DDIReport,2022-04-01,403,Forbidden
+1.0,654,MNO654,CAD,BBAN,CARD,DDAReport,2022-05-01,404,Not Found
+1.0,987,PQR987,CHF,BBAN,DDA – Current & Savings Accounts,DDIReport,2022-06-01,405,Method Not Allowed
+1.0,369,STU369,JPN,BBAN,CDA – Term Deposits,DDAReport,2022-07-01,406,Not Acceptable
+1.0,852,VWX852,CNY,BBAN,ILA – Loans,DDIReport,2022-08-01,415,Unsupported Media Type
+1.0,741,YZ147,INR,BBAN,CCA – Credit Cards,DDAReport,2022-09-01,500,Internal Server Error

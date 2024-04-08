@@ -1,0 +1,10 @@
+version,mandateIdentification,bankCode,accountIdentification,currency,accountSchemeName,accountSubType,otpIdentificationNumber,otpPassword,statusCode,scenario
+1,"sint labore aute ullamco","123","a1b2c3d4e5","USD","BBAN","Current Account","1234567890","abcde12345",201,Created
+2,"randomString1","321","e5d4c3b2a1","GBP","BBAN","Savings Account","0987654321","54321edcba",400,Bad Request
+3,"randomString2","213","1a2b3c4d5e","EUR","BBAN","Student Account","1122334455","a1b2c3d4e5",401,Authorisation failure
+4,"randomString3","312","5e4d3c2b1a","INR","BBAN","CACC","5566778899","5e4d3c2b1a",403,Authentication failure
+5,"randomString4","231","d4e5a1b2c3","AUD","BBAN","CARD","2233445566","d1c2b3a4e5",404,Not Found
+6,"randomString5","132","b2c3d4e5a1","CNY","BBAN","DDA – Current & Savings Accounts or CDA – Term Deposits or ILA – Loans or CCA – Credit Cards or OTH - Other","3344556677","1a2b3c4d5e",405,Method Not Allowed
+7,"randomString6","312","e5a1d4b2c3","JPY","BBAN","Current Account","4455667788","e5d4a1b2c3",406,Not Acceptable
+8,"randomString7","123","c3d4e5a1b2","CAD","BBAN","Savings Account","5566778899","c3d4e5a1b2",415,Media Not Supported
+9,"randomString8","231","b2a1c3d4e5","NZD","BBAN","Student Account","6677889900","b2a1c3d4e5",500,Internal Server Error
