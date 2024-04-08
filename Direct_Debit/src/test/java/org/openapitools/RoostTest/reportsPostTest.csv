@@ -1,0 +1,11 @@
+Authorization,AdditionalCSVvaluInfo,x-fapi-customer-ip-address,x-fapi-auth-date,x-fapi-interaction-id,x-idempotency-key,reportType,reportingDate,creditorAccount,bankCode,accountIdentification,currency,accountSchemeName,accountSubType,statusCode
+AuthKey1,LbGpjj8KaH5wrEfg,192.168.1.1,2022-01-01,Interact1,IdempoKey1,DDAReport,2022-01-02,CredAcc1,001,AccId1,USD,BBAN,Current Account,201
+AuthKey2,LbGpjj8KaH5wrEfg,192.168.1.2,2022-01-02,Interact2,IdempoKey2,DDIReport,2022-01-03,CredAcc2,002,AccId2,GBP,BBAN,Savings Account,400
+AuthKey3,LbGpjj8KaH5wrEfg,192.168.1.3,2022-01-03,Interact3,IdempoKey3,DDAReport,2022-01-04,CredAcc3,003,AccId3,EUR,BBAN,Student Account,401
+AuthKey4,LbGpjj8KaH5wrEfg,192.168.1.4,2022-01-04,Interact4,IdempoKey4,DDIReport,2022-01-05,CredAcc4,004,AccId4,JPY,BBAN,CACC,403
+AuthKey5,LbGpjj8KaH5wrEfg,192.168.1.5,2022-01-05,Interact5,IdempoKey5,DDAReport,2022-01-06,CredAcc5,005,AccId5,INR,BBAN,CARD,404
+AuthKey6,LbGpjj8KaH5wrEfg,192.168.1.6,2022-01-06,Interact6,IdempoKey6,DDIReport,2022-01-07,CredAcc6,006,AccId6,CNY,BBAN,DDA – Current & Savings Accounts or CDA – Term Deposits or ILA – Loans or CCA – Credit Cards or OTH - Other,405
+AuthKey7,LbGpjj8KaH5wrEfg,192.168.1.7,2022-01-07,Interact7,IdempoKey7,DDAReport,2022-01-08,CredAcc7,007,AccId7,AUD,BBAN,Current Account,406
+AuthKey8,LbGpjj8KaH5wrEfg,192.168.1.8,2022-01-08,Interact8,IdempoKey8,DDIReport,2022-01-09,CredAcc8,008,AccId8,CAD,BBAN,Savings Account,415
+AuthKey9,LbGpjj8KaH5wrEfg,192.168.1.9,2022-01-09,Interact9,IdempoKey9,DDAReport,2022-01-10,CredAcc9,009,AccId9,HKD,BBAN,Student Account,500
+AuthKey10,LbGpjj8KaH5wrEfg,192.168.1.10,2022-01-10,Interact10,IdempoKey10,DDIReport,2022-01-11,CredAcc10,010,AccId10,SGD,BBAN,CACC,201

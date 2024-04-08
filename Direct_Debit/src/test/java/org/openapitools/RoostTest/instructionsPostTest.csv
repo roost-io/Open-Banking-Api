@@ -1,0 +1,11 @@
+Authorization,AdditionalCSVvaluInfo,x-fapi-customer-ip-address,x-fapi-auth-date,x-fapi-interaction-id,x-idempotency-key,merchantInstructionIdentification,mandateIdentification,debtorName,debtorAccount,bankCode,accountIdentification,currency,accountSchemeName,accountSubType,creditorAccount,creditorReference,instructedAmountCurrency,instructedAmount,remittanceInformation,smsLanguageCode,statusCode
+auth1,LbGpjj8KaH5wrEfg,192.168.1.1,2022-02-02T02:02:02Z,id1,key1,Merchant1,Mandate1,JohnDoe,ac001,123,ac001,USD,BBAN,Current Account,ac002,Reference1,USD,150.00,Payment for goods,eng,201
+auth2,LbGpjj8KaH5wrEfg,192.168.1.2,2022-02-03T02:02:02Z,id2,key2,Merchant2,Mandate2,JaneDoe,ac002,124,ac002,AUD,BBAN,Savings Account,ac003,Reference2,AUD,200.00,Payment for services,zh-s,201
+auth3,LbGpjj8KaH5wrEfg,192.168.1.3,2022-02-04T02:02:02Z,id3,key3,Merchant3,Mandate3,JimDoe,ac003,125,ac003,GBP,BBAN,Student Account,ac004,Reference3,GBP,250.00,Payment for fees,zh-t,400
+auth4,LbGpjj8KaH5wrEfg,192.168.1.4,2022-02-05T02:02:02Z,id4,key4,Merchant4,Mandate4,JoyDoe,ac004,126,ac004,EUR,BBAN,Current Account,ac005,Reference4,EUR,300.00,Payment for subscription,eng,401
+auth5,LbGpjj8KaH5wrEfg,192.168.1.5,2022-02-06T02:02:02Z,id5,key5,Merchant5,Mandate5,JerryDoe,ac005,127,ac005,CAD,BBAN,Savings Account,ac006,Reference5,CAD,350.00,Payment for membership,zh-s,403
+auth6,LbGpjj8KaH5wrEfg,192.168.1.6,2022-02-07T02:02:02Z,id6,key6,Merchant6,Mandate6,JessicaDoe,ac006,128,ac006,JPY,BBAN,Student Account,ac007,Reference6,JPY,400.00,Payment for license,zh-t,404
+auth7,LbGpjj8KaH5wrEfg,192.168.1.7,2022-02-08T02:02:02Z,id7,key7,Merchant7,Mandate7,JackDoe,ac007,129,ac007,SGD,BBAN,Current Account,ac008,Reference7,SGD,450.00,Payment for access,eng,405
+auth8,LbGpjj8KaH5wrEfg,192.168.1.8,2022-02-09T02:02:02Z,id8,key8,Merchant8,Mandate8,JillDoe,ac008,130,ac008,CNY,BBAN,Savings Account,ac009,Reference8,CNY,500.00,Payment for tickets,zh-s,406
+auth9,LbGpjj8KaH5wrEfg,192.168.1.9,2022-02-10T02:02:02Z,id9,key9,Merchant9,Mandate9,JoeDoe,ac009,131,ac009,CHF,BBAN,Student Account,ac010,Reference9,CHF,550.00,Payment for invoices,zh-t,415
+auth10,LbGpjj8KaH5wrEfg,192.168.1.10,2022-02-11T02:02:02Z,id10,key10,Merchant10,Mandate10,JanetDoe,ac010,132,ac010,SEK,BBAN,Current Account,ac011,Reference10,SEK,600.00,Payment for utilities,eng,500
