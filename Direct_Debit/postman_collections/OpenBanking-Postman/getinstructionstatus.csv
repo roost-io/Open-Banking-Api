@@ -1,10 +1,11 @@
 version,merchantInstructionIdentification,bankCode,accountIdentification,currency,accountSchemeName,accountSubType,statusCode,scenario
-1.0,MI1234567890,001,AID12345,USD,BBAN,Current Account,201,Created
-1.0,RD9876543210,002,AID67890,GBP,BBAN,Savings Account,400,Bad Request
-1.0,MI1122334455,003,AID11223,EUR,BBAN,Student Account,401,Authorisation failure
-1.0,MI5566778899,004,AID44556,AUD,BBAN,CACC,403,Authentication failure
-1.0,MI9988776655,005,AID77889,CAD,BBAN,CARD,404,Not Found
-1.0,MI5544332211,006,AID99110,JPY,BBAN,DDA – Current & Savings Accounts or CDA – Term Deposits or ILA – Loans or CCA – Credit Cards or OTH - Other,405,Method Not Allowed
-1.0,MI2233445566,007,AID22334,CHF,BBAN,CACC,406,Not Acceptable
-1.0,MI7788990011,008,AID55667,RUB,BBAN,CARD,415,Media Not Supported
-1.0,MI1100987654,009,AID88991,INR,BBAN,DDA – Current & Savings Accounts or CDA – Term Deposits or ILA – Loans or CCA – Credit Cards or OTH - Other,500,Internal Server Error
+1.0,v12,111,abcd,EUR,BBAN,Current Account,201,Created
+1.1,v13,112,efgh,USD,BBAN,Savings Account,
+1.2,v14,113,ijkl,GBP,BBAN,Student Account,
+1.3,v15,114,lmno,AUD,BBAN,CACC,201,Created
+1.4,v16,115,pqrs,CAD,BBAN,CARD,
+1.5,v17,116,abcd,DKK,BBAN,DDA - Current & Savings Accounts,201,Created
+1.6,v18,117,efgh,SEK,BBAN,CDA - Term Deposits,201,Created
+1.7,v19,118,ijkl,JOD,BBAN,ILA - Loans,201,Created
+1.8,v20,119,lmno,SZL,BBAN,CCA - Credit Cards,
+1.9,v21,120,pqrs,HUF,BBAN,OTH - Other,201,Created

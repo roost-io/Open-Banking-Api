@@ -1,10 +1,11 @@
 version,bankCode,accountIdentification,currency,accountSchemeName,accountSubType,reportType,reportingDate,statusCode,scenario
-1.0,123,AccID123,USD,BBAN,Current Account,DDAReport,2022-02-25,201,Created
-1.0,456,AccID456,EUR,BBAN,Savings Account,DDIReport,2022-02-26,400,Bad Request
-1.0,789,AccID789,GBP,BBAN,Student Account,DDAReport,2022-02-27,401,Unauthorized
-1.0,321,AccID321,JPY,BBAN,CACC,DDIReport,2022-02-28,403,Forbidden
-1.0,654,AccID654,CHF,BBAN,DDA,DDAReport,2022-03-01,404,Not Found
-1.0,987,AccID987,AUD,BBAN,Current & Savings Accounts,DDIReport,2022-03-02,405,Method Not Allowed
-1.0,567,AccID567,CAD,BBAN,Term Deposits,DDAReport,2022-03-03,406,Not Acceptable
-1.0,890,AccID890,INR,BBAN,Loans,DDIReport,2022-03-04,415,Unsupported Media Type
-1.0,234,AccID234,CNY,BBAN,Credit Cards,DDAReport,2022-03-05,500,Internal Server Error
+1.0,001,"account1","USD","BBAN","Current Account","DDAReport","2022-01-01",201,"Created"
+1.0,002,"account2","EUR","BBAN","Savings Account","DDIReport","2022-01-02",201,"Created"
+1.0,003,"account3","GBP","BBAN","Student Account","DDAReport","2022-01-03",
+1.0,004,"account4","JPY","BBAN","CACC","DDIReport","2022-01-04",201,"Created"
+1.0,005,"account5","AUD","BBAN","CARD","DDAReport","2022-01-05",
+1.0,006,"account6","CAD","BBAN","DDA – Current & Savings Accounts","DDIReport","2022-01-06",201,"Created"
+1.0,007,"account7","CHF","BBAN","CDA – Term Deposits","DDAReport","2022-01-07",
+1.0,008,"account8","SEK","BBAN","ILA – Loans","DDIReport","2022-01-08",201,"Created"
+1.0,009,"account9","NZD","BBAN","CCA – Credit Cards","DDAReport","2022-01-09",
+1.0,010,"account10","ZAR","BBAN","OTH - Other","DDIReport","2022-01-10",201,"Created"
