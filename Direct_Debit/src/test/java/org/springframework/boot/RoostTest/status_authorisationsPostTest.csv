@@ -1,0 +1,11 @@
+Authorization^|^AdditionalCSVvaluInfo^|^x-fapi-customer-ip-address^|^x-fapi-auth-date^|^x-fapi-interaction-id^|^x-idempotency-key^|^merchantRequestIdentification^|^creditorAccount^|^bankCode^|^accountIdentification^|^currency^|^accountSchemeName^|^accountSubType^|^statusCode
+authToken1^|^LbGpjj8KaH5wrEfg^|^192.168.1.1^|^2022-06-01^|^interact1234^|^idemKey01^|^mRequest001^|^acc12345^|^123^|^ID001^|^USD^|^BBAN^|^Current Account^|^201
+authToken2^|^LbGpjj8KaH5wrEfg^|^192.168.1.2^|^2022-06-02^|^interact1235^|^idemKey02^|^mRequest002^|^acc12346^|^124^|^ID002^|^EUR^|^BBAN^|^Savings Account^|^400
+authToken3^|^LbGpjj8KaH5wrEfg^|^192.168.1.3^|^2022-06-03^|^interact1236^|^idemKey03^|^mRequest003^|^acc12347^|^125^|^ID003^|^GBP^|^BBAN^|^Student Account^|^401
+authToken4^|^LbGpjj8KaH5wrEfg^|^192.168.1.4^|^2022-06-04^|^interact1237^|^idemKey04^|^mRequest004^|^acc12348^|^126^|^ID004^|^JPY^|^BBAN^|^CACC^|^403
+authToken5^|^LbGpjj8KaH5wrEfg^|^192.168.1.5^|^2022-06-05^|^interact1238^|^idemKey05^|^mRequest005^|^acc12349^|^127^|^ID005^|^INR^|^BBAN^|^CARD^|^404
+authToken6^|^LbGpjj8KaH5wrEfg^|^192.168.1.6^|^2022-06-06^|^interact1239^|^idemKey06^|^mRequest006^|^acc12350^|^128^|^ID006^|^AUD^|^BBAN^|^DDA - Current & Savings Accounts^|^405
+authToken7^|^LbGpjj8KaH5wrEfg^|^192.168.1.7^|^2022-06-07^|^interact1240^|^idemKey07^|^mRequest007^|^acc12351^|^129^|^ID007^|^NZD^|^BBAN^|^CDA - Term Deposits^|^406
+authToken8^|^LbGpjj8KaH5wrEfg^|^192.168.1.8^|^2022-06-08^|^interact1241^|^idemKey08^|^mRequest008^|^acc12352^|^130^|^ID008^|^HKD^|^BBAN^|^ILA - Loans^|^415
+authToken9^|^LbGpjj8KaH5wrEfg^|^192.168.1.9^|^2022-06-09^|^interact1242^|^idemKey09^|^mRequest009^|^acc12353^|^131^|^ID009^|^SGD^|^BBAN^|^CCA - Credit Cards^|^500
+authToken10^|^LbGpjj8KaH5wrEfg^|^192.168.1.10^|^2022-06-10^|^interact1243^|^idemKey10^|^mRequest010^|^acc12354^|^132^|^ID010^|^CHF^|^BBAN^|^OTH - Other^|^201

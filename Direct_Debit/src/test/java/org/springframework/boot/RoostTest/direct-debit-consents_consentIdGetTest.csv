@@ -1,0 +1,11 @@
+consentId^|^AdditionalCSVvaluInfo^|^Authorization^|^x-fapi-auth-date^|^x-fapi-customer-ip-address^|^x-fapi-interaction-id^|^Accept-Language^|^statusCode
+uuid01^|^169.254.169.254^|^token_abc^|^2021-08-18T00:00:00^|^192.168.0.1^|^interaction01^|^en-HK^|^200
+uuid02^|^169.254.169.254^|^token_def^|^2021-08-19T01:20:10^|^192.168.0.2^|^interaction02^|^zh-HK^|^401
+uuid03^|^169.254.169.254^|^token_ghi^|^2021-08-20T02:40:20^|^192.168.0.3^|^interaction03^|^zh-CN^|^400
+uuid04^|^169.254.169.254^|^token_jkl^|^2021-08-21T03:00:00^|^192.168.0.4^|^interaction04^|^en-HK^|^500
+uuid05^|^169.254.169.254^|^token_mno^|^2021-08-22T04:20:10^|^192.168.0.5^|^interaction05^|^zh-HK^|^503
+uuid06^|^169.254.169.254^|^token_pqr^|^2021-08-23T05:40:20^|^192.168.0.6^|^interaction06^|^zh-CN^|^429
+uuid07^|^169.254.169.254^|^token_stu^|^2021-08-24T06:00:00^|^192.168.0.7^|^interaction07^|^en-HK^|^405
+uuid08^|^169.254.169.254^|^token_vwx^|^2021-08-25T07:20:10^|^192.168.0.8^|^interaction08^|^zh-HK^|^406
+uuid09^|^169.254.169.254^|^token_yz^|^2021-08-26T08:40:20^|^192.168.0.9^|^interaction09^|^zh-CN^|^403
+uuid10^|^169.254.169.254^|^token_123^|^2021-08-27T09:00:00^|^192.168.0.10^|^interaction10^|^en-HK^|^504
