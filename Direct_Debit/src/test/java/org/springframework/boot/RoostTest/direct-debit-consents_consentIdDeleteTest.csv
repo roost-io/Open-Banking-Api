@@ -1,0 +1,11 @@
+consentId^|^AdditionalCSVvaluInfo^|^Authorization^|^x-fapi-auth-date^|^x-fapi-customer-ip-address^|^x-fapi-interaction-id^|^Accept-Language^|^statusCode
+7404e99b-1a4d-4b08-b441-c327661527f0^|^169.254.169.254^|^Bearer LbGDbcFVVfE-ngpjj8KaH5wrEfg^|^Sun, 10 Sep 2017 19:43:31 UTC^|^192.168.0.1^|^x-fapi-interaction-id^|^en-HK^|^204
+5678efgh^|^169.254.169.254^|^Bearer LbGDbcFVVfE-ngpjj8KaH5wrEfg^|^Wed, 12 Sep 2017 19:43:31 UTC^|^192.168.0.2^|^x-fapi-interaction-id^|^zh-HK^|^
+7404e99b-1a4d-4b08-b441-c327661527f0^|^169.254.169.254^|^Bearer LbGDbcFVVfE-ngpjj8KaH5wrEfg^|^Fri, 15 Aug 2017 19:43:31 UTC^|^192.168.0.3^|^Interaction3^|^zh-CN^|^204
+3456mnop^|^169.254.169.254^|^Bearer LbGDbcFVVfE-ngpjj8KaH5wrEfg^|^Sun, 11 Dec 2017 19:43:31 UTC^|^192.168.0.4^|^x-fapi-interaction-id^|^en-HK^|^
+7404e99b-1a4d-4b08-b441-c327661527f0^|^169.254.169.254^|^Bearer LbGDbcFVVfE-ngpjj8KaH5wrEfg^|^Mon, 10 Jan 2017 19:43:31 UTC^|^192.168.0.5^|^Interaction5^|^zh-HK^|^
+7404e99b-1a4d-4b08-b441-c327661527f0^|^169.254.169.254^|^Bearer LbGDbcFVVfE-ngpjj8KaH5wrEfg^|^Sat, 17 Sep 2017 19:43:31 UTC^|^192.168.0.6^|^x-fapi-interaction-id^|^zh-CN^|^204
+7404e99b-1a4d-4b08-b441-c327661527f0^|^169.254.169.254^|^Bearer LbGDbcFVVfE-ngpjj8KaH5wrEfg^|^2022-01-07^|^192.168.0.7^|^x-fapi-interaction-id^|^en-HK^|^
+0123cdef^|^169.254.169.254^|^Bearer LbGDbcFVVfE-ngpjj8KaH5wrEfg^|Sun, 10 Sep 2017 19:43:31 UTC^|^192.168.0.8^|^Interaction8^|^zh-HK^|^204
+7404e99b-1a4d-4b08-b441-c327661527f0^|^169.254.169.254^|^Bearer token9^|^2022-01-09^|^192.168.0.9^|^x-fapi-interaction-id^|^zh-CN^|^
+7404e99b-1a4d-4b08-b441-c327661527f0^|^169.254.169.254^|^Bearer token10^|^2022-01-10^|^192.168.0.10^|^x-fapi-interaction-id^|^en-HK^|^
