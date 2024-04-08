@@ -1,0 +1,10 @@
+version,merchantRequestIdentification,bankCode,accountIdentification,currency,accountSchemeName,accountSubType,statusCode,scenario
+1.0,"jDce82Yxa","001","AB34CD","USD","BBAN","Current Account",201,"Created"
+1.0,"667Oki98Z","002","CD56EF","GBP","BBAN","Savings Account",
+1.1,"88Ttu09Hy","003","EF78GH","CAD","BBAN","Student Account",201,"Created"
+2.0,"432Rfg98Y","004","GH90IJ","AUD","BBAN","CACC",201,"Created"
+2.5,"567Rwe91T","005","IJ12KL","JPY","BBAN","CARD",
+3.0,"913Iuz76B","006","KL34MN","EUR","BBAN","DDA",201,"Created"
+3.2,"878Plo99E","007","MN56OP","CNY","BBAN","CDA",
+4.0,"345Ewr87Y","008","OP78QR","INR","BBAN","ILA",
+4.7,"234Ooo12U","009","QR90ST","BRL","BBAN","CCA",201,"Created"

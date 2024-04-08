@@ -1,0 +1,10 @@
+version,mandateIdentification,bankCode,accountIdentification,currency,accountSchemeName,accountSubType,otpIdentificationNumber,otpPassword,statusCode,scenario
+1.0,"ea aute","001","ABC123","USD","BBAN","Current Account","1234567890","password",201,"Created"
+1.1,"ea aute","002","DEF456","GBP","BBAN","Savings Account","0987654321","randomPassword",201,"Created"
+1.2,"ea aute","003","GHI789","EUR","BBAN","Student Account","1020304050","securePassword",201,
+1.3,"ea aute","004","JKL012","JPY","BBAN","CACC","5060708090","strongPassword",,"Created"
+1.4,"ea aute","005","MNO345","AUD","BBAN","CARD","9010203040","uniquePassword",201,"Created"
+1.5,"ea aute","006","PQR678","CAD","BBAN","DDA – Current & Savings Accounts","8070605040","complexPassword",201,
+1.6,"ea aute","007","STU901","CHF","BBAN","CDA – Term Deposits","7060504030","difficultPassword",201,"Created"
+1.7,"ea aute","008","VWX234","SEK","BBAN","ILA – Loans","6050403020","challengingPassword",201,"Created"
+1.8,"ea aute","009","YZA567","DKK","BBAN","CCA – Credit Cards","5040302010","impossiblePassword",,"Created"
