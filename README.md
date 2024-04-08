@@ -13,13 +13,49 @@ mvn test
 
 ```
 
+To run individual tests:
+
+```
+mvn test -Dtest=<package_name>.<ClassName>
+```
+
 ## Postman Tests
 
-To run postman test go to Direct Debit Folder and run
+### Using Postman CLI
+
+Pre-requisites:
+Install Postman CLI - https://learning.postman.com/docs/postman-cli/postman-cli-installation/
+
+
+To run postman tests go to Direct_Debit/postman_collections Folder and run:
 
 ```
 postman collection run <path/to/postmanCollection.json> -i <folderName or folderUID> -d  <path/to/csvFile.csv>
 ```
+example:
+
+```
+postman collection run modified_postman_AMH_DirectDebit-Swagger.json -i consent-setup -d openbanking-api-postman/consent-setup.csv
+```
+
+### Using Postman Application:
+
+1. Import the `modified_postman_Swagger.json` using the import button.
+
+![alt text](image.png)
+
+2. Click on three dots near the imported json file and choose `Run Collection` from the menu
+
+![alt text](<Screenshot 2024-04-08 at 9.35.37 AM.png>)
+
+3. Select an api-endpoint (e.g. consent-retrival). Using the `Data` section in the `Run Configuration` setting, select the csv file containing the test cases.
+
+![alt text](<Screenshot 2024-04-08 at 9.37.49 AM.png>)
+
+4. Click on `Run <Collection Name>` button at bottom.
+
+
+
 
 ## Contact
 
