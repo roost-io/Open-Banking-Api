@@ -1,10 +1,10 @@
 version,merchantInstructionIdentification,bankCode,accountIdentification,currency,accountSchemeName,accountSubType,instructedAmount,instructedAmountCurrency,mandateIdentification,debtorName,creditorReference,remittanceInformation,smsLanguageCode,statusCode,scenario
-1.1,"merchantRef001","123","accountID001","USD","BBAN","Current Account","1000","USD","mandateID001","John Doe","creditorRef001","remittance001","eng","201","Created"
-1.1,"merchantRef002","124","accountID002","EUR","BBAN","Savings Account","2000","EUR","mandateID002","Jane Doe","creditorRef002","remittance002","zh-s","201","Created"
-1.1,"merchantRef003","125","accountID003","GBP","BBAN","Student Account","3000","GBP","mandateID003","Jim Smith","creditorRef003","remittance003","zh-t","201","Created"
-1.1,"merchantRef004","126","accountID004","JPY","BBAN","CACC","4000","JPY","mandateID004","Judy White","creditorRef004","remittance004","eng",
-1.1,"merchantRef005","127","accountID005","CAD","BBAN","CARD","5000","CAD","mandateID005","Bob Black","creditorRef005","remittance005","zh-s",
-1.1,"merchantRef006","128","accountID006","AUD","BBAN","DDA","6000","AUD","mandateID006","Alice Green","creditorRef006","remittance006","zh-t","201","Created"
-1.1,"merchantRef007","129","accountID007","CNY","BBAN","CDA","7000","CNY","mandateID007","Charlie Brown","creditorRef007","remittance007","eng","201","Created"
-1.1,"merchantRef008","130","accountID008","INR","BBAN","ILA","8000","INR","mandateID008","Dave Gray","creditorRef008","remittance008","zh-s",
-1.1,"merchantRef009","131","accountID009","BRL","BBAN","CCA","9000","BRL","mandateID009","Eva Blue","creditorRef009","remittance009","zh-t",
+1.0,"randomId1","001","12345","USD","BBAN","Current Account","0.99","USD","mandate123","debtor","code123","info123","eng",201,Created
+1.0,"randomId2","002","67890","EUR","BBAN","Savings Account","1.99","EUR","mandate456","creditor","code456","info456","zh-s",400,"Bad Request"
+1.0,"randomId3","001","12345","GBP","BBAN","Student Account","2.99","GBP","mandate789","debtor","code789","info789","zh-t",401,"Authorisation failure"
+1.0,"randomId4","002","67890","USD","BBAN","CACC","3.99","USD","mandate012","creditor","code012","info012","eng",403,"Authentication failure"
+1.0,"randomId5","001","12345","EUR","BBAN","Savings Account","4.99","EUR","mandate345","debtor","code345","info345","zh-s",404,"Not Found"
+1.0,"randomId6","002","67890","GBP","BBAN","Student Account","5.99","GBP","mandate678","creditor","code678","info678","zh-t",405,"Method Not Allowed"
+1.0,"randomId7","001","12345","USD","BBAN","CACC","6.99","USD","mandate901","debtor","code901","info901","eng",406,"Not Acceptable"
+1.0,"randomId8","002","67890","EUR","BBAN","Savings Account","7.99","EUR","mandate234","creditor","code234","info234","zh-s",415,"Media Not Supported"
+1.0,"randomId9","001","12345","GBP","BBAN","Student Account","8.99","GBP","mandate567","debtor","code567","info567","zh-t",500,"Internal Server Error"

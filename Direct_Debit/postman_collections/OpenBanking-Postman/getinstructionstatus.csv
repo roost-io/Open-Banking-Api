@@ -1,11 +1,10 @@
 version,merchantInstructionIdentification,bankCode,accountIdentification,currency,accountSchemeName,accountSubType,statusCode,scenario
-1.0,v12,111,abcd,EUR,BBAN,Current Account,201,Created
-1.1,v13,112,efgh,USD,BBAN,Savings Account,
-1.2,v14,113,ijkl,GBP,BBAN,Student Account,
-1.3,v15,114,lmno,AUD,BBAN,CACC,201,Created
-1.4,v16,115,pqrs,CAD,BBAN,CARD,
-1.5,v17,116,abcd,DKK,BBAN,DDA - Current & Savings Accounts,201,Created
-1.6,v18,117,efgh,SEK,BBAN,CDA - Term Deposits,201,Created
-1.7,v19,118,ijkl,JOD,BBAN,ILA - Loans,201,Created
-1.8,v20,119,lmno,SZL,BBAN,CCA - Credit Cards,
-1.9,v21,120,pqrs,HUF,BBAN,OTH - Other,201,Created
+1.0,"instr123","123","acc456","USD","BBAN","Current Account",201,Created
+1.1,"instr789","456","acc789","GBP","BBAN","Savings Account",400,Bad Request
+1.2,"instr321","789","acc321","EUR","BBAN","Student Account",401,Authorisation failure
+2.0,"instr654","321","acc654","JPY","BBAN","CACC",403,Authentication failure
+2.1,"instr987","654","acc987","CAD","BBAN","CARD",404,Not Found
+2.2,"instr123","987","acc123","AUD","BBAN","DDA",405,Method Not Allowed
+3.0,"instr456","123","acc456","CHF","BBAN","CDA",406,Not Acceptable
+3.1,"instr789","456","acc789","INR","BBAN","ILA",415,Media Not Supported
+3.2,"instr321","789","acc321","CNY","BBAN","CCA",500,Internal Server Error
