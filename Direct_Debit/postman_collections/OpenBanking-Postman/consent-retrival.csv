@@ -1,11 +1,11 @@
 consentId,version,statusCode,scenario
-"voluptate anim ipsum",1,200,OK
-"7404e99b-1a4d-4b08-b441-c327661527f0",2,200,OK
-"J5deIsLvbCHnZ",3,200,OK
-"g2bKJuk3XrON5hz",4,200,OK
-"7404e99b-1a4d-4b08-b441-c327661527f0",5,200,OK
-"Z6YC8MJe2xM4GgW",6,200,OK
-"7404e99b-1a4d-4b08-b441-c327661527f0",7,200,OK
-"wSf8msZkxHc78m",8,200,OK
-"7404e99b-1a4d-4b08-b441-c327661527f0",9,200,OK
-"K4Gm6HJy8M8wZ",10,200,OK
+"nulla","1.0",200,"OK"
+"aliqua et non","1.0",400,"Bad Request"
+"random_string","1.0",401,"Unauthorised"
+"random_string","1.0",403,"Forbidden"
+"aliqua et non","1.0",405,"Method Not Allowed"
+"random_string","1.0",406,"Not Acceptable"
+"random_string","1.0",429,"Too Many Requests"
+"aliqua et non","1.0",500,"Internal Server Error"
+"random_string","1.0",503,"Service Unavailable"
+"random_string","1.0",504,"Gateway Timeout"

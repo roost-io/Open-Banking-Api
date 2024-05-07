@@ -1,10 +1,10 @@
 version,merchantRequestIdentification,bankCode,accountIdentification,currency,accountSchemeName,accountSubType,statusCode,scenario
-1.0,"jDce82Yxa","001","AB34CD","USD","BBAN","Current Account",201,"Created"
-1.0,"667Oki98Z","002","CD56EF","GBP","BBAN","Savings Account",
-1.1,"88Ttu09Hy","003","EF78GH","CAD","BBAN","Student Account",201,"Created"
-2.0,"432Rfg98Y","004","GH90IJ","AUD","BBAN","CACC",201,"Created"
-2.5,"567Rwe91T","005","IJ12KL","JPY","BBAN","CARD",
-3.0,"913Iuz76B","006","KL34MN","EUR","BBAN","DDA",201,"Created"
-3.2,"878Plo99E","007","MN56OP","CNY","BBAN","CDA",
-4.0,"345Ewr87Y","008","OP78QR","INR","BBAN","ILA",
-4.7,"234Ooo12U","009","QR90ST","BRL","BBAN","CCA",201,"Created"
+1.0,"XVZ123456",123,"accId123","USD","BBAN","Current Account",201,"Created"
+2.0,"XYZ987654",456,"accId567","GBP","BBAN","Savings Account",400,"Bad Request"
+3.0,"ABC123789",789,"accId890","EUR","BBAN","Student Account",401,"Authorisation failure"
+4.0,"DEF456789",111,"accId111","INR","BBAN","CACC",403,"Authentication failure"
+5.0,"GHI7890",222,"accId222","JPY","BBAN","DDA",404,"Not Found"
+6.0,"JKL012345",333,"accId333","AUD","BBAN","CDA",405,"Method Not Allowed"
+7.0,"MNO567890",444,"accId444","CAD","BBAN","ILA",406,"Not Acceptable"
+8.0,"QRS098765",555,"accId555","BRL","BBAN","CCA",415,"Media Not Supported"
+9.0,"TUV321098",666,"accId666","ZAR","BBAN","OTH",500,"Internal Server Error"

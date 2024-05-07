@@ -1,12 +1,12 @@
 version,permissions,expirationDate,statusCode,scenario
-"1.0","['<string>']","1986-11-20T02:46:24.080Z",201,Created
-"2.0","['<string>','<string>']","2030-12-10T08:30:10.444Z",201,Created
-"3.0","['<string>','<string>','<string>']","2025-10-20T08:00:32.342Z",
-"4.0","['<string>','<string>','<string>','<string>']","2028-11-10T07:20:21.222Z",201,Created
-"5.0","['<string>']","2032-06-18T04:40:32.999Z",
-"6.0","['<string>','<string>']","2034-05-28T09:00:00.000Z",201,Created
-"7.0","['<string>','<string>','<string>']","2036-04-08T03:15:40.600Z",
-"8.0","['<string>','<string>','<string>','<string>']","2031-03-22T01:30:20.200Z",201,Created
-"9.0","['<string>']","2027-02-12T06:00:00.000Z",
-"10.0","['<string>','<string>']","2026-01-02T02:30:30.300Z",201,Created
-"11.0","['<string>','<string>','<string>']","2029-12-31T10:10:10.100Z",201,Created
+1.0,"[""Read"",""Write""]","2022-12-31T12:00:00.000Z",201,Created
+1.1,"[""Read""]","2023-01-01T12:00:00.000Z",400,Bad Request
+2.0,"[""Write""]","2023-01-02T12:00:00.000Z",401,Unauthorised
+2.1,"[""Read"",""Update""]","2023-01-03T12:00:00.000Z",403,Forbidden
+3.0,"[""Update"",""Delete""]","2023-01-04T12:00:00.000Z",405,Method Not Allowed
+3.1,"[""Write"",""Update""]","2023-01-05T12:00:00.000Z",406,Not Acceptable
+4.0,"[""Read"",""Update"",""Delete""]","2023-01-06T12:00:00.000Z",415,Unsupported Media Type
+4.1,"[""Read""]","2023-01-07T12:00:00.000Z",429,Too Many Requests
+5.0,"[""Read"",""Write"",""Update""]","2023-01-08T12:00:00.000Z",500,Internal Server Error
+5.1,"[""Read"",""Update""]","2023-01-09T12:00:00.000Z",503,Service Unavailable
+6.0,"[""Read""]","2023-01-10T12:00:00.000Z",504,Gateway Timeout

@@ -1,11 +1,11 @@
 version,bankCode,accountIdentification,currency,accountSchemeName,accountSubType,reportType,reportingDate,statusCode,scenario
-1.0,001,"account1","USD","BBAN","Current Account","DDAReport","2022-01-01",201,"Created"
-1.0,002,"account2","EUR","BBAN","Savings Account","DDIReport","2022-01-02",201,"Created"
-1.0,003,"account3","GBP","BBAN","Student Account","DDAReport","2022-01-03",
-1.0,004,"account4","JPY","BBAN","CACC","DDIReport","2022-01-04",201,"Created"
-1.0,005,"account5","AUD","BBAN","CARD","DDAReport","2022-01-05",
-1.0,006,"account6","CAD","BBAN","DDA – Current & Savings Accounts","DDIReport","2022-01-06",201,"Created"
-1.0,007,"account7","CHF","BBAN","CDA – Term Deposits","DDAReport","2022-01-07",
-1.0,008,"account8","SEK","BBAN","ILA – Loans","DDIReport","2022-01-08",201,"Created"
-1.0,009,"account9","NZD","BBAN","CCA – Credit Cards","DDAReport","2022-01-09",
-1.0,010,"account10","ZAR","BBAN","OTH - Other","DDIReport","2022-01-10",201,"Created"
+1.0,123,"ABCDEFG",USD,BBAN,"Current Account",DDAReport,2021-11-04,201,Created
+2.0,456,"HIJKLMN",EUR,BBAN,"Savings Account",DDIReport,2021-11-05,400,Bad Request
+3.0,789,"OPQRSTU",GBP,BBAN,"Student Account",DDAReport,2021-11-06,401,Unauthorized
+4.0,001,"VWXYZAB",JPY,BBAN,"CACC",DDIReport,2021-11-07,403,Forbidden
+5.0,002,"CDEFGHI",AUD,BBAN,"CARD",DDAReport,2021-11-08,404,Not Found
+6.0,003,"JKLMNOP",CAD,BBAN,"DDA – Current & Savings Accounts",DDIReport,2021-11-09,405,Method Not Allowed
+7.0,004,"QRSTUVW",NZD,BBAN,"CDA – Term Deposits",DDAReport,2021-11-10,406,Not Acceptable
+8.0,005,"XYZABCD",BRL,BBAN,"ILA – Loans",DDIReport,2021-11-11,415,Unsupported Media Type
+9.0,006,"EFGHIJK",ZAR,BBAN,"CCA – Credit Cards",DDAReport,2021-11-12,500,Internal Server Error
+10.0,007,"LMNOPQR",CHF,BBAN,"OTH - Other",DDIReport,2021-11-13,201,Created
