@@ -29,6 +29,12 @@
         <artifactId>spring-boot-maven-plugin</artifactId>
         <configuration/>
       </plugin>
+      <plugin>
+        <groupId>io.spring.javaformat</groupId>
+        <artifactId>spring-javaformat-maven-plugin</artifactId>
+        <version>0.0.40</version>
+        <!--Plugin added by RoostGPT-->
+      </plugin>
     </plugins>
   </build>
   <dependencies>
@@ -66,6 +72,31 @@
       <artifactId>json</artifactId>
       <version>20210307</version>
       <scope>compile</scope>
+      <!--Dependency added by RoostGPT-->
+    </dependency>
+    <dependency>
+      <groupId>com.intuit.karate</groupId>
+      <artifactId>karate-core</artifactId>
+      <version>1.4.1</version>
+      <!--Dependency added by RoostGPT-->
+    </dependency>
+    <dependency>
+      <groupId>io.karatelabs</groupId>
+      <artifactId>karate-debugserver</artifactId>
+      <version>0.1.0</version>
+      <!--Dependency added by RoostGPT-->
+    </dependency>
+    <dependency>
+      <groupId>com.intuit.karate</groupId>
+      <artifactId>karate-junit5</artifactId>
+      <version>1.4.1</version>
+      <scope>test</scope>
+      <!--Dependency added by RoostGPT-->
+    </dependency>
+    <dependency>
+      <groupId>io.spring.javaformat</groupId>
+      <artifactId>spring-javaformat-formatter</artifactId>
+      <version>0.0.40</version>
       <!--Dependency added by RoostGPT-->
     </dependency>
     <!--SpringDoc dependencies -->
