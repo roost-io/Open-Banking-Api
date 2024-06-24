@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Occurrences.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">openapi-spring</a> &gt; <a href="index.source.html" class="el_package">org.openapitools.model</a> &gt; <span class="el_source">Occurrences.java</span></div><h1>Occurrences.java</h1><pre class="source lang-java linenums">package org.openapitools.model;
+
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.LocalDate;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import javax.validation.Valid;
+import javax.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import javax.annotation.Generated;
+
+/**
+ * Occurrences
+ */
+
+@JsonTypeName(&quot;occurrences&quot;)
+@Generated(value = &quot;org.openapitools.codegen.languages.SpringCodegen&quot;, date = &quot;2024-04-04T10:32:56.573489+05:30[Asia/Kolkata]&quot;, comments = &quot;Generator version: 7.4.0&quot;)
+public class Occurrences {
+
+  /**
+   * Frequency type
+   */
+<span class="nc" id="L32">  public enum FrequencyTypeEnum {</span>
+<span class="nc" id="L33">    MNTH(&quot;MNTH&quot;),</span>
+    
+<span class="nc" id="L35">    ADHO(&quot;ADHO&quot;);</span>
+
+    private String value;
+
+<span class="nc" id="L39">    FrequencyTypeEnum(String value) {</span>
+<span class="nc" id="L40">      this.value = value;</span>
+<span class="nc" id="L41">    }</span>
+
+    @JsonValue
+    public String getValue() {
+<span class="nc" id="L45">      return value;</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="nc" id="L50">      return String.valueOf(value);</span>
+    }
+
+    @JsonCreator
+    public static FrequencyTypeEnum fromValue(String value) {
+<span class="nc bnc" id="L55" title="All 2 branches missed.">      for (FrequencyTypeEnum b : FrequencyTypeEnum.values()) {</span>
+<span class="nc bnc" id="L56" title="All 2 branches missed.">        if (b.value.equals(value)) {</span>
+<span class="nc" id="L57">          return b;</span>
+        }
+      }
+<span class="nc" id="L60">      throw new IllegalArgumentException(&quot;Unexpected value '&quot; + value + &quot;'&quot;);</span>
+    }
+  }
+
+  private FrequencyTypeEnum frequencyType;
+
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+  private LocalDate durationFromDate;
+
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+  private LocalDate durationToDate;
+
+  public Occurrences() {
+<span class="nc" id="L73">    super();</span>
+<span class="nc" id="L74">  }</span>
+
+  /**
+   * Constructor with only required parameters
+   */
+<span class="nc" id="L79">  public Occurrences(FrequencyTypeEnum frequencyType, LocalDate durationToDate) {</span>
+<span class="nc" id="L80">    this.frequencyType = frequencyType;</span>
+<span class="nc" id="L81">    this.durationToDate = durationToDate;</span>
+<span class="nc" id="L82">  }</span>
+
+  public Occurrences frequencyType(FrequencyTypeEnum frequencyType) {
+<span class="nc" id="L85">    this.frequencyType = frequencyType;</span>
+<span class="nc" id="L86">    return this;</span>
+  }
+
+  /**
+   * Frequency type
+   * @return frequencyType
+  */
+  @NotNull @Size(max = 4) 
+  @Schema(name = &quot;frequencyType&quot;, description = &quot;Frequency type&quot;, requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty(&quot;frequencyType&quot;)
+  public FrequencyTypeEnum getFrequencyType() {
+<span class="nc" id="L97">    return frequencyType;</span>
+  }
+
+  public void setFrequencyType(FrequencyTypeEnum frequencyType) {
+<span class="nc" id="L101">    this.frequencyType = frequencyType;</span>
+<span class="nc" id="L102">  }</span>
+
+  public Occurrences durationFromDate(LocalDate durationFromDate) {
+<span class="nc" id="L105">    this.durationFromDate = durationFromDate;</span>
+<span class="nc" id="L106">    return this;</span>
+  }
+
+  /**
+   * From Date (aka effective date).Always null
+   * @return durationFromDate
+  */
+  @Valid 
+  @Schema(name = &quot;durationFromDate&quot;, description = &quot;From Date (aka effective date).Always null&quot;, requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty(&quot;durationFromDate&quot;)
+  public LocalDate getDurationFromDate() {
+<span class="nc" id="L117">    return durationFromDate;</span>
+  }
+
+  public void setDurationFromDate(LocalDate durationFromDate) {
+<span class="nc" id="L121">    this.durationFromDate = durationFromDate;</span>
+<span class="nc" id="L122">  }</span>
+
+  public Occurrences durationToDate(LocalDate durationToDate) {
+<span class="nc" id="L125">    this.durationToDate = durationToDate;</span>
+<span class="nc" id="L126">    return this;</span>
+  }
+
+  /**
+   * To Date (aka expiry date).Date this registration will be expired.Value must be \\\&quot;9999-12-31\\\&quot; if never expired.
+   * @return durationToDate
+  */
+  @NotNull @Valid 
+  @Schema(name = &quot;durationToDate&quot;, description = &quot;To Date (aka expiry date).Date this registration will be expired.Value must be \\\&quot;9999-12-31\\\&quot; if never expired.&quot;, requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty(&quot;durationToDate&quot;)
+  public LocalDate getDurationToDate() {
+<span class="nc" id="L137">    return durationToDate;</span>
+  }
+
+  public void setDurationToDate(LocalDate durationToDate) {
+<span class="nc" id="L141">    this.durationToDate = durationToDate;</span>
+<span class="nc" id="L142">  }</span>
+
+  @Override
+  public boolean equals(Object o) {
+<span class="nc bnc" id="L146" title="All 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L147">      return true;</span>
+    }
+<span class="nc bnc" id="L149" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L150">      return false;</span>
+    }
+<span class="nc" id="L152">    Occurrences occurrences = (Occurrences) o;</span>
+<span class="nc bnc" id="L153" title="All 2 branches missed.">    return Objects.equals(this.frequencyType, occurrences.frequencyType) &amp;&amp;</span>
+<span class="nc bnc" id="L154" title="All 2 branches missed.">        Objects.equals(this.durationFromDate, occurrences.durationFromDate) &amp;&amp;</span>
+<span class="nc bnc" id="L155" title="All 2 branches missed.">        Objects.equals(this.durationToDate, occurrences.durationToDate);</span>
+  }
+
+  @Override
+  public int hashCode() {
+<span class="nc" id="L160">    return Objects.hash(frequencyType, durationFromDate, durationToDate);</span>
+  }
+
+  @Override
+  public String toString() {
+<span class="nc" id="L165">    StringBuilder sb = new StringBuilder();</span>
+<span class="nc" id="L166">    sb.append(&quot;class Occurrences {\n&quot;);</span>
+<span class="nc" id="L167">    sb.append(&quot;    frequencyType: &quot;).append(toIndentedString(frequencyType)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L168">    sb.append(&quot;    durationFromDate: &quot;).append(toIndentedString(durationFromDate)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L169">    sb.append(&quot;    durationToDate: &quot;).append(toIndentedString(durationToDate)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L170">    sb.append(&quot;}&quot;);</span>
+<span class="nc" id="L171">    return sb.toString();</span>
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+<span class="nc bnc" id="L179" title="All 2 branches missed.">    if (o == null) {</span>
+<span class="nc" id="L180">      return &quot;null&quot;;</span>
+    }
+<span class="nc" id="L182">    return o.toString().replace(&quot;\n&quot;, &quot;\n    &quot;);</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

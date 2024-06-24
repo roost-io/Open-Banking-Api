@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ConsentRequestDataData.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">openapi-spring</a> &gt; <a href="index.source.html" class="el_package">org.openapitools.model</a> &gt; <span class="el_source">ConsentRequestDataData.java</span></div><h1>ConsentRequestDataData.java</h1><pre class="source lang-java linenums">package org.openapitools.model;
+
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import org.openapitools.model.ExternalPermissionCode;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import javax.validation.Valid;
+import javax.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import javax.annotation.Generated;
+
+/**
+ * ConsentRequestDataData
+ */
+
+@JsonTypeName(&quot;ConsentRequestData_data&quot;)
+@Generated(value = &quot;org.openapitools.codegen.languages.SpringCodegen&quot;, date = &quot;2024-04-04T10:34:00.174725+05:30[Asia/Kolkata]&quot;, comments = &quot;Generator version: 7.4.0&quot;)
+public class ConsentRequestDataData {
+
+<span class="nc" id="L32">  @Valid</span>
+  private List&lt;ExternalPermissionCode&gt; permissions = new ArrayList&lt;&gt;();
+
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  private OffsetDateTime expirationDate;
+
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  private OffsetDateTime transactionFromDate;
+
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  private OffsetDateTime transactionToDate;
+
+  public ConsentRequestDataData() {
+<span class="nc" id="L45">    super();</span>
+<span class="nc" id="L46">  }</span>
+
+  /**
+   * Constructor with only required parameters
+   */
+<span class="nc" id="L51">  public ConsentRequestDataData(List&lt;ExternalPermissionCode&gt; permissions) {</span>
+<span class="nc" id="L52">    this.permissions = permissions;</span>
+<span class="nc" id="L53">  }</span>
+
+  public ConsentRequestDataData permissions(List&lt;ExternalPermissionCode&gt; permissions) {
+<span class="nc" id="L56">    this.permissions = permissions;</span>
+<span class="nc" id="L57">    return this;</span>
+  }
+
+  public ConsentRequestDataData addPermissionsItem(ExternalPermissionCode permissionsItem) {
+<span class="nc bnc" id="L61" title="All 2 branches missed.">    if (this.permissions == null) {</span>
+<span class="nc" id="L62">      this.permissions = new ArrayList&lt;&gt;();</span>
+    }
+<span class="nc" id="L64">    this.permissions.add(permissionsItem);</span>
+<span class="nc" id="L65">    return this;</span>
+  }
+
+  /**
+   * Get permissions
+   * @return permissions
+  */
+  @NotNull @Valid @Size(min = 1) 
+  @Schema(name = &quot;permissions&quot;, requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty(&quot;permissions&quot;)
+  public List&lt;ExternalPermissionCode&gt; getPermissions() {
+<span class="nc" id="L76">    return permissions;</span>
+  }
+
+  public void setPermissions(List&lt;ExternalPermissionCode&gt; permissions) {
+<span class="nc" id="L80">    this.permissions = permissions;</span>
+<span class="nc" id="L81">  }</span>
+
+  public ConsentRequestDataData expirationDate(OffsetDateTime expirationDate) {
+<span class="nc" id="L84">    this.expirationDate = expirationDate;</span>
+<span class="nc" id="L85">    return this;</span>
+  }
+
+  /**
+   * Specified date and time the permissions will expire. If this is not populated, the permissions will be open ended.All dates in the JSON payloads are represented in ISO 8601 date-time format. All date-time fields in responses must include the timezone. An example is below: 2017-04-05T00:07:00Z
+   * @return expirationDate
+  */
+  @Valid 
+  @Schema(name = &quot;expirationDate&quot;, description = &quot;Specified date and time the permissions will expire. If this is not populated, the permissions will be open ended.All dates in the JSON payloads are represented in ISO 8601 date-time format. All date-time fields in responses must include the timezone. An example is below: 2017-04-05T00:07:00Z&quot;, requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty(&quot;expirationDate&quot;)
+  public OffsetDateTime getExpirationDate() {
+<span class="nc" id="L96">    return expirationDate;</span>
+  }
+
+  public void setExpirationDate(OffsetDateTime expirationDate) {
+<span class="nc" id="L100">    this.expirationDate = expirationDate;</span>
+<span class="nc" id="L101">  }</span>
+
+  public ConsentRequestDataData transactionFromDate(OffsetDateTime transactionFromDate) {
+<span class="nc" id="L104">    this.transactionFromDate = transactionFromDate;</span>
+<span class="nc" id="L105">    return this;</span>
+  }
+
+  /**
+   * Specified start date and time for the transaction query period. If this is not populated, the start date will be open ended, and data will be returned from the earliest available transaction.All dates in the JSON payloads are represented in ISO 8601 date-time format. All date-time fields in responses must include the timezone. An example is below: 2017-04-05T00:07:00Z
+   * @return transactionFromDate
+  */
+  @Valid 
+  @Schema(name = &quot;transactionFromDate&quot;, description = &quot;Specified start date and time for the transaction query period. If this is not populated, the start date will be open ended, and data will be returned from the earliest available transaction.All dates in the JSON payloads are represented in ISO 8601 date-time format. All date-time fields in responses must include the timezone. An example is below: 2017-04-05T00:07:00Z&quot;, requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty(&quot;transactionFromDate&quot;)
+  public OffsetDateTime getTransactionFromDate() {
+<span class="nc" id="L116">    return transactionFromDate;</span>
+  }
+
+  public void setTransactionFromDate(OffsetDateTime transactionFromDate) {
+<span class="nc" id="L120">    this.transactionFromDate = transactionFromDate;</span>
+<span class="nc" id="L121">  }</span>
+
+  public ConsentRequestDataData transactionToDate(OffsetDateTime transactionToDate) {
+<span class="nc" id="L124">    this.transactionToDate = transactionToDate;</span>
+<span class="nc" id="L125">    return this;</span>
+  }
+
+  /**
+   * Specified end date and time for the transaction query period. If this is not populated, the end date will be open ended, and data will be returned to the latest available transaction.All dates in the JSON payloads are represented in ISO 8601 date-time format. All date-time fields in responses must include the timezone. An example is below: 2017-04-05T00:07:00Z
+   * @return transactionToDate
+  */
+  @Valid 
+  @Schema(name = &quot;transactionToDate&quot;, description = &quot;Specified end date and time for the transaction query period. If this is not populated, the end date will be open ended, and data will be returned to the latest available transaction.All dates in the JSON payloads are represented in ISO 8601 date-time format. All date-time fields in responses must include the timezone. An example is below: 2017-04-05T00:07:00Z&quot;, requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty(&quot;transactionToDate&quot;)
+  public OffsetDateTime getTransactionToDate() {
+<span class="nc" id="L136">    return transactionToDate;</span>
+  }
+
+  public void setTransactionToDate(OffsetDateTime transactionToDate) {
+<span class="nc" id="L140">    this.transactionToDate = transactionToDate;</span>
+<span class="nc" id="L141">  }</span>
+
+  @Override
+  public boolean equals(Object o) {
+<span class="nc bnc" id="L145" title="All 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L146">      return true;</span>
+    }
+<span class="nc bnc" id="L148" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L149">      return false;</span>
+    }
+<span class="nc" id="L151">    ConsentRequestDataData consentRequestDataData = (ConsentRequestDataData) o;</span>
+<span class="nc bnc" id="L152" title="All 2 branches missed.">    return Objects.equals(this.permissions, consentRequestDataData.permissions) &amp;&amp;</span>
+<span class="nc bnc" id="L153" title="All 2 branches missed.">        Objects.equals(this.expirationDate, consentRequestDataData.expirationDate) &amp;&amp;</span>
+<span class="nc bnc" id="L154" title="All 2 branches missed.">        Objects.equals(this.transactionFromDate, consentRequestDataData.transactionFromDate) &amp;&amp;</span>
+<span class="nc bnc" id="L155" title="All 2 branches missed.">        Objects.equals(this.transactionToDate, consentRequestDataData.transactionToDate);</span>
+  }
+
+  @Override
+  public int hashCode() {
+<span class="nc" id="L160">    return Objects.hash(permissions, expirationDate, transactionFromDate, transactionToDate);</span>
+  }
+
+  @Override
+  public String toString() {
+<span class="nc" id="L165">    StringBuilder sb = new StringBuilder();</span>
+<span class="nc" id="L166">    sb.append(&quot;class ConsentRequestDataData {\n&quot;);</span>
+<span class="nc" id="L167">    sb.append(&quot;    permissions: &quot;).append(toIndentedString(permissions)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L168">    sb.append(&quot;    expirationDate: &quot;).append(toIndentedString(expirationDate)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L169">    sb.append(&quot;    transactionFromDate: &quot;).append(toIndentedString(transactionFromDate)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L170">    sb.append(&quot;    transactionToDate: &quot;).append(toIndentedString(transactionToDate)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L171">    sb.append(&quot;}&quot;);</span>
+<span class="nc" id="L172">    return sb.toString();</span>
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+<span class="nc bnc" id="L180" title="All 2 branches missed.">    if (o == null) {</span>
+<span class="nc" id="L181">      return &quot;null&quot;;</span>
+    }
+<span class="nc" id="L183">    return o.toString().replace(&quot;\n&quot;, &quot;\n    &quot;);</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

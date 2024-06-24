@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DirectDebitConsentsResponseData.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">openapi-spring</a> &gt; <a href="index.source.html" class="el_package">org.openapitools.model</a> &gt; <span class="el_source">DirectDebitConsentsResponseData.java</span></div><h1>DirectDebitConsentsResponseData.java</h1><pre class="source lang-java linenums">package org.openapitools.model;
+
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.OffsetDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import org.openapitools.model.ConsentStatusCode;
+import org.openapitools.model.ExternalPermissionCode;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import javax.validation.Valid;
+import javax.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import javax.annotation.Generated;
+
+/**
+ * DirectDebitConsentsResponseData
+ */
+
+@JsonTypeName(&quot;DirectDebitConsentsResponse_data&quot;)
+@Generated(value = &quot;org.openapitools.codegen.languages.SpringCodegen&quot;, date = &quot;2024-04-04T10:32:56.573489+05:30[Asia/Kolkata]&quot;, comments = &quot;Generator version: 7.4.0&quot;)
+public class DirectDebitConsentsResponseData {
+
+  private String consentId;
+
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  private OffsetDateTime creationDate;
+
+  private ConsentStatusCode status;
+
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  private OffsetDateTime statusUpdateDate;
+
+<span class="nc" id="L44">  @Valid</span>
+  private List&lt;ExternalPermissionCode&gt; permissions = new ArrayList&lt;&gt;();
+
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  private OffsetDateTime expirationDate;
+
+  public DirectDebitConsentsResponseData() {
+<span class="nc" id="L51">    super();</span>
+<span class="nc" id="L52">  }</span>
+
+  /**
+   * Constructor with only required parameters
+   */
+<span class="nc" id="L57">  public DirectDebitConsentsResponseData(String consentId, OffsetDateTime creationDate, ConsentStatusCode status, OffsetDateTime statusUpdateDate, List&lt;ExternalPermissionCode&gt; permissions) {</span>
+<span class="nc" id="L58">    this.consentId = consentId;</span>
+<span class="nc" id="L59">    this.creationDate = creationDate;</span>
+<span class="nc" id="L60">    this.status = status;</span>
+<span class="nc" id="L61">    this.statusUpdateDate = statusUpdateDate;</span>
+<span class="nc" id="L62">    this.permissions = permissions;</span>
+<span class="nc" id="L63">  }</span>
+
+  public DirectDebitConsentsResponseData consentId(String consentId) {
+<span class="nc" id="L66">    this.consentId = consentId;</span>
+<span class="nc" id="L67">    return this;</span>
+  }
+
+  /**
+   * Unique identification as assigned to identify the direct-debit consent resource.
+   * @return consentId
+  */
+  @NotNull @Size(min = 1, max = 128) 
+  @Schema(name = &quot;consentId&quot;, description = &quot;Unique identification as assigned to identify the direct-debit consent resource.&quot;, requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty(&quot;consentId&quot;)
+  public String getConsentId() {
+<span class="nc" id="L78">    return consentId;</span>
+  }
+
+  public void setConsentId(String consentId) {
+<span class="nc" id="L82">    this.consentId = consentId;</span>
+<span class="nc" id="L83">  }</span>
+
+  public DirectDebitConsentsResponseData creationDate(OffsetDateTime creationDate) {
+<span class="nc" id="L86">    this.creationDate = creationDate;</span>
+<span class="nc" id="L87">    return this;</span>
+  }
+
+  /**
+   * Date and time at which the resource was created.All dates in the JSON payloads are represented in ISO 8601 date-time format.All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+   * @return creationDate
+  */
+  @NotNull @Valid 
+  @Schema(name = &quot;creationDate&quot;, description = &quot;Date and time at which the resource was created.All dates in the JSON payloads are represented in ISO 8601 date-time format.All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00&quot;, requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty(&quot;creationDate&quot;)
+  public OffsetDateTime getCreationDate() {
+<span class="nc" id="L98">    return creationDate;</span>
+  }
+
+  public void setCreationDate(OffsetDateTime creationDate) {
+<span class="nc" id="L102">    this.creationDate = creationDate;</span>
+<span class="nc" id="L103">  }</span>
+
+  public DirectDebitConsentsResponseData status(ConsentStatusCode status) {
+<span class="nc" id="L106">    this.status = status;</span>
+<span class="nc" id="L107">    return this;</span>
+  }
+
+  /**
+   * Get status
+   * @return status
+  */
+  @NotNull @Valid 
+  @Schema(name = &quot;status&quot;, requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty(&quot;status&quot;)
+  public ConsentStatusCode getStatus() {
+<span class="nc" id="L118">    return status;</span>
+  }
+
+  public void setStatus(ConsentStatusCode status) {
+<span class="nc" id="L122">    this.status = status;</span>
+<span class="nc" id="L123">  }</span>
+
+  public DirectDebitConsentsResponseData statusUpdateDate(OffsetDateTime statusUpdateDate) {
+<span class="nc" id="L126">    this.statusUpdateDate = statusUpdateDate;</span>
+<span class="nc" id="L127">    return this;</span>
+  }
+
+  /**
+   * Date and time at which the resource status was updated.All dates in the JSON payloads are represented in ISO 8601 date-time format. All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+   * @return statusUpdateDate
+  */
+  @NotNull @Valid 
+  @Schema(name = &quot;statusUpdateDate&quot;, description = &quot;Date and time at which the resource status was updated.All dates in the JSON payloads are represented in ISO 8601 date-time format. All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00&quot;, requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty(&quot;statusUpdateDate&quot;)
+  public OffsetDateTime getStatusUpdateDate() {
+<span class="nc" id="L138">    return statusUpdateDate;</span>
+  }
+
+  public void setStatusUpdateDate(OffsetDateTime statusUpdateDate) {
+<span class="nc" id="L142">    this.statusUpdateDate = statusUpdateDate;</span>
+<span class="nc" id="L143">  }</span>
+
+  public DirectDebitConsentsResponseData permissions(List&lt;ExternalPermissionCode&gt; permissions) {
+<span class="nc" id="L146">    this.permissions = permissions;</span>
+<span class="nc" id="L147">    return this;</span>
+  }
+
+  public DirectDebitConsentsResponseData addPermissionsItem(ExternalPermissionCode permissionsItem) {
+<span class="nc bnc" id="L151" title="All 2 branches missed.">    if (this.permissions == null) {</span>
+<span class="nc" id="L152">      this.permissions = new ArrayList&lt;&gt;();</span>
+    }
+<span class="nc" id="L154">    this.permissions.add(permissionsItem);</span>
+<span class="nc" id="L155">    return this;</span>
+  }
+
+  /**
+   * Get permissions
+   * @return permissions
+  */
+  @NotNull @Valid @Size(min = 1) 
+  @Schema(name = &quot;permissions&quot;, requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty(&quot;permissions&quot;)
+  public List&lt;ExternalPermissionCode&gt; getPermissions() {
+<span class="nc" id="L166">    return permissions;</span>
+  }
+
+  public void setPermissions(List&lt;ExternalPermissionCode&gt; permissions) {
+<span class="nc" id="L170">    this.permissions = permissions;</span>
+<span class="nc" id="L171">  }</span>
+
+  public DirectDebitConsentsResponseData expirationDate(OffsetDateTime expirationDate) {
+<span class="nc" id="L174">    this.expirationDate = expirationDate;</span>
+<span class="nc" id="L175">    return this;</span>
+  }
+
+  /**
+   * Specified date and time the permissions will expire. If this is not populated, the permissions will be open ended.All dates in the JSON payloads are represented in ISO 8601 date-time format. All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00
+   * @return expirationDate
+  */
+  @Valid 
+  @Schema(name = &quot;expirationDate&quot;, description = &quot;Specified date and time the permissions will expire. If this is not populated, the permissions will be open ended.All dates in the JSON payloads are represented in ISO 8601 date-time format. All date-time fields in responses must include the timezone. An example is below: 2017-04-05T10:43:07+00:00&quot;, requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty(&quot;expirationDate&quot;)
+  public OffsetDateTime getExpirationDate() {
+<span class="nc" id="L186">    return expirationDate;</span>
+  }
+
+  public void setExpirationDate(OffsetDateTime expirationDate) {
+<span class="nc" id="L190">    this.expirationDate = expirationDate;</span>
+<span class="nc" id="L191">  }</span>
+
+  @Override
+  public boolean equals(Object o) {
+<span class="nc bnc" id="L195" title="All 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L196">      return true;</span>
+    }
+<span class="nc bnc" id="L198" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L199">      return false;</span>
+    }
+<span class="nc" id="L201">    DirectDebitConsentsResponseData directDebitConsentsResponseData = (DirectDebitConsentsResponseData) o;</span>
+<span class="nc bnc" id="L202" title="All 2 branches missed.">    return Objects.equals(this.consentId, directDebitConsentsResponseData.consentId) &amp;&amp;</span>
+<span class="nc bnc" id="L203" title="All 2 branches missed.">        Objects.equals(this.creationDate, directDebitConsentsResponseData.creationDate) &amp;&amp;</span>
+<span class="nc bnc" id="L204" title="All 2 branches missed.">        Objects.equals(this.status, directDebitConsentsResponseData.status) &amp;&amp;</span>
+<span class="nc bnc" id="L205" title="All 2 branches missed.">        Objects.equals(this.statusUpdateDate, directDebitConsentsResponseData.statusUpdateDate) &amp;&amp;</span>
+<span class="nc bnc" id="L206" title="All 2 branches missed.">        Objects.equals(this.permissions, directDebitConsentsResponseData.permissions) &amp;&amp;</span>
+<span class="nc bnc" id="L207" title="All 2 branches missed.">        Objects.equals(this.expirationDate, directDebitConsentsResponseData.expirationDate);</span>
+  }
+
+  @Override
+  public int hashCode() {
+<span class="nc" id="L212">    return Objects.hash(consentId, creationDate, status, statusUpdateDate, permissions, expirationDate);</span>
+  }
+
+  @Override
+  public String toString() {
+<span class="nc" id="L217">    StringBuilder sb = new StringBuilder();</span>
+<span class="nc" id="L218">    sb.append(&quot;class DirectDebitConsentsResponseData {\n&quot;);</span>
+<span class="nc" id="L219">    sb.append(&quot;    consentId: &quot;).append(toIndentedString(consentId)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L220">    sb.append(&quot;    creationDate: &quot;).append(toIndentedString(creationDate)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L221">    sb.append(&quot;    status: &quot;).append(toIndentedString(status)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L222">    sb.append(&quot;    statusUpdateDate: &quot;).append(toIndentedString(statusUpdateDate)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L223">    sb.append(&quot;    permissions: &quot;).append(toIndentedString(permissions)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L224">    sb.append(&quot;    expirationDate: &quot;).append(toIndentedString(expirationDate)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L225">    sb.append(&quot;}&quot;);</span>
+<span class="nc" id="L226">    return sb.toString();</span>
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+<span class="nc bnc" id="L234" title="All 2 branches missed.">    if (o == null) {</span>
+<span class="nc" id="L235">      return &quot;null&quot;;</span>
+    }
+<span class="nc" id="L237">    return o.toString().replace(&quot;\n&quot;, &quot;\n    &quot;);</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

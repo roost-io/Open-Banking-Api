@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>NotificationEventRequest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">openapi-spring</a> &gt; <a href="index.source.html" class="el_package">org.openapitools.model</a> &gt; <span class="el_source">NotificationEventRequest.java</span></div><h1>NotificationEventRequest.java</h1><pre class="source lang-java linenums">package org.openapitools.model;
+
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import javax.validation.Valid;
+import javax.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import javax.annotation.Generated;
+
+/**
+ * NotificationEventRequest
+ */
+
+@Generated(value = &quot;org.openapitools.codegen.languages.SpringCodegen&quot;, date = &quot;2024-04-04T10:34:00.174725+05:30[Asia/Kolkata]&quot;, comments = &quot;Generator version: 7.4.0&quot;)
+public class NotificationEventRequest {
+
+  @Valid
+  private List&lt;String&gt; ack;
+
+  private Boolean returnImmediately;
+
+  private Integer maxEvents;
+
+  public NotificationEventRequest() {
+<span class="nc" id="L35">    super();</span>
+<span class="nc" id="L36">  }</span>
+
+  /**
+   * Constructor with only required parameters
+   */
+<span class="nc" id="L41">  public NotificationEventRequest(Boolean returnImmediately, Integer maxEvents) {</span>
+<span class="nc" id="L42">    this.returnImmediately = returnImmediately;</span>
+<span class="nc" id="L43">    this.maxEvents = maxEvents;</span>
+<span class="nc" id="L44">  }</span>
+
+  public NotificationEventRequest ack(List&lt;String&gt; ack) {
+<span class="nc" id="L47">    this.ack = ack;</span>
+<span class="nc" id="L48">    return this;</span>
+  }
+
+  public NotificationEventRequest addAckItem(String ackItem) {
+<span class="nc bnc" id="L52" title="All 2 branches missed.">    if (this.ack == null) {</span>
+<span class="nc" id="L53">      this.ack = new ArrayList&lt;&gt;();</span>
+    }
+<span class="nc" id="L55">    this.ack.add(ackItem);</span>
+<span class="nc" id="L56">    return this;</span>
+  }
+
+  /**
+   * List of successfully handled “jti”.
+   * @return ack
+  */
+  
+  @Schema(name = &quot;ack&quot;, description = &quot;List of successfully handled “jti”.&quot;, requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty(&quot;ack&quot;)
+  public List&lt;String&gt; getAck() {
+<span class="nc" id="L67">    return ack;</span>
+  }
+
+  public void setAck(List&lt;String&gt; ack) {
+<span class="nc" id="L71">    this.ack = ack;</span>
+<span class="nc" id="L72">  }</span>
+
+  public NotificationEventRequest returnImmediately(Boolean returnImmediately) {
+<span class="nc" id="L75">    this.returnImmediately = returnImmediately;</span>
+<span class="nc" id="L76">    return this;</span>
+  }
+
+  /**
+   * Optional JSON Boolean value that indicates the SET transmitter should return an immediate response even if no results are available (short polling).
+   * @return returnImmediately
+  */
+  @NotNull 
+  @Schema(name = &quot;returnImmediately&quot;, description = &quot;Optional JSON Boolean value that indicates the SET transmitter should return an immediate response even if no results are available (short polling).&quot;, requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty(&quot;returnImmediately&quot;)
+  public Boolean getReturnImmediately() {
+<span class="nc" id="L87">    return returnImmediately;</span>
+  }
+
+  public void setReturnImmediately(Boolean returnImmediately) {
+<span class="nc" id="L91">    this.returnImmediately = returnImmediately;</span>
+<span class="nc" id="L92">  }</span>
+
+  public NotificationEventRequest maxEvents(Integer maxEvents) {
+<span class="nc" id="L95">    this.maxEvents = maxEvents;</span>
+<span class="nc" id="L96">    return this;</span>
+  }
+
+  /**
+   * Size limit for the event collection size in the response, null or zero input for the field indicates the bank returned an empty set of outstanding events.
+   * @return maxEvents
+  */
+  @NotNull 
+  @Schema(name = &quot;maxEvents&quot;, description = &quot;Size limit for the event collection size in the response, null or zero input for the field indicates the bank returned an empty set of outstanding events.&quot;, requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty(&quot;maxEvents&quot;)
+  public Integer getMaxEvents() {
+<span class="nc" id="L107">    return maxEvents;</span>
+  }
+
+  public void setMaxEvents(Integer maxEvents) {
+<span class="nc" id="L111">    this.maxEvents = maxEvents;</span>
+<span class="nc" id="L112">  }</span>
+
+  @Override
+  public boolean equals(Object o) {
+<span class="nc bnc" id="L116" title="All 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L117">      return true;</span>
+    }
+<span class="nc bnc" id="L119" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L120">      return false;</span>
+    }
+<span class="nc" id="L122">    NotificationEventRequest notificationEventRequest = (NotificationEventRequest) o;</span>
+<span class="nc bnc" id="L123" title="All 2 branches missed.">    return Objects.equals(this.ack, notificationEventRequest.ack) &amp;&amp;</span>
+<span class="nc bnc" id="L124" title="All 2 branches missed.">        Objects.equals(this.returnImmediately, notificationEventRequest.returnImmediately) &amp;&amp;</span>
+<span class="nc bnc" id="L125" title="All 2 branches missed.">        Objects.equals(this.maxEvents, notificationEventRequest.maxEvents);</span>
+  }
+
+  @Override
+  public int hashCode() {
+<span class="nc" id="L130">    return Objects.hash(ack, returnImmediately, maxEvents);</span>
+  }
+
+  @Override
+  public String toString() {
+<span class="nc" id="L135">    StringBuilder sb = new StringBuilder();</span>
+<span class="nc" id="L136">    sb.append(&quot;class NotificationEventRequest {\n&quot;);</span>
+<span class="nc" id="L137">    sb.append(&quot;    ack: &quot;).append(toIndentedString(ack)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L138">    sb.append(&quot;    returnImmediately: &quot;).append(toIndentedString(returnImmediately)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L139">    sb.append(&quot;    maxEvents: &quot;).append(toIndentedString(maxEvents)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L140">    sb.append(&quot;}&quot;);</span>
+<span class="nc" id="L141">    return sb.toString();</span>
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+<span class="nc bnc" id="L149" title="All 2 branches missed.">    if (o == null) {</span>
+<span class="nc" id="L150">      return &quot;null&quot;;</span>
+    }
+<span class="nc" id="L152">    return o.toString().replace(&quot;\n&quot;, &quot;\n    &quot;);</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

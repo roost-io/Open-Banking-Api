@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AccountAvailabilityResponseData.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">openapi-spring</a> &gt; <a href="index.source.html" class="el_package">org.openapitools.model</a> &gt; <span class="el_source">AccountAvailabilityResponseData.java</span></div><h1>AccountAvailabilityResponseData.java</h1><pre class="source lang-java linenums">package org.openapitools.model;
+
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+import org.openapitools.model.ParamName;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import javax.validation.Valid;
+import javax.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import javax.annotation.Generated;
+
+/**
+ * AccountAvailabilityResponseData
+ */
+
+@Generated(value = &quot;org.openapitools.codegen.languages.SpringCodegen&quot;, date = &quot;2024-04-04T10:34:00.174725+05:30[Asia/Kolkata]&quot;, comments = &quot;Generator version: 7.4.0&quot;)
+public class AccountAvailabilityResponseData {
+
+  private ParamName paramName;
+
+  /**
+   * Gets or Sets status
+   */
+<span class="nc" id="L31">  public enum StatusEnum {</span>
+<span class="nc" id="L32">    TRUE(&quot;true&quot;),</span>
+    
+<span class="nc" id="L34">    FALSE(&quot;false&quot;),</span>
+    
+<span class="nc" id="L36">    RETRY(&quot;Retry&quot;),</span>
+    
+<span class="nc" id="L38">    NOTAVAILABLE(&quot;NotAvailable&quot;),</span>
+    
+<span class="nc" id="L40">    ERROR(&quot;Error&quot;);</span>
+
+    private String value;
+
+<span class="nc" id="L44">    StatusEnum(String value) {</span>
+<span class="nc" id="L45">      this.value = value;</span>
+<span class="nc" id="L46">    }</span>
+
+    @JsonValue
+    public String getValue() {
+<span class="nc" id="L50">      return value;</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="nc" id="L55">      return String.valueOf(value);</span>
+    }
+
+    @JsonCreator
+    public static StatusEnum fromValue(String value) {
+<span class="nc bnc" id="L60" title="All 2 branches missed.">      for (StatusEnum b : StatusEnum.values()) {</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">        if (b.value.equals(value)) {</span>
+<span class="nc" id="L62">          return b;</span>
+        }
+      }
+<span class="nc" id="L65">      throw new IllegalArgumentException(&quot;Unexpected value '&quot; + value + &quot;'&quot;);</span>
+    }
+  }
+
+  private StatusEnum status;
+
+  public AccountAvailabilityResponseData() {
+<span class="nc" id="L72">    super();</span>
+<span class="nc" id="L73">  }</span>
+
+  /**
+   * Constructor with only required parameters
+   */
+<span class="nc" id="L78">  public AccountAvailabilityResponseData(ParamName paramName, StatusEnum status) {</span>
+<span class="nc" id="L79">    this.paramName = paramName;</span>
+<span class="nc" id="L80">    this.status = status;</span>
+<span class="nc" id="L81">  }</span>
+
+  public AccountAvailabilityResponseData paramName(ParamName paramName) {
+<span class="nc" id="L84">    this.paramName = paramName;</span>
+<span class="nc" id="L85">    return this;</span>
+  }
+
+  /**
+   * Get paramName
+   * @return paramName
+  */
+  @NotNull @Valid 
+  @Schema(name = &quot;paramName&quot;, requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty(&quot;paramName&quot;)
+  public ParamName getParamName() {
+<span class="nc" id="L96">    return paramName;</span>
+  }
+
+  public void setParamName(ParamName paramName) {
+<span class="nc" id="L100">    this.paramName = paramName;</span>
+<span class="nc" id="L101">  }</span>
+
+  public AccountAvailabilityResponseData status(StatusEnum status) {
+<span class="nc" id="L104">    this.status = status;</span>
+<span class="nc" id="L105">    return this;</span>
+  }
+
+  /**
+   * Get status
+   * @return status
+  */
+  @NotNull 
+  @Schema(name = &quot;status&quot;, example = &quot;true&quot;, requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty(&quot;status&quot;)
+  public StatusEnum getStatus() {
+<span class="nc" id="L116">    return status;</span>
+  }
+
+  public void setStatus(StatusEnum status) {
+<span class="nc" id="L120">    this.status = status;</span>
+<span class="nc" id="L121">  }</span>
+
+  @Override
+  public boolean equals(Object o) {
+<span class="nc bnc" id="L125" title="All 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L126">      return true;</span>
+    }
+<span class="nc bnc" id="L128" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L129">      return false;</span>
+    }
+<span class="nc" id="L131">    AccountAvailabilityResponseData accountAvailabilityResponseData = (AccountAvailabilityResponseData) o;</span>
+<span class="nc bnc" id="L132" title="All 2 branches missed.">    return Objects.equals(this.paramName, accountAvailabilityResponseData.paramName) &amp;&amp;</span>
+<span class="nc bnc" id="L133" title="All 2 branches missed.">        Objects.equals(this.status, accountAvailabilityResponseData.status);</span>
+  }
+
+  @Override
+  public int hashCode() {
+<span class="nc" id="L138">    return Objects.hash(paramName, status);</span>
+  }
+
+  @Override
+  public String toString() {
+<span class="nc" id="L143">    StringBuilder sb = new StringBuilder();</span>
+<span class="nc" id="L144">    sb.append(&quot;class AccountAvailabilityResponseData {\n&quot;);</span>
+<span class="nc" id="L145">    sb.append(&quot;    paramName: &quot;).append(toIndentedString(paramName)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L146">    sb.append(&quot;    status: &quot;).append(toIndentedString(status)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L147">    sb.append(&quot;}&quot;);</span>
+<span class="nc" id="L148">    return sb.toString();</span>
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+<span class="nc bnc" id="L156" title="All 2 branches missed.">    if (o == null) {</span>
+<span class="nc" id="L157">      return &quot;null&quot;;</span>
+    }
+<span class="nc" id="L159">    return o.toString().replace(&quot;\n&quot;, &quot;\n    &quot;);</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DirectDebitInstructionRequest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">openapi-spring</a> &gt; <a href="index.source.html" class="el_package">org.openapitools.model</a> &gt; <span class="el_source">DirectDebitInstructionRequest.java</span></div><h1>DirectDebitInstructionRequest.java</h1><pre class="source lang-java linenums">package org.openapitools.model;
+
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import org.openapitools.model.CashAccount;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import javax.validation.Valid;
+import javax.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import javax.annotation.Generated;
+
+/**
+ * Account summary for the customer, could be language specific
+ */
+
+@Schema(name = &quot;directDebitInstructionRequest&quot;, description = &quot;Account summary for the customer, could be language specific&quot;)
+@JsonTypeName(&quot;directDebitInstructionRequest&quot;)
+@Generated(value = &quot;org.openapitools.codegen.languages.SpringCodegen&quot;, date = &quot;2024-04-04T10:32:56.573489+05:30[Asia/Kolkata]&quot;, comments = &quot;Generator version: 7.4.0&quot;)
+public class DirectDebitInstructionRequest {
+
+  private String merchantInstructionIdentification;
+
+  private String mandateIdentification;
+
+  private String debtorName;
+
+  private CashAccount debtorAccount;
+
+  private CashAccount creditorAccount;
+
+  private String creditorReference;
+
+  private String instructedAmountCurrency;
+
+  private String instructedAmount;
+
+  private String remittanceInformation;
+
+  /**
+   * User preferred language. This language will be used in SMS for communication.
+   */
+<span class="nc" id="L50">  public enum SmsLanguageCodeEnum {</span>
+<span class="nc" id="L51">    ENG(&quot;eng&quot;),</span>
+    
+<span class="nc" id="L53">    ZH_S(&quot;zh-s&quot;),</span>
+    
+<span class="nc" id="L55">    ZH_T(&quot;zh-t&quot;);</span>
+
+    private String value;
+
+<span class="nc" id="L59">    SmsLanguageCodeEnum(String value) {</span>
+<span class="nc" id="L60">      this.value = value;</span>
+<span class="nc" id="L61">    }</span>
+
+    @JsonValue
+    public String getValue() {
+<span class="nc" id="L65">      return value;</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="nc" id="L70">      return String.valueOf(value);</span>
+    }
+
+    @JsonCreator
+    public static SmsLanguageCodeEnum fromValue(String value) {
+<span class="nc bnc" id="L75" title="All 2 branches missed.">      for (SmsLanguageCodeEnum b : SmsLanguageCodeEnum.values()) {</span>
+<span class="nc bnc" id="L76" title="All 2 branches missed.">        if (b.value.equals(value)) {</span>
+<span class="nc" id="L77">          return b;</span>
+        }
+      }
+<span class="nc" id="L80">      throw new IllegalArgumentException(&quot;Unexpected value '&quot; + value + &quot;'&quot;);</span>
+    }
+  }
+
+  private SmsLanguageCodeEnum smsLanguageCode;
+
+  public DirectDebitInstructionRequest() {
+<span class="nc" id="L87">    super();</span>
+<span class="nc" id="L88">  }</span>
+
+  /**
+   * Constructor with only required parameters
+   */
+<span class="nc" id="L93">  public DirectDebitInstructionRequest(String merchantInstructionIdentification, CashAccount creditorAccount, String instructedAmountCurrency, String instructedAmount) {</span>
+<span class="nc" id="L94">    this.merchantInstructionIdentification = merchantInstructionIdentification;</span>
+<span class="nc" id="L95">    this.creditorAccount = creditorAccount;</span>
+<span class="nc" id="L96">    this.instructedAmountCurrency = instructedAmountCurrency;</span>
+<span class="nc" id="L97">    this.instructedAmount = instructedAmount;</span>
+<span class="nc" id="L98">  }</span>
+
+  public DirectDebitInstructionRequest merchantInstructionIdentification(String merchantInstructionIdentification) {
+<span class="nc" id="L101">    this.merchantInstructionIdentification = merchantInstructionIdentification;</span>
+<span class="nc" id="L102">    return this;</span>
+  }
+
+  /**
+   * Merchant Instruction Reference No. Unique instruction id generated by merchant.
+   * @return merchantInstructionIdentification
+  */
+  @NotNull @Size(min = 1, max = 30) 
+  @Schema(name = &quot;merchantInstructionIdentification&quot;, description = &quot;Merchant Instruction Reference No. Unique instruction id generated by merchant.&quot;, requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty(&quot;merchantInstructionIdentification&quot;)
+  public String getMerchantInstructionIdentification() {
+<span class="nc" id="L113">    return merchantInstructionIdentification;</span>
+  }
+
+  public void setMerchantInstructionIdentification(String merchantInstructionIdentification) {
+<span class="nc" id="L117">    this.merchantInstructionIdentification = merchantInstructionIdentification;</span>
+<span class="nc" id="L118">  }</span>
+
+  public DirectDebitInstructionRequest mandateIdentification(String mandateIdentification) {
+<span class="nc" id="L121">    this.mandateIdentification = mandateIdentification;</span>
+<span class="nc" id="L122">    return this;</span>
+  }
+
+  /**
+   * The reference uniquely identify the DDA mandate at the payee bank record. Mutually exclusive with \&quot;DebtorAccount\&quot; and \&quot;CreditorReference\&quot;. MandateIdentification is mandatory only if the above are not provided.
+   * @return mandateIdentification
+  */
+  @Size(max = 35) 
+  @Schema(name = &quot;mandateIdentification&quot;, description = &quot;The reference uniquely identify the DDA mandate at the payee bank record. Mutually exclusive with \&quot;DebtorAccount\&quot; and \&quot;CreditorReference\&quot;. MandateIdentification is mandatory only if the above are not provided.&quot;, requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty(&quot;mandateIdentification&quot;)
+  public String getMandateIdentification() {
+<span class="nc" id="L133">    return mandateIdentification;</span>
+  }
+
+  public void setMandateIdentification(String mandateIdentification) {
+<span class="nc" id="L137">    this.mandateIdentification = mandateIdentification;</span>
+<span class="nc" id="L138">  }</span>
+
+  public DirectDebitInstructionRequest debtorName(String debtorName) {
+<span class="nc" id="L141">    this.debtorName = debtorName;</span>
+<span class="nc" id="L142">    return this;</span>
+  }
+
+  /**
+   * Debtor account owner name.
+   * @return debtorName
+  */
+  @Size(min = 1, max = 140) 
+  @Schema(name = &quot;debtorName&quot;, description = &quot;Debtor account owner name.&quot;, requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty(&quot;debtorName&quot;)
+  public String getDebtorName() {
+<span class="nc" id="L153">    return debtorName;</span>
+  }
+
+  public void setDebtorName(String debtorName) {
+<span class="nc" id="L157">    this.debtorName = debtorName;</span>
+<span class="nc" id="L158">  }</span>
+
+  public DirectDebitInstructionRequest debtorAccount(CashAccount debtorAccount) {
+<span class="nc" id="L161">    this.debtorAccount = debtorAccount;</span>
+<span class="nc" id="L162">    return this;</span>
+  }
+
+  /**
+   * Get debtorAccount
+   * @return debtorAccount
+  */
+  @Valid 
+  @Schema(name = &quot;debtorAccount&quot;, requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty(&quot;debtorAccount&quot;)
+  public CashAccount getDebtorAccount() {
+<span class="nc" id="L173">    return debtorAccount;</span>
+  }
+
+  public void setDebtorAccount(CashAccount debtorAccount) {
+<span class="nc" id="L177">    this.debtorAccount = debtorAccount;</span>
+<span class="nc" id="L178">  }</span>
+
+  public DirectDebitInstructionRequest creditorAccount(CashAccount creditorAccount) {
+<span class="nc" id="L181">    this.creditorAccount = creditorAccount;</span>
+<span class="nc" id="L182">    return this;</span>
+  }
+
+  /**
+   * Get creditorAccount
+   * @return creditorAccount
+  */
+  @NotNull @Valid 
+  @Schema(name = &quot;creditorAccount&quot;, requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty(&quot;creditorAccount&quot;)
+  public CashAccount getCreditorAccount() {
+<span class="nc" id="L193">    return creditorAccount;</span>
+  }
+
+  public void setCreditorAccount(CashAccount creditorAccount) {
+<span class="nc" id="L197">    this.creditorAccount = creditorAccount;</span>
+<span class="nc" id="L198">  }</span>
+
+  public DirectDebitInstructionRequest creditorReference(String creditorReference) {
+<span class="nc" id="L201">    this.creditorReference = creditorReference;</span>
+<span class="nc" id="L202">    return this;</span>
+  }
+
+  /**
+   * Creditor reference of the DDA. This CreditorReference will be sent to Payer Bank through FPS for record. Mutually exclusive with MandateIdentification. \&quot;DebtorAccount\&quot; and \&quot;CreditorReference\&quot; will be mandatory once field MandateIdentification is not provided.
+   * @return creditorReference
+  */
+  @Size(max = 35) 
+  @Schema(name = &quot;creditorReference&quot;, description = &quot;Creditor reference of the DDA. This CreditorReference will be sent to Payer Bank through FPS for record. Mutually exclusive with MandateIdentification. \&quot;DebtorAccount\&quot; and \&quot;CreditorReference\&quot; will be mandatory once field MandateIdentification is not provided.&quot;, requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty(&quot;creditorReference&quot;)
+  public String getCreditorReference() {
+<span class="nc" id="L213">    return creditorReference;</span>
+  }
+
+  public void setCreditorReference(String creditorReference) {
+<span class="nc" id="L217">    this.creditorReference = creditorReference;</span>
+<span class="nc" id="L218">  }</span>
+
+  public DirectDebitInstructionRequest instructedAmountCurrency(String instructedAmountCurrency) {
+<span class="nc" id="L221">    this.instructedAmountCurrency = instructedAmountCurrency;</span>
+<span class="nc" id="L222">    return this;</span>
+  }
+
+  /**
+   * Instructed amount currency.
+   * @return instructedAmountCurrency
+  */
+  @NotNull @Pattern(regexp = &quot;^[A-Z]{3,3}$&quot;) @Size(max = 3) 
+  @Schema(name = &quot;instructedAmountCurrency&quot;, description = &quot;Instructed amount currency.&quot;, requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty(&quot;instructedAmountCurrency&quot;)
+  public String getInstructedAmountCurrency() {
+<span class="nc" id="L233">    return instructedAmountCurrency;</span>
+  }
+
+  public void setInstructedAmountCurrency(String instructedAmountCurrency) {
+<span class="nc" id="L237">    this.instructedAmountCurrency = instructedAmountCurrency;</span>
+<span class="nc" id="L238">  }</span>
+
+  public DirectDebitInstructionRequest instructedAmount(String instructedAmount) {
+<span class="nc" id="L241">    this.instructedAmount = instructedAmount;</span>
+<span class="nc" id="L242">    return this;</span>
+  }
+
+  /**
+   * Instructed amount.
+   * @return instructedAmount
+  */
+  @NotNull @Pattern(regexp = &quot;^[0-9]{1,15}(\\.[0-9]{1,2}){0,1}$&quot;) @Size(max = 18) 
+  @Schema(name = &quot;instructedAmount&quot;, description = &quot;Instructed amount.&quot;, requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty(&quot;instructedAmount&quot;)
+  public String getInstructedAmount() {
+<span class="nc" id="L253">    return instructedAmount;</span>
+  }
+
+  public void setInstructedAmount(String instructedAmount) {
+<span class="nc" id="L257">    this.instructedAmount = instructedAmount;</span>
+<span class="nc" id="L258">  }</span>
+
+  public DirectDebitInstructionRequest remittanceInformation(String remittanceInformation) {
+<span class="nc" id="L261">    this.remittanceInformation = remittanceInformation;</span>
+<span class="nc" id="L262">    return this;</span>
+  }
+
+  /**
+   * Remittance information from payer.
+   * @return remittanceInformation
+  */
+  @Size(max = 140) 
+  @Schema(name = &quot;remittanceInformation&quot;, description = &quot;Remittance information from payer.&quot;, requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty(&quot;remittanceInformation&quot;)
+  public String getRemittanceInformation() {
+<span class="nc" id="L273">    return remittanceInformation;</span>
+  }
+
+  public void setRemittanceInformation(String remittanceInformation) {
+<span class="nc" id="L277">    this.remittanceInformation = remittanceInformation;</span>
+<span class="nc" id="L278">  }</span>
+
+  public DirectDebitInstructionRequest smsLanguageCode(SmsLanguageCodeEnum smsLanguageCode) {
+<span class="nc" id="L281">    this.smsLanguageCode = smsLanguageCode;</span>
+<span class="nc" id="L282">    return this;</span>
+  }
+
+  /**
+   * User preferred language. This language will be used in SMS for communication.
+   * @return smsLanguageCode
+  */
+  @Size(max = 10) 
+  @Schema(name = &quot;smsLanguageCode&quot;, description = &quot;User preferred language. This language will be used in SMS for communication.&quot;, requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty(&quot;smsLanguageCode&quot;)
+  public SmsLanguageCodeEnum getSmsLanguageCode() {
+<span class="nc" id="L293">    return smsLanguageCode;</span>
+  }
+
+  public void setSmsLanguageCode(SmsLanguageCodeEnum smsLanguageCode) {
+<span class="nc" id="L297">    this.smsLanguageCode = smsLanguageCode;</span>
+<span class="nc" id="L298">  }</span>
+
+  @Override
+  public boolean equals(Object o) {
+<span class="nc bnc" id="L302" title="All 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L303">      return true;</span>
+    }
+<span class="nc bnc" id="L305" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L306">      return false;</span>
+    }
+<span class="nc" id="L308">    DirectDebitInstructionRequest directDebitInstructionRequest = (DirectDebitInstructionRequest) o;</span>
+<span class="nc bnc" id="L309" title="All 2 branches missed.">    return Objects.equals(this.merchantInstructionIdentification, directDebitInstructionRequest.merchantInstructionIdentification) &amp;&amp;</span>
+<span class="nc bnc" id="L310" title="All 2 branches missed.">        Objects.equals(this.mandateIdentification, directDebitInstructionRequest.mandateIdentification) &amp;&amp;</span>
+<span class="nc bnc" id="L311" title="All 2 branches missed.">        Objects.equals(this.debtorName, directDebitInstructionRequest.debtorName) &amp;&amp;</span>
+<span class="nc bnc" id="L312" title="All 2 branches missed.">        Objects.equals(this.debtorAccount, directDebitInstructionRequest.debtorAccount) &amp;&amp;</span>
+<span class="nc bnc" id="L313" title="All 2 branches missed.">        Objects.equals(this.creditorAccount, directDebitInstructionRequest.creditorAccount) &amp;&amp;</span>
+<span class="nc bnc" id="L314" title="All 2 branches missed.">        Objects.equals(this.creditorReference, directDebitInstructionRequest.creditorReference) &amp;&amp;</span>
+<span class="nc bnc" id="L315" title="All 2 branches missed.">        Objects.equals(this.instructedAmountCurrency, directDebitInstructionRequest.instructedAmountCurrency) &amp;&amp;</span>
+<span class="nc bnc" id="L316" title="All 2 branches missed.">        Objects.equals(this.instructedAmount, directDebitInstructionRequest.instructedAmount) &amp;&amp;</span>
+<span class="nc bnc" id="L317" title="All 2 branches missed.">        Objects.equals(this.remittanceInformation, directDebitInstructionRequest.remittanceInformation) &amp;&amp;</span>
+<span class="nc bnc" id="L318" title="All 2 branches missed.">        Objects.equals(this.smsLanguageCode, directDebitInstructionRequest.smsLanguageCode);</span>
+  }
+
+  @Override
+  public int hashCode() {
+<span class="nc" id="L323">    return Objects.hash(merchantInstructionIdentification, mandateIdentification, debtorName, debtorAccount, creditorAccount, creditorReference, instructedAmountCurrency, instructedAmount, remittanceInformation, smsLanguageCode);</span>
+  }
+
+  @Override
+  public String toString() {
+<span class="nc" id="L328">    StringBuilder sb = new StringBuilder();</span>
+<span class="nc" id="L329">    sb.append(&quot;class DirectDebitInstructionRequest {\n&quot;);</span>
+<span class="nc" id="L330">    sb.append(&quot;    merchantInstructionIdentification: &quot;).append(toIndentedString(merchantInstructionIdentification)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L331">    sb.append(&quot;    mandateIdentification: &quot;).append(toIndentedString(mandateIdentification)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L332">    sb.append(&quot;    debtorName: &quot;).append(toIndentedString(debtorName)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L333">    sb.append(&quot;    debtorAccount: &quot;).append(toIndentedString(debtorAccount)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L334">    sb.append(&quot;    creditorAccount: &quot;).append(toIndentedString(creditorAccount)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L335">    sb.append(&quot;    creditorReference: &quot;).append(toIndentedString(creditorReference)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L336">    sb.append(&quot;    instructedAmountCurrency: &quot;).append(toIndentedString(instructedAmountCurrency)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L337">    sb.append(&quot;    instructedAmount: &quot;).append(toIndentedString(instructedAmount)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L338">    sb.append(&quot;    remittanceInformation: &quot;).append(toIndentedString(remittanceInformation)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L339">    sb.append(&quot;    smsLanguageCode: &quot;).append(toIndentedString(smsLanguageCode)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L340">    sb.append(&quot;}&quot;);</span>
+<span class="nc" id="L341">    return sb.toString();</span>
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+<span class="nc bnc" id="L349" title="All 2 branches missed.">    if (o == null) {</span>
+<span class="nc" id="L350">      return &quot;null&quot;;</span>
+    }
+<span class="nc" id="L352">    return o.toString().replace(&quot;\n&quot;, &quot;\n    &quot;);</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

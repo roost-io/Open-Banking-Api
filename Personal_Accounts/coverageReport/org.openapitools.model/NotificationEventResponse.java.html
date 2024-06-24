@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>NotificationEventResponse.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">openapi-spring</a> &gt; <a href="index.source.html" class="el_package">org.openapitools.model</a> &gt; <span class="el_source">NotificationEventResponse.java</span></div><h1>NotificationEventResponse.java</h1><pre class="source lang-java linenums">package org.openapitools.model;
+
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import javax.validation.Valid;
+import javax.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import javax.annotation.Generated;
+
+/**
+ * NotificationEventResponse
+ */
+
+@Generated(value = &quot;org.openapitools.codegen.languages.SpringCodegen&quot;, date = &quot;2024-04-04T10:34:00.174725+05:30[Asia/Kolkata]&quot;, comments = &quot;Generator version: 7.4.0&quot;)
+public class NotificationEventResponse {
+
+  private Object sets;
+
+  private Boolean moreAvailable;
+
+  public NotificationEventResponse() {
+<span class="nc" id="L29">    super();</span>
+<span class="nc" id="L30">  }</span>
+
+  /**
+   * Constructor with only required parameters
+   */
+<span class="nc" id="L35">  public NotificationEventResponse(Object sets) {</span>
+<span class="nc" id="L36">    this.sets = sets;</span>
+<span class="nc" id="L37">  }</span>
+
+  public NotificationEventResponse sets(Object sets) {
+<span class="nc" id="L40">    this.sets = sets;</span>
+<span class="nc" id="L41">    return this;</span>
+  }
+
+  /**
+   * JSON object containing zero or more SETs being returned.  Each member name is the \&quot;jti\&quot; of a SET to be delivered, and its value is a JSON string representing the corresponding SET.  If there are no outstanding SETs to be transmitted, the JSON object shall be empty.  Note that both SETs being transmitted for the first time and SETs that are being retransmitted after not having been acknowledged are communicated here.
+   * @return sets
+  */
+  @NotNull 
+  @Schema(name = &quot;sets&quot;, example = &quot;{\&quot;4d3559ec67504aaba65d40b0363faad8\&quot;:\&quot;eyJhbGciOiJub25lIn0. eyJqdGkiOiI0ZDM1NTllYzY3NTA0YWFiYTY1ZDQwYjAzNjNmYWFkOCIsImlhdC I6MTQ1ODQ5NjQwNCwiaXNzIjoiaHR0cHM6Ly9zY2ltLmV4YW1wbGUuY29tIiwi YXVkIjpbImh0dHBzOi8vc2NpbS5leGFtcGxlLmNvbS9GZWVkcy85OGQ1MjQ2MW ZhNWJiYzg3OTU5M2I3NzU0IiwiaHR0cHM6Ly9zY2ltLmV4YW1wbGUuY29tL0Zl ZWRzLzVkNzYwNDUxNmIxZDA4NjQxZDc2NzZlZTciXSwiZXZlbnRzIjp7InVybj ppZXRmOnBhcmFtczpzY2ltOmV2ZW50OmNyZWF0ZSI6eyJyZWYiOiJodHRwczov L3NjaW0uZXhhbXBsZS5jb20vVXNlcnMvNDRmNjE0MmRmOTZiZDZhYjYxZTc1Mj FkOSIsImF0dHJpYnV0ZXMiOlsiaWQiLCJuYW1lIiwidXNlck5hbWUiLCJwYXNz d29yZCIsImVtYWlscyJdfX19.\&quot;,\&quot;3d0c3cf797584bd193bd0fb1bd4e7d30\&quot;:\&quot;eyJqdGkiOiIzZDBjM2NmNzk3NTg0YmQxOTNiZDBmYjFiZDRlN2QzMCIsImlhdC I6MTQ1ODQ5NjAyNSwiaXNzIjoiaHR0cHM6Ly9zY2ltLmV4YW1wbGUuY29tIiwi YXVkIjpbImh0dHBzOi8vamh1Yi5leGFtcGxlLmNvbS9GZWVkcy85OGQ1MjQ2MW ZhNWJiYzg3OTU5M2I3NzU0IiwiaHR0cHM6Ly9qaHViLmV4YW1wbGUuY29tL0Zl ZWRzLzVkNzYwNDUxNmIxZDA4NjQxZDc2NzZlZTciXSwic3ViIjoiaHR0cHM6Ly 9zY2ltLmV4YW1wbGUuY29tL1VzZXJzLzQ0ZjYxNDJkZjk2YmQ2YWI2MWU3NTIx ZDkiLCJldmVudHMiOnsidXJuOmlldGY6cGFyYW1zOnNjaW06ZXZlbnQ6cGFzc3 dvcmRSZXNldCI6eyJpZCI6IjQ0ZjYxNDJkZjk2YmQ2YWI2MWU3NTIxZDkifSwi aHR0cHM6Ly9leGFtcGxlLmNvbS9zY2ltL2V2ZW50L3Bhc3N3b3JkUmVzZXRFeH QiOnsicmVzZXRBdHRlbXB0cyI6NX19fQ.\&quot;}&quot;, description = &quot;JSON object containing zero or more SETs being returned.  Each member name is the \&quot;jti\&quot; of a SET to be delivered, and its value is a JSON string representing the corresponding SET.  If there are no outstanding SETs to be transmitted, the JSON object shall be empty.  Note that both SETs being transmitted for the first time and SETs that are being retransmitted after not having been acknowledged are communicated here.&quot;, requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty(&quot;sets&quot;)
+  public Object getSets() {
+<span class="nc" id="L52">    return sets;</span>
+  }
+
+  public void setSets(Object sets) {
+<span class="nc" id="L56">    this.sets = sets;</span>
+<span class="nc" id="L57">  }</span>
+
+  public NotificationEventResponse moreAvailable(Boolean moreAvailable) {
+<span class="nc" id="L60">    this.moreAvailable = moreAvailable;</span>
+<span class="nc" id="L61">    return this;</span>
+  }
+
+  /**
+   * Indicates if there are more unacknowledged events from the bank in addition to the current response data list.
+   * @return moreAvailable
+  */
+  
+  @Schema(name = &quot;moreAvailable&quot;, description = &quot;Indicates if there are more unacknowledged events from the bank in addition to the current response data list.&quot;, requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty(&quot;moreAvailable&quot;)
+  public Boolean getMoreAvailable() {
+<span class="nc" id="L72">    return moreAvailable;</span>
+  }
+
+  public void setMoreAvailable(Boolean moreAvailable) {
+<span class="nc" id="L76">    this.moreAvailable = moreAvailable;</span>
+<span class="nc" id="L77">  }</span>
+
+  @Override
+  public boolean equals(Object o) {
+<span class="nc bnc" id="L81" title="All 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L82">      return true;</span>
+    }
+<span class="nc bnc" id="L84" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L85">      return false;</span>
+    }
+<span class="nc" id="L87">    NotificationEventResponse notificationEventResponse = (NotificationEventResponse) o;</span>
+<span class="nc bnc" id="L88" title="All 2 branches missed.">    return Objects.equals(this.sets, notificationEventResponse.sets) &amp;&amp;</span>
+<span class="nc bnc" id="L89" title="All 2 branches missed.">        Objects.equals(this.moreAvailable, notificationEventResponse.moreAvailable);</span>
+  }
+
+  @Override
+  public int hashCode() {
+<span class="nc" id="L94">    return Objects.hash(sets, moreAvailable);</span>
+  }
+
+  @Override
+  public String toString() {
+<span class="nc" id="L99">    StringBuilder sb = new StringBuilder();</span>
+<span class="nc" id="L100">    sb.append(&quot;class NotificationEventResponse {\n&quot;);</span>
+<span class="nc" id="L101">    sb.append(&quot;    sets: &quot;).append(toIndentedString(sets)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L102">    sb.append(&quot;    moreAvailable: &quot;).append(toIndentedString(moreAvailable)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L103">    sb.append(&quot;}&quot;);</span>
+<span class="nc" id="L104">    return sb.toString();</span>
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+<span class="nc bnc" id="L112" title="All 2 branches missed.">    if (o == null) {</span>
+<span class="nc" id="L113">      return &quot;null&quot;;</span>
+    }
+<span class="nc" id="L115">    return o.toString().replace(&quot;\n&quot;, &quot;\n    &quot;);</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

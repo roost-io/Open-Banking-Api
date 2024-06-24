@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DirectDebitOtpConfirmationRequest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">openapi-spring</a> &gt; <a href="index.source.html" class="el_package">org.openapitools.model</a> &gt; <span class="el_source">DirectDebitOtpConfirmationRequest.java</span></div><h1>DirectDebitOtpConfirmationRequest.java</h1><pre class="source lang-java linenums">package org.openapitools.model;
+
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import org.openapitools.model.CashAccount;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import javax.validation.Valid;
+import javax.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import javax.annotation.Generated;
+
+/**
+ * Request Object to confirm OTP for DD Authorisations
+ */
+
+@Schema(name = &quot;directDebitOtpConfirmationRequest&quot;, description = &quot;Request Object to confirm OTP for DD Authorisations&quot;)
+@JsonTypeName(&quot;directDebitOtpConfirmationRequest&quot;)
+@Generated(value = &quot;org.openapitools.codegen.languages.SpringCodegen&quot;, date = &quot;2024-04-04T10:32:56.573489+05:30[Asia/Kolkata]&quot;, comments = &quot;Generator version: 7.4.0&quot;)
+public class DirectDebitOtpConfirmationRequest {
+
+  private String mandateIdentification;
+
+  private String otpIdentificationNumber;
+
+  private String otpPassword;
+
+  private CashAccount creditorAccount;
+
+  public DirectDebitOtpConfirmationRequest() {
+<span class="nc" id="L37">    super();</span>
+<span class="nc" id="L38">  }</span>
+
+  /**
+   * Constructor with only required parameters
+   */
+<span class="nc" id="L43">  public DirectDebitOtpConfirmationRequest(String mandateIdentification, CashAccount creditorAccount) {</span>
+<span class="nc" id="L44">    this.mandateIdentification = mandateIdentification;</span>
+<span class="nc" id="L45">    this.creditorAccount = creditorAccount;</span>
+<span class="nc" id="L46">  }</span>
+
+  public DirectDebitOtpConfirmationRequest mandateIdentification(String mandateIdentification) {
+<span class="nc" id="L49">    this.mandateIdentification = mandateIdentification;</span>
+<span class="nc" id="L50">    return this;</span>
+  }
+
+  /**
+   * HSBC DDA Reference No.
+   * @return mandateIdentification
+  */
+  @NotNull @Size(min = 1, max = 35) 
+  @Schema(name = &quot;mandateIdentification&quot;, description = &quot;HSBC DDA Reference No.&quot;, requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty(&quot;mandateIdentification&quot;)
+  public String getMandateIdentification() {
+<span class="nc" id="L61">    return mandateIdentification;</span>
+  }
+
+  public void setMandateIdentification(String mandateIdentification) {
+<span class="nc" id="L65">    this.mandateIdentification = mandateIdentification;</span>
+<span class="nc" id="L66">  }</span>
+
+  public DirectDebitOtpConfirmationRequest otpIdentificationNumber(String otpIdentificationNumber) {
+<span class="nc" id="L69">    this.otpIdentificationNumber = otpIdentificationNumber;</span>
+<span class="nc" id="L70">    return this;</span>
+  }
+
+  /**
+   * OTP identity number.
+   * @return otpIdentificationNumber
+  */
+  @Size(max = 10) 
+  @Schema(name = &quot;otpIdentificationNumber&quot;, description = &quot;OTP identity number.&quot;, requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty(&quot;otpIdentificationNumber&quot;)
+  public String getOtpIdentificationNumber() {
+<span class="nc" id="L81">    return otpIdentificationNumber;</span>
+  }
+
+  public void setOtpIdentificationNumber(String otpIdentificationNumber) {
+<span class="nc" id="L85">    this.otpIdentificationNumber = otpIdentificationNumber;</span>
+<span class="nc" id="L86">  }</span>
+
+  public DirectDebitOtpConfirmationRequest otpPassword(String otpPassword) {
+<span class="nc" id="L89">    this.otpPassword = otpPassword;</span>
+<span class="nc" id="L90">    return this;</span>
+  }
+
+  /**
+   * OTP password.
+   * @return otpPassword
+  */
+  @Size(max = 10) 
+  @Schema(name = &quot;otpPassword&quot;, description = &quot;OTP password.&quot;, requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty(&quot;otpPassword&quot;)
+  public String getOtpPassword() {
+<span class="nc" id="L101">    return otpPassword;</span>
+  }
+
+  public void setOtpPassword(String otpPassword) {
+<span class="nc" id="L105">    this.otpPassword = otpPassword;</span>
+<span class="nc" id="L106">  }</span>
+
+  public DirectDebitOtpConfirmationRequest creditorAccount(CashAccount creditorAccount) {
+<span class="nc" id="L109">    this.creditorAccount = creditorAccount;</span>
+<span class="nc" id="L110">    return this;</span>
+  }
+
+  /**
+   * Get creditorAccount
+   * @return creditorAccount
+  */
+  @NotNull @Valid 
+  @Schema(name = &quot;creditorAccount&quot;, requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty(&quot;creditorAccount&quot;)
+  public CashAccount getCreditorAccount() {
+<span class="nc" id="L121">    return creditorAccount;</span>
+  }
+
+  public void setCreditorAccount(CashAccount creditorAccount) {
+<span class="nc" id="L125">    this.creditorAccount = creditorAccount;</span>
+<span class="nc" id="L126">  }</span>
+
+  @Override
+  public boolean equals(Object o) {
+<span class="nc bnc" id="L130" title="All 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L131">      return true;</span>
+    }
+<span class="nc bnc" id="L133" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L134">      return false;</span>
+    }
+<span class="nc" id="L136">    DirectDebitOtpConfirmationRequest directDebitOtpConfirmationRequest = (DirectDebitOtpConfirmationRequest) o;</span>
+<span class="nc bnc" id="L137" title="All 2 branches missed.">    return Objects.equals(this.mandateIdentification, directDebitOtpConfirmationRequest.mandateIdentification) &amp;&amp;</span>
+<span class="nc bnc" id="L138" title="All 2 branches missed.">        Objects.equals(this.otpIdentificationNumber, directDebitOtpConfirmationRequest.otpIdentificationNumber) &amp;&amp;</span>
+<span class="nc bnc" id="L139" title="All 2 branches missed.">        Objects.equals(this.otpPassword, directDebitOtpConfirmationRequest.otpPassword) &amp;&amp;</span>
+<span class="nc bnc" id="L140" title="All 2 branches missed.">        Objects.equals(this.creditorAccount, directDebitOtpConfirmationRequest.creditorAccount);</span>
+  }
+
+  @Override
+  public int hashCode() {
+<span class="nc" id="L145">    return Objects.hash(mandateIdentification, otpIdentificationNumber, otpPassword, creditorAccount);</span>
+  }
+
+  @Override
+  public String toString() {
+<span class="nc" id="L150">    StringBuilder sb = new StringBuilder();</span>
+<span class="nc" id="L151">    sb.append(&quot;class DirectDebitOtpConfirmationRequest {\n&quot;);</span>
+<span class="nc" id="L152">    sb.append(&quot;    mandateIdentification: &quot;).append(toIndentedString(mandateIdentification)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L153">    sb.append(&quot;    otpIdentificationNumber: &quot;).append(toIndentedString(otpIdentificationNumber)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L154">    sb.append(&quot;    otpPassword: &quot;).append(toIndentedString(otpPassword)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L155">    sb.append(&quot;    creditorAccount: &quot;).append(toIndentedString(creditorAccount)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L156">    sb.append(&quot;}&quot;);</span>
+<span class="nc" id="L157">    return sb.toString();</span>
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+<span class="nc bnc" id="L165" title="All 2 branches missed.">    if (o == null) {</span>
+<span class="nc" id="L166">      return &quot;null&quot;;</span>
+    }
+<span class="nc" id="L168">    return o.toString().replace(&quot;\n&quot;, &quot;\n    &quot;);</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

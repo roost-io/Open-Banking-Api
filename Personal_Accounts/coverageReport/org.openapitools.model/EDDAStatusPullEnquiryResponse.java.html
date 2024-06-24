@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EDDAStatusPullEnquiryResponse.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">openapi-spring</a> &gt; <a href="index.source.html" class="el_package">org.openapitools.model</a> &gt; <span class="el_source">EDDAStatusPullEnquiryResponse.java</span></div><h1>EDDAStatusPullEnquiryResponse.java</h1><pre class="source lang-java linenums">package org.openapitools.model;
+
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonTypeName;
+import com.fasterxml.jackson.annotation.JsonValue;
+import org.openapitools.model.ProcessResult;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import javax.validation.Valid;
+import javax.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import javax.annotation.Generated;
+
+/**
+ * Object to hold response of direct debit authorisation status
+ */
+
+@Schema(name = &quot;eDDAStatusPullEnquiryResponse&quot;, description = &quot;Object to hold response of direct debit authorisation status&quot;)
+@JsonTypeName(&quot;eDDAStatusPullEnquiryResponse&quot;)
+@Generated(value = &quot;org.openapitools.codegen.languages.SpringCodegen&quot;, date = &quot;2024-04-04T10:32:56.573489+05:30[Asia/Kolkata]&quot;, comments = &quot;Generator version: 7.4.0&quot;)
+public class EDDAStatusPullEnquiryResponse {
+
+  private ProcessResult processResult;
+
+  private String mandateIdentification;
+
+  /**
+   * Status of the mandate request.
+   */
+<span class="nc" id="L36">  public enum MandateStatusEnum {</span>
+<span class="nc" id="L37">    ERROR(&quot;ERROR&quot;),</span>
+    
+<span class="nc" id="L39">    PDOU(&quot;PDOU&quot;),</span>
+    
+<span class="nc" id="L41">    ACTIVE(&quot;ACTIVE&quot;),</span>
+    
+<span class="nc" id="L43">    EXPIRED(&quot;EXPIRED&quot;),</span>
+    
+<span class="nc" id="L45">    DORMANT(&quot;DORMANT&quot;),</span>
+    
+<span class="nc" id="L47">    SUSPENDED(&quot;SUSPENDED&quot;),</span>
+    
+<span class="nc" id="L49">    CANCELLED(&quot;CANCELLED&quot;),</span>
+    
+<span class="nc" id="L51">    DELETED(&quot;DELETED&quot;),</span>
+    
+<span class="nc" id="L53">    PDNG(&quot;PDNG&quot;),</span>
+    
+<span class="nc" id="L55">    PDFP(&quot;PDFP&quot;);</span>
+
+    private String value;
+
+<span class="nc" id="L59">    MandateStatusEnum(String value) {</span>
+<span class="nc" id="L60">      this.value = value;</span>
+<span class="nc" id="L61">    }</span>
+
+    @JsonValue
+    public String getValue() {
+<span class="nc" id="L65">      return value;</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="nc" id="L70">      return String.valueOf(value);</span>
+    }
+
+    @JsonCreator
+    public static MandateStatusEnum fromValue(String value) {
+<span class="nc bnc" id="L75" title="All 2 branches missed.">      for (MandateStatusEnum b : MandateStatusEnum.values()) {</span>
+<span class="nc bnc" id="L76" title="All 2 branches missed.">        if (b.value.equals(value)) {</span>
+<span class="nc" id="L77">          return b;</span>
+        }
+      }
+<span class="nc" id="L80">      throw new IllegalArgumentException(&quot;Unexpected value '&quot; + value + &quot;'&quot;);</span>
+    }
+  }
+
+  private MandateStatusEnum mandateStatus;
+
+  public EDDAStatusPullEnquiryResponse() {
+<span class="nc" id="L87">    super();</span>
+<span class="nc" id="L88">  }</span>
+
+  /**
+   * Constructor with only required parameters
+   */
+<span class="nc" id="L93">  public EDDAStatusPullEnquiryResponse(ProcessResult processResult, String mandateIdentification, MandateStatusEnum mandateStatus) {</span>
+<span class="nc" id="L94">    this.processResult = processResult;</span>
+<span class="nc" id="L95">    this.mandateIdentification = mandateIdentification;</span>
+<span class="nc" id="L96">    this.mandateStatus = mandateStatus;</span>
+<span class="nc" id="L97">  }</span>
+
+  public EDDAStatusPullEnquiryResponse processResult(ProcessResult processResult) {
+<span class="nc" id="L100">    this.processResult = processResult;</span>
+<span class="nc" id="L101">    return this;</span>
+  }
+
+  /**
+   * Get processResult
+   * @return processResult
+  */
+  @NotNull @Valid 
+  @Schema(name = &quot;processResult&quot;, requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty(&quot;processResult&quot;)
+  public ProcessResult getProcessResult() {
+<span class="nc" id="L112">    return processResult;</span>
+  }
+
+  public void setProcessResult(ProcessResult processResult) {
+<span class="nc" id="L116">    this.processResult = processResult;</span>
+<span class="nc" id="L117">  }</span>
+
+  public EDDAStatusPullEnquiryResponse mandateIdentification(String mandateIdentification) {
+<span class="nc" id="L120">    this.mandateIdentification = mandateIdentification;</span>
+<span class="nc" id="L121">    return this;</span>
+  }
+
+  /**
+   * DDA Reference No.
+   * @return mandateIdentification
+  */
+  @NotNull @Size(min = 1, max = 35) 
+  @Schema(name = &quot;mandateIdentification&quot;, description = &quot;DDA Reference No.&quot;, requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty(&quot;mandateIdentification&quot;)
+  public String getMandateIdentification() {
+<span class="nc" id="L132">    return mandateIdentification;</span>
+  }
+
+  public void setMandateIdentification(String mandateIdentification) {
+<span class="nc" id="L136">    this.mandateIdentification = mandateIdentification;</span>
+<span class="nc" id="L137">  }</span>
+
+  public EDDAStatusPullEnquiryResponse mandateStatus(MandateStatusEnum mandateStatus) {
+<span class="nc" id="L140">    this.mandateStatus = mandateStatus;</span>
+<span class="nc" id="L141">    return this;</span>
+  }
+
+  /**
+   * Status of the mandate request.
+   * @return mandateStatus
+  */
+  @NotNull @Size(max = 10) 
+  @Schema(name = &quot;mandateStatus&quot;, description = &quot;Status of the mandate request.&quot;, requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty(&quot;mandateStatus&quot;)
+  public MandateStatusEnum getMandateStatus() {
+<span class="nc" id="L152">    return mandateStatus;</span>
+  }
+
+  public void setMandateStatus(MandateStatusEnum mandateStatus) {
+<span class="nc" id="L156">    this.mandateStatus = mandateStatus;</span>
+<span class="nc" id="L157">  }</span>
+
+  @Override
+  public boolean equals(Object o) {
+<span class="nc bnc" id="L161" title="All 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L162">      return true;</span>
+    }
+<span class="nc bnc" id="L164" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L165">      return false;</span>
+    }
+<span class="nc" id="L167">    EDDAStatusPullEnquiryResponse eDDAStatusPullEnquiryResponse = (EDDAStatusPullEnquiryResponse) o;</span>
+<span class="nc bnc" id="L168" title="All 2 branches missed.">    return Objects.equals(this.processResult, eDDAStatusPullEnquiryResponse.processResult) &amp;&amp;</span>
+<span class="nc bnc" id="L169" title="All 2 branches missed.">        Objects.equals(this.mandateIdentification, eDDAStatusPullEnquiryResponse.mandateIdentification) &amp;&amp;</span>
+<span class="nc bnc" id="L170" title="All 2 branches missed.">        Objects.equals(this.mandateStatus, eDDAStatusPullEnquiryResponse.mandateStatus);</span>
+  }
+
+  @Override
+  public int hashCode() {
+<span class="nc" id="L175">    return Objects.hash(processResult, mandateIdentification, mandateStatus);</span>
+  }
+
+  @Override
+  public String toString() {
+<span class="nc" id="L180">    StringBuilder sb = new StringBuilder();</span>
+<span class="nc" id="L181">    sb.append(&quot;class EDDAStatusPullEnquiryResponse {\n&quot;);</span>
+<span class="nc" id="L182">    sb.append(&quot;    processResult: &quot;).append(toIndentedString(processResult)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L183">    sb.append(&quot;    mandateIdentification: &quot;).append(toIndentedString(mandateIdentification)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L184">    sb.append(&quot;    mandateStatus: &quot;).append(toIndentedString(mandateStatus)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L185">    sb.append(&quot;}&quot;);</span>
+<span class="nc" id="L186">    return sb.toString();</span>
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+<span class="nc bnc" id="L194" title="All 2 branches missed.">    if (o == null) {</span>
+<span class="nc" id="L195">      return &quot;null&quot;;</span>
+    }
+<span class="nc" id="L197">    return o.toString().replace(&quot;\n&quot;, &quot;\n    &quot;);</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

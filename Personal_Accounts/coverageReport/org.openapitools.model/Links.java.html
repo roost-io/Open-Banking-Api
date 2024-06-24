@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Links.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">openapi-spring</a> &gt; <a href="index.source.html" class="el_package">org.openapitools.model</a> &gt; <span class="el_source">Links.java</span></div><h1>Links.java</h1><pre class="source lang-java linenums">package org.openapitools.model;
+
+import java.net.URI;
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import java.net.URI;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
+import javax.validation.Valid;
+import javax.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import javax.annotation.Generated;
+
+/**
+ * Links relevant to the payload
+ */
+
+@Schema(name = &quot;Links&quot;, description = &quot;Links relevant to the payload&quot;)
+@Generated(value = &quot;org.openapitools.codegen.languages.SpringCodegen&quot;, date = &quot;2024-04-04T10:34:00.174725+05:30[Asia/Kolkata]&quot;, comments = &quot;Generator version: 7.4.0&quot;)
+public class Links {
+
+  private URI self;
+
+  private URI prev;
+
+  private URI next;
+
+  public Links() {
+<span class="nc" id="L33">    super();</span>
+<span class="nc" id="L34">  }</span>
+
+  /**
+   * Constructor with only required parameters
+   */
+<span class="nc" id="L39">  public Links(URI self) {</span>
+<span class="nc" id="L40">    this.self = self;</span>
+<span class="nc" id="L41">  }</span>
+
+  public Links self(URI self) {
+<span class="nc" id="L44">    this.self = self;</span>
+<span class="nc" id="L45">    return this;</span>
+  }
+
+  /**
+   * Get self
+   * @return self
+  */
+  @NotNull @Valid 
+  @Schema(name = &quot;self&quot;, requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty(&quot;self&quot;)
+  public URI getSelf() {
+<span class="nc" id="L56">    return self;</span>
+  }
+
+  public void setSelf(URI self) {
+<span class="nc" id="L60">    this.self = self;</span>
+<span class="nc" id="L61">  }</span>
+
+  public Links prev(URI prev) {
+<span class="nc" id="L64">    this.prev = prev;</span>
+<span class="nc" id="L65">    return this;</span>
+  }
+
+  /**
+   * Get prev
+   * @return prev
+  */
+  @Valid 
+  @Schema(name = &quot;prev&quot;, requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty(&quot;prev&quot;)
+  public URI getPrev() {
+<span class="nc" id="L76">    return prev;</span>
+  }
+
+  public void setPrev(URI prev) {
+<span class="nc" id="L80">    this.prev = prev;</span>
+<span class="nc" id="L81">  }</span>
+
+  public Links next(URI next) {
+<span class="nc" id="L84">    this.next = next;</span>
+<span class="nc" id="L85">    return this;</span>
+  }
+
+  /**
+   * Get next
+   * @return next
+  */
+  @Valid 
+  @Schema(name = &quot;next&quot;, requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty(&quot;next&quot;)
+  public URI getNext() {
+<span class="nc" id="L96">    return next;</span>
+  }
+
+  public void setNext(URI next) {
+<span class="nc" id="L100">    this.next = next;</span>
+<span class="nc" id="L101">  }</span>
+
+  @Override
+  public boolean equals(Object o) {
+<span class="nc bnc" id="L105" title="All 2 branches missed.">    if (this == o) {</span>
+<span class="nc" id="L106">      return true;</span>
+    }
+<span class="nc bnc" id="L108" title="All 4 branches missed.">    if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L109">      return false;</span>
+    }
+<span class="nc" id="L111">    Links links = (Links) o;</span>
+<span class="nc bnc" id="L112" title="All 2 branches missed.">    return Objects.equals(this.self, links.self) &amp;&amp;</span>
+<span class="nc bnc" id="L113" title="All 2 branches missed.">        Objects.equals(this.prev, links.prev) &amp;&amp;</span>
+<span class="nc bnc" id="L114" title="All 2 branches missed.">        Objects.equals(this.next, links.next);</span>
+  }
+
+  @Override
+  public int hashCode() {
+<span class="nc" id="L119">    return Objects.hash(self, prev, next);</span>
+  }
+
+  @Override
+  public String toString() {
+<span class="nc" id="L124">    StringBuilder sb = new StringBuilder();</span>
+<span class="nc" id="L125">    sb.append(&quot;class Links {\n&quot;);</span>
+<span class="nc" id="L126">    sb.append(&quot;    self: &quot;).append(toIndentedString(self)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L127">    sb.append(&quot;    prev: &quot;).append(toIndentedString(prev)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L128">    sb.append(&quot;    next: &quot;).append(toIndentedString(next)).append(&quot;\n&quot;);</span>
+<span class="nc" id="L129">    sb.append(&quot;}&quot;);</span>
+<span class="nc" id="L130">    return sb.toString();</span>
+  }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+<span class="nc bnc" id="L138" title="All 2 branches missed.">    if (o == null) {</span>
+<span class="nc" id="L139">      return &quot;null&quot;;</span>
+    }
+<span class="nc" id="L141">    return o.toString().replace(&quot;\n&quot;, &quot;\n    &quot;);</span>
+  }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
