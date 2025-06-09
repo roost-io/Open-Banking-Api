@@ -1,0 +1,11 @@
+consentId,version,statusCode,scenario
+12345ABC,1.0,204,No Content
+67890XYZ,1.1,400,Bad Request
+INVALID_CONSENT_ID,invalid_version,401,Unauthorised
+RANDOM_CONSENT_ID,test_version,403,Forbidden
+API_CONSENT_TEST,api_v2,405,Method Not Allowed
+UNKNOWN_ID,unknown_version,406,Not Acceptable
+TOO_MANY_CONSENTS,rate_limit_test,429,Too Many Requests
+SERVER_ERROR_ID,500_test_version,500,Internal Server Error
+UNAVAILABLE_CONSENT,503_failed_version,503,Service Unavailable
+TIMEOUT_CONSENT_API,504_delay_version,504,Gateway Timeout
