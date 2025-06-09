@@ -1,0 +1,62 @@
+[
+  {
+    "consentId": "abc123",
+    "version": "1.0",
+    "statusCode": 204,
+    "scenario": "No Content"
+  },
+  {
+    "consentId": "invalid_consentId",
+    "version": "v1.0-alpha",
+    "statusCode": 400,
+    "scenario": "Bad Request"
+  },
+  {
+    "consentId": "user456",
+    "version": "1.2",
+    "statusCode": 401,
+    "scenario": "Unauthorised"
+  },
+  {
+    "consentId": "789xyz",
+    "version": "1.3",
+    "statusCode": 403,
+    "scenario": "Forbidden"
+  },
+  {
+    "consentId": "malformed_id",
+    "version": "beta_2.0",
+    "statusCode": 405,
+    "scenario": "Method Not Allowed"
+  },
+  {
+    "consentId": "xyz001",
+    "version": "2.0.1",
+    "statusCode": 406,
+    "scenario": "Not Acceptable"
+  },
+  {
+    "consentId": "rate_limit_exceeded",
+    "version": "3.x.x",
+    "statusCode": 429,
+    "scenario": "Too Many Requests"
+  },
+  {
+    "consentId": "server500",
+    "version": "final_version",
+    "statusCode": 500,
+    "scenario": "Internal Server Error"
+  },
+  {
+    "consentId": "temp_unavailable",
+    "version": "1.0-test",
+    "statusCode": 503,
+    "scenario": "Service Unavailable"
+  },
+  {
+    "consentId": "gateway_issue",
+    "version": "2.1.dev",
+    "statusCode": 504,
+    "scenario": "Gateway Timeout"
+  }
+]
