@@ -1,0 +1,62 @@
+[
+  {
+    "consentId": "consent_001_ABCD",
+    "version": "v1.0",
+    "statusCode": 204,
+    "scenario": "No Content"
+  },
+  {
+    "consentId": "invalid_consent_id",
+    "version": "invalid_version",
+    "statusCode": 400,
+    "scenario": "Bad Request"
+  },
+  {
+    "consentId": "unauth_consent_123",
+    "version": "v2.2_invalid",
+    "statusCode": 401,
+    "scenario": "Unauthorised"
+  },
+  {
+    "consentId": "forbidden_consent_567",
+    "version": "blocked_ver",
+    "statusCode": 403,
+    "scenario": "Forbidden"
+  },
+  {
+    "consentId": "method_not_allowed_789",
+    "version": "not_supported_v0",
+    "statusCode": 405,
+    "scenario": "Method Not Allowed"
+  },
+  {
+    "consentId": "not_acceptable_consent_id",
+    "version": "invalid_vdata",
+    "statusCode": 406,
+    "scenario": "Not Acceptable"
+  },
+  {
+    "consentId": "rate_limit_consent_id_429",
+    "version": "rate_limit_version_invalid",
+    "statusCode": 429,
+    "scenario": "Too Many Requests"
+  },
+  {
+    "consentId": "server_error_ident_500",
+    "version": "tg_v.invalid",
+    "statusCode": 500,
+    "scenario": "Internal Server Error"
+  },
+  {
+    "consentId": "temporary_service_out_consent_503",
+    "version": "invalid_repair_v",
+    "statusCode": 503,
+    "scenario": "Service Unavailable"
+  },
+  {
+    "consentId": "gateway_delay_504",
+    "version": "timeout_failed_ver",
+    "statusCode": 504,
+    "scenario": "Gateway Timeout"
+  }
+]
