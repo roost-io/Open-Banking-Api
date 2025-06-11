@@ -1,0 +1,62 @@
+[
+  {
+    "consentId": "consent_123",
+    "version": "v1.0",
+    "statusCode": 204,
+    "scenario": "No Content"
+  },
+  {
+    "consentId": "invalid_id_!",
+    "version": "wrong-version",
+    "statusCode": 400,
+    "scenario": "Bad Request"
+  },
+  {
+    "consentId": "",
+    "version": "v2.0_invalid",
+    "statusCode": 401,
+    "scenario": "Unauthorised"
+  },
+  {
+    "consentId": "consent_blocked",
+    "version": "v3.5",
+    "statusCode": 403,
+    "scenario": "Forbidden"
+  },
+  {
+    "consentId": "unsupported_id",
+    "version": "method-off",
+    "statusCode": 405,
+    "scenario": "Method Not Allowed"
+  },
+  {
+    "consentId": "not_acceptable_id",
+    "version": "wrong.value",
+    "statusCode": 406,
+    "scenario": "Not Acceptable"
+  },
+  {
+    "consentId": "rate_limit",
+    "version": "high-load-version",
+    "statusCode": 429,
+    "scenario": "Too Many Requests"
+  },
+  {
+    "consentId": "internal_id",
+    "version": "server_fail_v4.2",
+    "statusCode": 500,
+    "scenario": "Internal Server Error"
+  },
+  {
+    "consentId": "consent_downtime",
+    "version": "unavail-99",
+    "statusCode": 503,
+    "scenario": "Service Unavailable"
+  },
+  {
+    "consentId": "timeout_id",
+    "version": "gateway_error_v0.9",
+    "statusCode": 504,
+    "scenario": "Gateway Timeout"
+  }
+]
