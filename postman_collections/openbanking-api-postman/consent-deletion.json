@@ -1,0 +1,62 @@
+[
+  {
+    "consentId": "consent_987654321",
+    "version": "v1.0",
+    "statusCode": 204,
+    "scenario": "No Content"
+  },
+  {
+    "consentId": "@invalid_consent",
+    "version": "999_invalid",
+    "statusCode": 400,
+    "scenario": "Bad Request"
+  },
+  {
+    "consentId": "consent_unauthorized_456",
+    "version": "v1.unauthorized",
+    "statusCode": 401,
+    "scenario": "Unauthorised"
+  },
+  {
+    "consentId": "consent_forbidden_789",
+    "version": "v1.forbidden",
+    "statusCode": 403,
+    "scenario": "Forbidden"
+  },
+  {
+    "consentId": "method_not_allowed",
+    "version": "v.invalid_format",
+    "statusCode": 405,
+    "scenario": "Method Not Allowed"
+  },
+  {
+    "consentId": "not_acceptable_12345",
+    "version": "none",
+    "statusCode": 406,
+    "scenario": "Not Acceptable"
+  },
+  {
+    "consentId": "rate_limit_429_abc",
+    "version": "v.timeout.retry",
+    "statusCode": 429,
+    "scenario": "Too Many Requests"
+  },
+  {
+    "consentId": "internal_server_error_XYZ",
+    "version": "test_server_500",
+    "statusCode": 500,
+    "scenario": "Internal Server Error"
+  },
+  {
+    "consentId": "service_unavailable_API_data_missing",
+    "version": "version_invalid_warning",
+    "statusCode": 503,
+    "scenario": "Service Unavailable"
+  },
+  {
+    "consentId": "gateway_timeout_service_xyz",
+    "version": "v.incorrect.gateway.id",
+    "statusCode": 504,
+    "scenario": "Gateway Timeout"
+  }
+]
