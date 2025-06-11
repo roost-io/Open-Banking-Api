@@ -1,0 +1,62 @@
+[
+  {
+    "consentId": "consent123",
+    "version": "1.0",
+    "statusCode": 204,
+    "scenario": "No Content"
+  },
+  {
+    "consentId": "invalidConsent!",
+    "version": "invalid_version",
+    "statusCode": 400,
+    "scenario": "Bad Request"
+  },
+  {
+    "consentId": "unauthorizedConsent",
+    "version": "",
+    "statusCode": 401,
+    "scenario": "Unauthorised"
+  },
+  {
+    "consentId": "consent987",
+    "version": "null_version",
+    "statusCode": 403,
+    "scenario": "Forbidden"
+  },
+  {
+    "consentId": "methodNotAllowed123",
+    "version": "2.5.hello",
+    "statusCode": 405,
+    "scenario": "Method Not Allowed"
+  },
+  {
+    "consentId": "notAcceptable567",
+    "version": "version:name",
+    "statusCode": 406,
+    "scenario": "Not Acceptable"
+  },
+  {
+    "consentId": "rateLimited456",
+    "version": "#version##",
+    "statusCode": 429,
+    "scenario": "Too Many Requests"
+  },
+  {
+    "consentId": "internal098",
+    "version": "oops500",
+    "statusCode": 500,
+    "scenario": "Internal Server Error"
+  },
+  {
+    "consentId": "serviceUnavailable321",
+    "version": "unknown_version!",
+    "statusCode": 503,
+    "scenario": "Service Unavailable"
+  },
+  {
+    "consentId": "timeout720",
+    "version": "gateway_error_timeout",
+    "statusCode": 504,
+    "scenario": "Gateway Timeout"
+  }
+]
